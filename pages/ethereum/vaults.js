@@ -1,5 +1,5 @@
 import	React							from	'react';
-import	IconEthBlue						from	'components/icons/IconEthBlue';
+import	IconVaults						from	'components/icons/IconVaults';
 import	Meatball						from	'components/icons/Meatball';
 import	Vaults							from	'components/Vaults';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
@@ -12,7 +12,7 @@ function	Index({vaults}) {
 			<div className={'w-full mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<IconEthBlue />
+						<IconVaults />
 					</div>
 					<h1 className={'text-6xl text-ygray-100 font-bold mb-8'}>
 						{'Vaults'}
