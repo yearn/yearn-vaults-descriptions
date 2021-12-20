@@ -40,7 +40,6 @@ function	Menu() {
 						href={'/yearn-and-curve'} />
 					<MenuItem
 						className={'mb-8'}
-						height={'h-12'}
 						label={'Curve Boost Multipliers'}
 						condition={router.pathname === '/curve-boost-multipliers'}
 						href={'/curve-boost-multipliers'} />
