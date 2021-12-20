@@ -1,6 +1,7 @@
-import	React							from	'react';
-import	Star							from	'components/icons/Star';
-import	LogoYearn						from	'components/icons/LogoYearn';
+import	React			from	'react';
+import	Link			from	'next/link';
+import	Star			from	'components/icons/Star';
+import	LogoYearn		from	'components/icons/LogoYearn';
 
 function	Index() {
 	return (
@@ -31,9 +32,11 @@ function	Index() {
 						</p>
 					</div>
 					<div>
-						<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
-							{'See how magic works'}
-						</button>
+						<Link href={'/yearn-and-curve'}>
+							<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+								{'See how magic works'}
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>
