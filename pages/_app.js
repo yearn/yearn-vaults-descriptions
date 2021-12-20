@@ -1,7 +1,7 @@
 import	React							from	'react';
 import	Head							from	'next/head';
 import	{DefaultSeo}					from	'next-seo';
-import	{UIContextApp}					from	'contexts/useNetwork';
+import	{NetworkContextApp}				from	'contexts/useNetwork';
 import	Menu							from	'components/Menu';
 
 import	'style/Default.css';
@@ -74,13 +74,13 @@ function	MyApp(props) {
 	const	{Component, pageProps} = props;
 	
 	return (
-		<UIContextApp>
+		<NetworkContextApp>
 			<AppWrapper
 				Component={Component}
 				pageProps={pageProps}
 				element={props.element}
 				router={props.router} />
-		</UIContextApp>
+		</NetworkContextApp>
 	);
 }
 
