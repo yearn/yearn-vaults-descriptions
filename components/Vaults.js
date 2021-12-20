@@ -2,6 +2,7 @@ import	React							from	'react';
 import	Image							from	'next/image';
 import	Strategies						from	'components/Strategies';
 import	Chevron							from	'components/icons/Chevron';
+import	Expand							from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
 
 function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
@@ -35,16 +36,16 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 				<div className={'text-ygray-200 flex flex-row items-center space-x-2'}>
 					<p>{vault.display_name}</p>
 					<p>{'—'}</p>
+					<b className={'font-bold'}>{vault.name}</b>
+				</div>
+				<div className={'ml-auto mr-1 flex flex-row justify-center'}>
 					<a
 						onClick={e => e.stopPropagation()}
-						className={'font-bold'}
 						href={`${chainExplorer}/address/${vault.address}#code`}
 						target={'_blank'}
 						rel={'noreferrer'}>
-						{vault.name}
+						<Expand className={'mr-4'}/>
 					</a>
-				</div>
-				<div className={'ml-auto mr-1'}>
 					<Chevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
 				</div>
 			</div>

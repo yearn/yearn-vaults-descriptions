@@ -11,7 +11,7 @@ function	Index({vaults}) {
 		<section>
 			<div className={'w-full mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
-					<div className={'mb-8'}>
+					<div className={'mb-8 w-10 h-10'}>
 						<Image
 							src={'/CRV.png'}
 							width={40}
