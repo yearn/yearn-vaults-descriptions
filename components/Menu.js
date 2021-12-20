@@ -41,9 +41,9 @@ function	Menu() {
 					<MenuItem
 						className={'mb-8'}
 						height={'h-12'}
-						label={'Understanding Curve Boost Multipliers'}
-						condition={router.pathname === '/understanding-curve-boost-multipliers'}
-						href={'/understanding-curve-boost-multipliers'} />
+						label={'Curve Boost Multipliers'}
+						condition={router.pathname === '/curve-boost-multipliers'}
+						href={'/curve-boost-multipliers'} />
 
 					<p className={'text-ygray-400 mb-4'}>{'Ethereum Vaults'}</p>
 					<div className={'ml-4 space-y-4 mb-8'}>
