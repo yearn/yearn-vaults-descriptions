@@ -14,7 +14,7 @@ function	Index({vaults}) {
 						<RIP />
 					</div>
 					<h1 className={'text-6xl text-ygray-100 font-bold mb-8'}>
-						{'Retired Vaults'}
+						{'v1 Vaults'}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p className={'text-ygray-200'}>
