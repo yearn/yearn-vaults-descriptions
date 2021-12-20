@@ -8,12 +8,12 @@ import	Rocket							from	'components/icons/Rocket';
 function	Index() {
 	return (
 		<section>
-			<div className={'w-full mt-20 pt-2'}>
+			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
 						<IconEth />
 					</div>
-					<h1 className={'text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
 						{'Ethereum Vaults'}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-8'}>
@@ -35,7 +35,7 @@ function	Index() {
 							height={40}
 							loading={'eager'} />
 					</div>
-					<h1 className={'text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
 						{'Yearn and Curve Synergy'}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-8'}>
@@ -47,7 +47,7 @@ function	Index() {
 						<p className={'text-ygray-200'}>
 							{'Yearn locks 10% of all CRV rewards earned into the yveCRV-DAO (“Backscratcher”) to obtain an additional amount of CRV.'}
 						</p>
-						<p className={'text-ygray-200 whitespace-nowrap'}>
+						<p className={'text-ygray-200 lg:whitespace-nowrap'}>
 							{'In the strategy descriptions below, vaults that are boosted are indicated with a'}
 							<Rocket className={'inline mb-1 ml-2'} />
 						</p>
@@ -75,15 +75,15 @@ function	Index() {
 							height={40}
 							loading={'eager'} />
 					</div>
-					<h1 className={'text-6xl text-ygray-100 font-bold'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold'}>
 						{'veCRV-DAO yVault'}
 					</h1>
-					<h2 className={'text-6xl text-ygray-100 font-bold mb-6'}>
+					<h2 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-6'}>
 						{'(yveCRV-DAO)'}
 					</h2>
 					<i className={'text-ygray-200 mb-8'}>{'AKA — Backscratcher'}</i>
 
-					<div className={'max-w-xl space-y-6 mb-8'}>
+					<div className={'max-w-xl w-full space-y-6 mb-8'}>
 						<p className={'text-ygray-200'}>
 							{'This vault converts your CRV into yveCRV, earning you a continuous share of Curve fees which are boosted over what you earn staking at Curve. The more CRV converted, the greater your weekly rewards. Every Friday, these can be claimed from the vault as 3Crv (Curve’s 3pool LP token).'}
 						</p>

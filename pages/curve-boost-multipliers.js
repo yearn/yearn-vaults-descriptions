@@ -5,15 +5,15 @@ import	Rocket							from	'components/icons/Rocket';
 function	Index() {
 	return (
 		<section>
-			<div className={'w-full mt-20 pt-2'}>
+			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
 						<Rocket width={40} height={40} />
 					</div>
-					<h1 className={'text-6xl text-ygray-100 font-bold'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold'}>
 						{'Understanding Curve'}
 					</h1>
-					<h1 className={'text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
 						{'Boost Multipliers'}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-6'}>
@@ -28,9 +28,10 @@ function	Index() {
 							{' is useful in modeling potential boost multipliers. The max boost for the crvCOMP pool yields an additional 61.81% APY in the form of CRV rewards, which is displayed below.'}
 						</p>
 					</div>
-					<div style={{width: 675, height: 60}}>
+					<div className={'max-w-full'} style={{width: 675, height: 60}}>
 						<Image
 							src={'/calculator.jpeg'}
+							objectFit={'cover'}
 							width={675}
 							height={60} />
 					</div>

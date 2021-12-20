@@ -18,14 +18,14 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 		<section aria-label={'STRATEGIES'} className={'mt-4 '}>
 			{
 				strategiesData.filter(s => shouldHideValids ? !s.description : true).map((strategy, index) => (
-					<div key={index} className={'flex flex-col ml-12 relative'}>
+					<div key={index} className={'flex flex-col ml-4 md:ml-12 relative'}>
 						<div className={'text-ygray-200 mb-4'}>
 							<div className={'mb-2'}>
 								<a href={`${chainExplorer}/address/${strategy.address}#code`} target={'_blank'} className={'inline text-yblue underline'} rel={'noreferrer'}>
 									{strategy.name}
 								</a>
 							</div>
-							<div className={'w-full pr-16'}>
+							<div className={'w-full pr-4 md:pr-16'}>
 								{strategy?.description ? 
 									<p className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown(strategy?.description.replace(/{{token}}/g, vaultSymbol) || '')}} />
 									:

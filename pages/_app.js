@@ -56,9 +56,9 @@ function	AppWrapper(props) {
 					site: '@iearnfinance',
 					cardType: 'summary_large_image',
 				}} />
-			<main id={'app'} className={'relative flex flex-row max-w-6xl mx-auto'} style={{minHeight: '100vh'}}>
+			<main id={'app'} className={'relative flex flex-col md:flex-row max-w-6xl mx-auto'} style={{minHeight: '100vh'}}>
 				<Menu />
-				<div className={'ml-10 w-235.5 max-w-235.5 mb-40'}>
+				<div className={'px-6 md:px-0 md:ml-10 w-full md:w-235.5 md:max-w-235.5 mb-16 pt-10 md:pt-0'}>
 					<Component
 						key={router.route}
 						element={props.element}

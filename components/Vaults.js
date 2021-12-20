@@ -24,7 +24,7 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 			key={vault.name}
 			className={'max-w-4xl w-full bg-white p-4 rounded-sm mb-0.5'}>
 			<div className={'flex flex-row items-center cursor-pointer'} onClick={onExpand}>
-				<div className={'mr-4 w-8 flex justify-center items-center'}>
+				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
 					{isRetired ?
 						<IconRetired />
 						: <Image
@@ -33,11 +33,10 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 							height={32}
 							loading={'eager'} />}
 				</div>
-				<div className={'text-ygray-200 flex flex-row items-center space-x-2'}>
-					<p>{vault.display_name}</p>
-					<p>{'—'}</p>
+				<p className={'text-ygray-200 mr-2 break-words'}>
+					{`${vault.display_name} — `}
 					<b className={'font-bold'}>{vault.name}</b>
-				</div>
+				</p>
 				<div className={'ml-auto mr-1 flex flex-row justify-center'}>
 					<a
 						onClick={e => e.stopPropagation()}

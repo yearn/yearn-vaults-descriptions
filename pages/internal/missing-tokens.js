@@ -118,7 +118,7 @@ function	Index({tokens}) {
 							<Cogs />
 						</div>
 						<div className={'flex flex-row items-center mb-8'}>
-							<h1 className={'text-6xl text-ygray-100 font-bold'}>{'Tokens'}</h1>
+							<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold'}>{'Tokens'}</h1>
 
 							<div
 								className={'p-2 -m-2 ml-2'}

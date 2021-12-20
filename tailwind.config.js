@@ -44,7 +44,7 @@ module.exports = {
 				'6xl': '1200px',
 			},
 			maxHeight: {
-				'max-h-max': '10000px',
+				'max': '1000px',
 			},
 			lineHeight: {
 				'6xl': '64px',

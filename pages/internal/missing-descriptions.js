@@ -34,7 +34,7 @@ function	Index({vaults}) {
 							<Cogs />
 						</div>
 						<div className={'flex flex-row items-center mb-8'}>
-							<h1 className={'text-6xl text-ygray-100 font-bold'}>{'Strategies'}</h1>
+							<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold'}>{'Strategies'}</h1>
 
 							<div
 								className={'p-2 -m-2 ml-2'}

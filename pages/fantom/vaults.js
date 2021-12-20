@@ -8,12 +8,12 @@ const	chainExplorer = 'http://ftmscan.com/';
 function	Index({vaults}) {
 	return (
 		<section>
-			<div className={'w-full mt-20 pt-2'}>
+			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
 						<Ghost />
 					</div>
-					<h1 className={'text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
 						{'Fantom Vaults'}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
