@@ -29,16 +29,24 @@ function	Menu() {
 						</h1>
 					</Link>
 					<MenuItem
-						className={'mb-8'}
+						className={'mb-4'}
 						label={'Overview'}
 						condition={router.pathname === '/'}
 						href={'/'} />
+					<MenuItem
+						className={'mb-4'}
+						label={'Yearn and Curve'}
+						condition={router.pathname === '/yearn-and-curve'}
+						href={'/yearn-and-curve'} />
+					<MenuItem
+						className={'mb-8'}
+						height={'h-12'}
+						label={'Understanding Curve Boost Multipliers'}
+						condition={router.pathname === '/understanding-curve-boost-multipliers'}
+						href={'/understanding-curve-boost-multipliers'} />
+
 					<p className={'text-ygray-400 mb-4'}>{'Ethereum Vaults'}</p>
 					<div className={'ml-4 space-y-4 mb-8'}>
-						<MenuItem
-							label={'Yearn and Curve'}
-							condition={router.pathname === '/ethereum/yearn-and-curve'}
-							href={'/ethereum/yearn-and-curve'} />
 						<MenuItem
 							label={'Vaults'}
 							condition={router.pathname === '/ethereum/vaults'}
@@ -55,11 +63,6 @@ function	Menu() {
 							label={'v1 Vaults'}
 							condition={router.pathname === '/ethereum/v1-vaults'}
 							href={'/ethereum/v1-vaults'} />
-						<MenuItem
-							height={'h-12'}
-							label={'Understanding Curve Boost Multipliers'}
-							condition={router.pathname === '/ethereum/understanding-curve-boost-multipliers'}
-							href={'/ethereum/understanding-curve-boost-multipliers'} />
 					</div>
 
 					<p className={'text-ygray-400 mb-4'}>{'Fantom Vaults'}</p>
