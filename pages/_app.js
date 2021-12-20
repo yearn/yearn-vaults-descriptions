@@ -19,12 +19,13 @@ function	AppWrapper(props) {
 				<meta httpEquiv={'X-UA-Compatible'} content={'IE=edge'} />
 				<meta name={'viewport'} content={'width=device-width, initial-scale=1'} />
 				<meta name={'description'} content={'The Vaults at Yearn'} />
-				<meta name={'msapplication-TileColor'} content={'#9fcc2e'} />
+				<meta name={'msapplication-TileColor'} content={'#62688F'} />
 				<meta name={'theme-color'} content={'#ffffff'} />
 				<meta charSet={'utf-8'} />
+
 				<link rel={'preconnect'} href={'https://fonts.googleapis.com'} />
-				<link rel={'preconnect'} href={'https://fonts.gstatic.com'} crossOrigin={'true'} />
-				<link href={'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap'} rel={'stylesheet'} />
+				<link rel={'preconnect'} href={'https://fonts.gstatic.com'} crossOrigin />
+				<link href={'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'} rel={'stylesheet'} />
 
 				<meta name={'robots'} content={'index,nofollow'} />
 				<meta name={'googlebot'} content={'index,nofollow'} />
@@ -46,7 +47,7 @@ function	AppWrapper(props) {
 							url: `${WEBSITE_URI}og.png`,
 							width: 1200,
 							height: 675,
-							alt: 'Apes',
+							alt: 'Yearn',
 						}
 					]
 				}}
