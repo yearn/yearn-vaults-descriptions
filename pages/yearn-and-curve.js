@@ -68,9 +68,9 @@ function	Index() {
 				</div>
 
 				<div className={'flex flex-col mt-16'}>
-					<div className={'mb-8 flex flex-row items-center'}>
+					<div className={'mb-8 flex flex-row items-center h-10 w-10'}>
 						<Image
-							src={'/yveCRV.jpg'}
+							src={'/yveCRV.png'}
 							width={40}
 							height={40}
 							loading={'eager'} />
