@@ -24,17 +24,17 @@ function	Index() {
 							{'Here you can find in-depth information about how Yearn’s yVaults operate and the actions (strategies) these vaults perform.'}
 						</p>
 						<p className={'text-ygray-200'}>
-							{'This website will maintain a one-stop location for all yVault descriptions. All version 1 yVaults have been deprecated, and any in production are now on version 2.'}
+							{'This website will maintain a one-stop location for all yVault descriptions. All vaults in production are now version 2 or higher. All version 1 yVaults have been deprecated.'}
 						</p>
 						<p className={'text-ygray-200'}>
-							{'The newest yVaults and strategies are denoted with '}
+							{'The newest yVaults and strategies are denoted with a '}
 							<Star className={'inline mb-1'} />
 						</p>
 					</div>
 					<div>
 						<Link href={'/yearn-and-curve'}>
 							<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
-								{'See how magic works'}
+								{'See How The Magic Works'}
 							</button>
 						</Link>
 					</div>
