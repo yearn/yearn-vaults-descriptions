@@ -21,10 +21,10 @@ function	Index() {
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-8'}>
 						<p className={'text-ygray-200'}>
-							{'Here you can find in-depth information about how Yearn’s yVaults operateand the actions (strategies) these vaults perform.'}
+							{'Here you can find in-depth information about how Yearn’s yVaults operate and the actions (strategies) these vaults perform.'}
 						</p>
 						<p className={'text-ygray-200'}>
-							{'This website will maintain a one-stop location for all yVault descriptions. All version 1 yVaults have been deprecated, and any in production are nowon version 2.'}
+							{'This website will maintain a one-stop location for all yVault descriptions. All version 1 yVaults have been deprecated, and any in production are now on version 2.'}
 						</p>
 						<p className={'text-ygray-200'}>
 							{'The newest yVaults and strategies are denoted with '}
