@@ -24,7 +24,7 @@ function	Index({vaults}) {
 							{common['page-eth-v1-vaults-description']}
 						</p>
 					</div>
-					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} isRetired />)}
 				</div>
 			</div>
 		</section>
