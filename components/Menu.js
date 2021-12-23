@@ -2,7 +2,6 @@ import	React				from	'react';
 import	{useRouter}			from	'next/router';
 import	Link				from	'next/link';
 import	useLocalization		from	'contexts/useLocalization';
-import	LanguageSelection	from	'components/LanguageSelection';
 import	LOCALES				from	'utils/locale';
 
 function	MenuItem({label, condition, href, className, height = 'h-6'}) {
@@ -93,11 +92,10 @@ function	MenuItems() {
 }
 
 function	Menu() {
-	const	{language} = useLocalization();
+	const	{language, set_language} = useLocalization();
 	const	router = useRouter();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
-	const	[modalLanguageOpen, set_modalLanguageOpen] = React.useState(false);
 	
 	function	onExpand() {
 		if (isExpanded) {
@@ -130,12 +128,26 @@ function	Menu() {
 					<div className={'hidden md:block'}>
 						<MenuItems />
 					</div>
-					<div className={'mt-auto mb-8'}>
-						<div
-							className={'w-full cursor-pointer'}
-							onClick={() => set_modalLanguageOpen(true)}>
-							{LOCALES[language]?.['flag'] || LOCALES['en-US']['flag']}
-						</div>
+					<div className={'mt-auto mb-10 space-x-4 flex flex-row items-center'}>
+						{
+							Object.values(LOCALES).map((lang) => {
+								if (lang.code === language) {
+									return (
+										<div key={lang.symbol} className={'text-yblue text-sm font-bold'}>
+											{lang.symbol}
+										</div>
+									);
+								}
+								return (
+									<div
+										key={lang.symbol}
+										onClick={() => set_language(lang.code)}
+										className={'text-ygray-200 text-sm cursor-pointer'}>
+										{lang.symbol}
+									</div>
+								);
+							})
+						}
 					</div>
 				</div>
 			</div>
@@ -149,7 +161,6 @@ function	Menu() {
 					</div>
 				) : <div />}
 			</div>
-			<LanguageSelection open={modalLanguageOpen} set_open={set_modalLanguageOpen} />
 		</nav>
 	);
 }
