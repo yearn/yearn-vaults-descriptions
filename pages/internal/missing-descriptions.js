@@ -5,12 +5,12 @@ import	Cogs							from	'components/icons/Cogs';
 import	{listVaultsWithStrategies}		from	'pages/api/strategies';
 import	useNetwork						from	'contexts/useNetwork';
 
-const	chainExplorer = 'https://etherscan.io';
 
 
 function	Index({vaults}) {
 	const	[vaultList, set_vaultList] = React.useState(vaults);
 	const	[isFetchingData, set_isFetchingData] = React.useState(false);
+	const	[chainExplorer, set_chainExplorer] = React.useState('https://etherscan.io');
 	const	{currentNetwork} = useNetwork();
 
 	async function	refetchData(_currentNetwork) {
@@ -22,6 +22,7 @@ function	Index({vaults}) {
 
 	React.useEffect(() => {
 		refetchData(currentNetwork === 'Ethereum' ? 1 : currentNetwork === 'Fantom' ? 250 : 1);
+		set_chainExplorer(currentNetwork === 'Ethereum' ? 'https://etherscan.io' : currentNetwork === 'Fantom' ? 'http://ftmscan.com' : 'https://etherscan.io');
 	}, [currentNetwork]);
 
 	return (

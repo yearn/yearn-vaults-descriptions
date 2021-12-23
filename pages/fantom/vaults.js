@@ -3,7 +3,7 @@ import	Ghost							from	'components/icons/Ghost';
 import	Vaults							from	'components/Vaults';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 
-const	chainExplorer = 'http://ftmscan.com/';
+const	chainExplorer = 'http://ftmscan.com';
 
 function	Index({vaults}) {
 	return (
