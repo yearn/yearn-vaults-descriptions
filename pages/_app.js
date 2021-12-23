@@ -10,6 +10,7 @@ import	'tailwindcss/tailwind.css';
 function	AppWrapper(props) {
 	const	{Component, pageProps, router} = props;
 	const	WEBSITE_URI = process.env.WEBSITE_URI;
+	const	[language, set_language] = React.useState(router.locale || 'en-US');
 
 	return (
 		<>
@@ -57,7 +58,7 @@ function	AppWrapper(props) {
 					cardType: 'summary_large_image',
 				}} />
 			<main id={'app'} className={'relative flex flex-col md:flex-row max-w-6xl mx-auto'} style={{minHeight: '100vh'}}>
-				<Menu />
+				<Menu language={language} set_language={set_language} />
 				<div className={'px-6 md:px-0 md:ml-10 w-full md:w-235.5 md:max-w-235.5 mb-16 pt-10 md:pt-0'}>
 					<Component
 						key={router.route}

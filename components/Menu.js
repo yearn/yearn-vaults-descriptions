@@ -1,6 +1,8 @@
-import	React			from	'react';
-import	{useRouter}		from	'next/router';
-import	Link			from	'next/link';
+import	React				from	'react';
+import	{useRouter}			from	'next/router';
+import	Link				from	'next/link';
+import	LanguageSelection	from	'components/localization/LanguageSelection';
+import	LOCALES				from	'utils/locale';
 
 function	MenuItem({label, condition, href, className, height = 'h-6'}) {
 	return (
@@ -67,10 +69,11 @@ function	MenuItems() {
 	);
 }
 
-function	Menu() {
+function	Menu({language, set_language}) {
 	const	router = useRouter();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
+	const	[modalLanguageOpen, set_modalLanguageOpen] = React.useState(false);
 	
 	function	onExpand() {
 		if (isExpanded) {
@@ -89,8 +92,8 @@ function	Menu() {
 
 	return (
 		<nav className={'w-full md:w-64.5 px-4 md:px-0 bg-white md:bg-opacity-0 shadow-sm md:shadow-none fixed md:relative z-50'}>
-			<div className={'relative w-full md:fixed md:w-64.5 z-20'}>
-				<div className={'relative w-full'}>
+			<div className={'relative w-full h-full md:fixed md:w-64.5 z-20'}>
+				<div className={'relative w-full h-full flex flex-col'}>
 					<div className={'flex flex-row justify-between items-center'}>
 						<Link href={'/'}>
 							<h1 className={'text-ygray-100 font-bold mb-6 md:mb-10 pt-6 md:pt-8 cursor-pointer'}>
@@ -102,6 +105,13 @@ function	Menu() {
 					</div>
 					<div className={'hidden md:block'}>
 						<MenuItems />
+					</div>
+					<div className={'mt-auto mb-8'}>
+						<div
+							className={'w-full cursor-pointer'}
+							onClick={() => set_modalLanguageOpen(true)}>
+							{LOCALES[language]?.['flag'] || LOCALES['en-US']['flag']}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -115,6 +125,11 @@ function	Menu() {
 					</div>
 				) : <div />}
 			</div>
+			<LanguageSelection
+				open={modalLanguageOpen}
+				set_open={set_modalLanguageOpen}
+				language={language}
+				set_language={set_language} />
 		</nav>
 	);
 }

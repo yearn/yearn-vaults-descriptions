@@ -59,3 +59,7 @@ html {
 *, ::before, ::after {
     --tw-ring-color: transparent !important;
 }
+
+.inline-children > * {
+	display: inline;
+}

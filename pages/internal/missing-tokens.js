@@ -5,7 +5,7 @@ import	{listVaultsWithTokens}		from	'pages/api/tokens';
 import	useNetwork					from	'contexts/useNetwork';
 import	Navbar						from	'components/Navbar';
 import	Cogs						from	'components/icons/Cogs';
-import	Chevron						from	'components/icons/Chevron';
+import	IconChevron					from	'components/icons/IconChevron';
 
 function	Details({tokensData}) {
 	const	chainExplorer = 'https://etherscan.io';
@@ -79,7 +79,7 @@ function	Tokens({vault, chainExplorer}) {
 						</span>}
 				</div>
 				<div className={'ml-auto mr-1'}>
-					<Chevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
+					<IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
 				</div>
 			</div>
 			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>

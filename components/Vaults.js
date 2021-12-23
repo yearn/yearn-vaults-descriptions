@@ -1,7 +1,7 @@
 import	React							from	'react';
 import	Image							from	'next/image';
 import	Strategies						from	'components/Strategies';
-import	Chevron							from	'components/icons/Chevron';
+import	IconChevron						from	'components/icons/IconChevron';
 import	Expand							from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
 
@@ -45,7 +45,7 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 						rel={'noreferrer'}>
 						<Expand className={'mr-4'}/>
 					</a>
-					<Chevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
+					<IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
 				</div>
 			</div>
 			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>

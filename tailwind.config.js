@@ -20,6 +20,7 @@ module.exports = {
 			white: colors.white,
 			black: colors.black,
 			yblue: '#0657F9',
+			fadeWhite: '#F2F2F2',
 			ygray: {
 				'50': '#F5F5F5',
 				100: '#333333',
