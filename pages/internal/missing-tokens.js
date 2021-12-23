@@ -7,8 +7,7 @@ import	Navbar						from	'components/Navbar';
 import	Cogs						from	'components/icons/Cogs';
 import	Chevron						from	'components/icons/Chevron';
 
-function	Details({tokensData}) {
-	const	chainExplorer = 'https://etherscan.io';
+function	Details({tokensData, chainExplorer}) {
 	const	wantToken = tokensData[1];
 
 	return (
@@ -84,7 +83,7 @@ function	Tokens({vault, chainExplorer}) {
 			</div>
 			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
 				{isExpanded ? (
-					<Details tokensData={vault.tokens} vaultSymbol={vault.symbol}/>
+					<Details tokensData={vault.tokens} vaultSymbol={vault.symbol} chainExplorer={chainExplorer} />
 				) : <div />}
 			</div>
 		</div>
@@ -95,6 +94,7 @@ function	Tokens({vault, chainExplorer}) {
 function	Index({tokens}) {
 	const	[data, set_data] = React.useState(tokens);
 	const	[isFetchingData, set_isFetchingData] = React.useState(false);
+	const	[chainExplorer, set_chainExplorer] = React.useState('https://etherscan.io');
 	const	{currentNetwork} = useNetwork();
 
 	async function	refetchData(_currentNetwork) {
@@ -106,6 +106,7 @@ function	Index({tokens}) {
 
 	React.useEffect(() => {
 		refetchData(currentNetwork === 'Ethereum' ? 1 : currentNetwork === 'Fantom' ? 250 : 1);
+		set_chainExplorer(currentNetwork === 'Ethereum' ? 'https://etherscan.io' : currentNetwork === 'Fantom' ? 'http://ftmscan.com' : 'https://etherscan.io');
 	}, [currentNetwork]);
 
 	return (
@@ -134,7 +135,7 @@ function	Index({tokens}) {
 						</div>
 					</div>
 					{data.filter(e => e.hasMissingTokenInfo).map((vault) => (
-						<Tokens key={vault.address} vault={vault} />
+						<Tokens key={vault.address} vault={vault} chainExplorer={chainExplorer} />
 					))}
 				</div>
 			</section>
