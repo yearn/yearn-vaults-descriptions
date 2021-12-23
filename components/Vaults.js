@@ -2,8 +2,9 @@ import	React							from	'react';
 import	Image							from	'next/image';
 import	Strategies						from	'components/Strategies';
 import	IconChevron						from	'components/icons/IconChevron';
-import	Expand							from	'components/icons/Expand';
+import	IconExpand						from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
+import	IconRocket						from	'components/icons/Rocket';
 
 function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 	const	[isExpanded, set_isExpanded] = React.useState(false);
@@ -37,13 +38,16 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 					{`${vault.display_name} — `}
 					<b className={'font-bold'}>{vault.name}</b>
 				</p>
+				<div>
+					{vault.hasBoost ? <IconRocket className={'ml-1'} width={16} height={16} /> : null}
+				</div>
 				<div className={'ml-auto mr-1 flex flex-row justify-center'}>
 					<a
 						onClick={e => e.stopPropagation()}
 						href={`${chainExplorer}/address/${vault.address}#code`}
 						target={'_blank'}
 						rel={'noreferrer'}>
-						<Expand className={'mr-4'}/>
+						<IconExpand className={'mr-4'}/>
 					</a>
 					<IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
 				</div>

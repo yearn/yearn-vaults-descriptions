@@ -101,6 +101,7 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable
 			name: vault.name || '', 
 			display_name: vault.display_name || '', 
 			icon: vault.icon || '',
+			hasBoost: vault?.apy?.composite?.boost ? true : false,
 			strategies,
 		});
 	}
