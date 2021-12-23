@@ -1,6 +1,7 @@
 import	React							from	'react';
+import	Image							from	'next/image';
 import	Vaults							from	'components/Vaults';
-import	RIP								from	'components/icons/RIP';
+import	Meatball						from	'components/icons/Meatball';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 
@@ -13,15 +14,20 @@ function	Index({vaults}) {
 		<section>
 			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
-					<div className={'mb-8'}>
-						<RIP />
+					<div className={'mb-8 w-10 h-10'}>
+						<Image
+							src={'/CRV.png'}
+							width={40}
+							height={40}
+							loading={'eager'} />
 					</div>
 					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
-						{common['page-eth-v1-vaults-title']}
+						{common['page-eth-curve-pool-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p className={'text-ygray-200'}>
-							{common['page-eth-v1-vaults-description']}
+							{common['page-eth-curve-pool-description']}
+							<Meatball className={'inline mb-1 ml-2'} />
 						</p>
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
@@ -32,7 +38,7 @@ function	Index({vaults}) {
 }
 
 export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isV1: true});
+	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isCurve: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}};
 }

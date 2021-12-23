@@ -2,10 +2,12 @@ import	React, {Fragment, useRef}		from	'react';
 import	{useRouter}						from	'next/router';
 import	{Dialog, Transition}			from	'@headlessui/react';
 import	LOCALES							from	'utils/locale';
+import	useLocalization					from	'contexts/useLocalization';
 
-function	LanguageSelection({open, set_open, language, set_language}) {
+function	LanguageSelection({open, set_open}) {
 	const	ref = useRef();
 	const	router = useRouter();
+	const	{language, set_language} = useLocalization();
 
 	function	onSwitchLanguage(selectedLanguage) {
 		set_language(selectedLanguage);

@@ -9,8 +9,8 @@ function	Article() {
 
 	React.useEffect(() => {
 		try {
-			const	_pageName = router.pathname === '/' ? '/index' : router.pathname;
-			const	_articles = require(`/localization/${router.locale}${_pageName}.json`);
+			const	_pageName = router.pathname === '/' ? '/overview' : router.pathname;
+			const	_articles = require(`/localization/${router.locale}/pages${_pageName}.json`);
 			set_articles(_articles);	
 		} catch (error) {/**/}
 	}, [router]);

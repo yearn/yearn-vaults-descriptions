@@ -1,0 +1,22 @@
+{
+	"menu-overview": "Overview",
+	"menu-yearn-curve": "Yearn and Curve",
+	"menu-curve-boost-multiplier": "Curve Boost Multipliers",
+	"menu-stables": "Stables",
+	"menu-defi-tokens": "DeFi Tokens",
+	"menu-curve-pools": "Curve Pools",
+	"menu-retired-vaults": "Retired Vaults",
+	"menu-v1-vaults": "v1 Vaults",
+
+	"page-eth-stable-title": "Stable",
+	"page-eth-stable-description": "v2 yVaults are able to employ multiple strategies per vault (up to 20 strategies simultaneously), unlike v1 yVaults that are only able to employ one strategy per vault.",
+	"page-eth-curve-pool-title": "Curve Finance Strategy Vaults",
+	"page-eth-curve-pool-description": "Curve yVaults accept deposits of liquidity pool tokens obtained by providing to the liquidity pools on Curve Finance. To enter these vaults you need to deposit the underlying asset(s) to their respective pool on Curve Finance.",
+	"page-eth-defi-tokens-title": "Defi Tokens",
+	"page-eth-defi-tokens-description": "Curve yVaults accept deposits of liquidity pool tokens obtained by providing to the liquidity pools on Curve Finance. To enter these vaults you need to deposit the underlying asset(s) to their respective pool on Curve Finance.",
+	"page-eth-retired-title": "Retired Vaults",
+	"page-eth-retired-description": "These vaults are no longer active or are in the process of migrating to a newer version and being phased out. Strategies might have been paused, deposits might be closed, or they might have been removed from the website entirely.",
+	"page-eth-v1-vaults-title": "v1 Vaults",
+	"page-eth-v1-vaults-description": "All v1 yVaults have migrated to v2 yVaults. Please migrate your funds via our zap or withdrawal to continue earning yield"
+
+}

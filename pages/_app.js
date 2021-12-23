@@ -1,16 +1,16 @@
-import	React							from	'react';
-import	Head							from	'next/head';
-import	{DefaultSeo}					from	'next-seo';
-import	{NetworkContextApp}				from	'contexts/useNetwork';
-import	Menu							from	'components/Menu';
+import	React									from	'react';
+import	Head									from	'next/head';
+import	{DefaultSeo}							from	'next-seo';
+import	{NetworkContextApp}						from	'contexts/useNetwork';
+import	Menu									from	'components/Menu';
 
 import	'style/Default.css';
 import	'tailwindcss/tailwind.css';
+import {LocalizationContextApp} from 'contexts/useLocalization';
 
 function	AppWrapper(props) {
 	const	{Component, pageProps, router} = props;
 	const	WEBSITE_URI = process.env.WEBSITE_URI;
-	const	[language, set_language] = React.useState(router.locale || 'en-US');
 
 	return (
 		<>
@@ -58,7 +58,7 @@ function	AppWrapper(props) {
 					cardType: 'summary_large_image',
 				}} />
 			<main id={'app'} className={'relative flex flex-col md:flex-row max-w-6xl mx-auto'} style={{minHeight: '100vh'}}>
-				<Menu language={language} set_language={set_language} />
+				<Menu />
 				<div className={'px-6 md:px-0 md:ml-10 w-full md:w-235.5 md:max-w-235.5 mb-16 pt-10 md:pt-0'}>
 					<Component
 						key={router.route}
@@ -75,15 +75,16 @@ function	MyApp(props) {
 	const	{Component, pageProps} = props;
 	
 	return (
-		<NetworkContextApp>
-			<AppWrapper
-				Component={Component}
-				pageProps={pageProps}
-				element={props.element}
-				router={props.router} />
-		</NetworkContextApp>
+		<LocalizationContextApp router={props.router}>
+			<NetworkContextApp>
+				<AppWrapper
+					Component={Component}
+					pageProps={pageProps}
+					element={props.element}
+					router={props.router} />
+			</NetworkContextApp>
+		</LocalizationContextApp>
 	);
 }
-
 
 export default MyApp;

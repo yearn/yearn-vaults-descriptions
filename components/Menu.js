@@ -1,7 +1,8 @@
 import	React				from	'react';
 import	{useRouter}			from	'next/router';
 import	Link				from	'next/link';
-import	LanguageSelection	from	'components/localization/LanguageSelection';
+import	useLocalization		from	'contexts/useLocalization';
+import	LanguageSelection	from	'components/LanguageSelection';
 import	LOCALES				from	'utils/locale';
 
 function	MenuItem({label, condition, href, className, height = 'h-6'}) {
@@ -18,58 +19,89 @@ function	MenuItem({label, condition, href, className, height = 'h-6'}) {
 }
 
 function	MenuItems() {
-	const router = useRouter();
+	const	router = useRouter();
+	const	{common} = useLocalization();
 
 	return (
 		<div className={'w-64.5'}>
 			<MenuItem
 				className={'mb-4'}
-				label={'Overview'}
+				label={common['menu-overview']}
 				condition={router.pathname === '/'}
 				href={'/'} />
 			<MenuItem
 				className={'mb-4'}
-				label={'Yearn and Curve'}
+				label={common['menu-yearn-curve']}
 				condition={router.pathname === '/yearn-and-curve'}
 				href={'/yearn-and-curve'} />
-			<MenuItem
-				className={'mb-8'}
-				label={'Curve Boost Multipliers'}
-				condition={router.pathname === '/curve-boost-multipliers'}
-				href={'/curve-boost-multipliers'} />
-
-			<p className={'text-ygray-400 mb-4'}>{'Ethereum Vaults'}</p>
 			<div className={'ml-4 space-y-4 mb-8'}>
 				<MenuItem
-					label={'Vaults'}
+					className={'mb-8'}
+					label={common['menu-curve-boost-multiplier']}
+					condition={router.pathname === '/curve-boost-multipliers'}
+					href={'/curve-boost-multipliers'} />
+			</div>
+
+			<p className={'text-ygray-400 mb-4'}>{'Ethereum'}</p>
+			<div className={'ml-4 space-y-4 mb-8'}>
+				<MenuItem
+					label={common['menu-stables']}
+					condition={router.pathname === '/ethereum/stables'}
+					href={'/ethereum/stables'} />
+				<MenuItem
+					label={common['menu-defi-tokens']}
+					condition={router.pathname === '/ethereum/defi-tokens'}
+					href={'/ethereum/defi-tokens'} />
+				<MenuItem
+					label={common['menu-curve-pools']}
+					condition={router.pathname === '/ethereum/curve-pools'}
+					href={'/ethereum/curve-pools'} />
+				<MenuItem
+					label={common['menu-retired-vaults']}
+					condition={router.pathname === '/ethereum/retired-vaults'}
+					href={'/ethereum/retired-vaults'} />
+				<div className={'ml-4 space-y-4 mb-8'}>
+					<MenuItem
+						label={common['menu-v1-vaults']}
+						condition={router.pathname === '/ethereum/v1-vaults'}
+						href={'/ethereum/v1-vaults'} />
+				</div>
+			</div>
+
+
+			<p className={'text-ygray-400 mb-4'}>{'Fantom'}</p>
+			<div className={'ml-4 space-y-4 mb-8'}>
+				<MenuItem
+					label={common['menu-stables']}
 					condition={router.pathname === '/ethereum/vaults'}
 					href={'/ethereum/vaults'} />
 				<MenuItem
-					label={'Curve Finance Based Vaults'}
-					condition={router.pathname === '/ethereum/curve-finance-based-vaults'}
-					href={'/ethereum/curve-finance-based-vaults'} />
+					label={common['menu-defi-tokens']}
+					condition={router.pathname === '/ethereum/vaults'}
+					href={'/ethereum/vaults'} />
 				<MenuItem
-					label={'Retired Vaults'}
+					label={common['menu-curve-pools']}
+					condition={router.pathname === '/ethereum/vaults'}
+					href={'/ethereum/vaults'} />
+				<MenuItem
+					label={common['menu-retired-vaults']}
 					condition={router.pathname === '/ethereum/retired-vaults'}
 					href={'/ethereum/retired-vaults'} />
-				<MenuItem
-					label={'v1 Vaults'}
-					condition={router.pathname === '/ethereum/v1-vaults'}
-					href={'/ethereum/v1-vaults'} />
 			</div>
 
-			<p className={'text-ygray-400 mb-4'}>{'Fantom Vaults'}</p>
+			{/* <p className={'text-ygray-400 mb-4'}>{'Fantom Vaults'}</p>
 			<div className={'ml-4 space-y-4 mb-8'}>
 				<MenuItem
 					label={'Vaults'}
 					condition={router.pathname === '/fantom/vaults'}
 					href={'/fantom/vaults'} />
-			</div>
+			</div> */}
 		</div>
 	);
 }
 
-function	Menu({language, set_language}) {
+function	Menu() {
+	const	{language} = useLocalization();
 	const	router = useRouter();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
@@ -125,11 +157,7 @@ function	Menu({language, set_language}) {
 					</div>
 				) : <div />}
 			</div>
-			<LanguageSelection
-				open={modalLanguageOpen}
-				set_open={set_modalLanguageOpen}
-				language={language}
-				set_language={set_language} />
+			<LanguageSelection open={modalLanguageOpen} set_open={set_modalLanguageOpen} />
 		</nav>
 	);
 }

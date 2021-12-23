@@ -1,29 +1,28 @@
 import	React							from	'react';
-import	Image							from	'next/image';
-import	Vaults							from	'components/Vaults';
+import	IconVaults						from	'components/icons/IconVaults';
 import	Meatball						from	'components/icons/Meatball';
+import	Vaults							from	'components/Vaults';
+import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 
 const	chainExplorer = 'https://etherscan.io';
 
 function	Index({vaults}) {
+	const	{common} = useLocalization();
+
 	return (
 		<section>
 			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
-					<div className={'mb-8 w-10 h-10'}>
-						<Image
-							src={'/CRV.png'}
-							width={40}
-							height={40}
-							loading={'eager'} />
+					<div className={'mb-8'}>
+						<IconVaults />
 					</div>
 					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
-						{'Curve Finance Strategy Vaults'}
+						{common['page-eth-stable-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p className={'text-ygray-200'}>
-							{'Curve yVaults accept deposits of liquidity pool tokens obtained by providing to the liquidity pools on Curve Finance. To enter these vaults you need to deposit the underlying asset(s) to their respective pool on Curve Finance.'}
+							{common['page-eth-stable-description']}
 							<Meatball className={'inline mb-1 ml-2'} />
 						</p>
 					</div>
@@ -35,7 +34,7 @@ function	Index({vaults}) {
 }
 
 export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isCurve: true});
+	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isStable: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}};
 }

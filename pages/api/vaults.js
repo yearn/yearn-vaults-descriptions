@@ -1,5 +1,14 @@
 import {toAddress} from 'utils';
 
+const	STABLE_UNDERLYING = [
+	'0xdAC17F958D2ee523a2206206994597C13D831ec7', // USDT
+	'0x57Ab1ec28D129707052df4dF418D58a2D46d5f51', // sUSD
+	'0x6B175474E89094C44Da98b954EedeAC495271d0F', // DAI
+	'0x0000000000085d4780B73119b644AE5ecd22b376', // TUSD
+	'0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', // USDC
+	'0x5f98805A4E8be255a32880FDeC7F6728C6568bA0', // LUSD
+];
+
 async function getVaultStrategies({vaultStrategies, stratTree}) {
 	const 	strategies = [];
 	let		hasMissingStrategiesDescriptions = false;
@@ -28,7 +37,7 @@ async function getVaultStrategies({vaultStrategies, stratTree}) {
 	return ([strategies, hasMissingStrategiesDescriptions]);
 }
 
-async function getStrategies({network, isCurve, isRetired, isV1, isAll}) {
+async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi}) {
 	let		allStrategiesAddr = await (await fetch(`https://meta.yearn.network/strategies/${network}/all`)).json();
 	const	stratTree = {};
 
@@ -53,6 +62,12 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll}) {
 		vaults = vaults.filter(e => e.type === 'v2');
 		if (isAll) {
 			// 
+		} else if (isStable) {
+			vaults = vaults.filter(e => STABLE_UNDERLYING.includes(e.token?.address));
+		} else if (isDefi) {
+			vaults = vaults.filter(e => e.apy?.type !== 'crv');
+			vaults = vaults.filter(e => !e.name.includes('yvCurve'));
+			vaults = vaults.filter(e => !STABLE_UNDERLYING.includes(e.token?.address));
 		} else if (isCurve) {
 			vaults = vaults.filter(e => e.apy?.type === 'crv' || e.name.includes('yvCurve'));
 		} else {
@@ -74,6 +89,7 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll}) {
 		vaultsWithStrats.push({
 			address: vault.address || '', 
 			symbol: vault.token.symbol || '', 
+			underlying: vault.token.address || '',
 			name: vault.name || '', 
 			display_name: vault.display_name || '', 
 			icon: vault.icon || '',
@@ -86,13 +102,13 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll}) {
 const	vaultsMapping = {};
 let		vaultsMappingAccess = {};
 export default async function handler(req, res) {
-	let		{network, isCurve, isRetired, isV1, isAll, revalidate} = req.query;
+	let		{network, isCurve, isRetired, isV1, isAll, isStable, isDefi, revalidate} = req.query;
 	network = Number(network);
 
 	const	now = new Date().getTime();
 	const	lastAccess = vaultsMappingAccess[network] || 0;
 	if (lastAccess === 0 || ((now - lastAccess) > 5 * 60 * 1000) || revalidate === 'true' || !vaultsMapping[network]) {
-		const	result = await getStrategies({network, isCurve, isRetired, isV1, isAll});
+		const	result = await getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi});
 		vaultsMapping[network] = result;
 		vaultsMappingAccess[network] = now;
 	}
@@ -100,8 +116,8 @@ export default async function handler(req, res) {
 	return res.status(200).json(vaultsMapping[network]);
 }
 
-export async function listVaultsWithStrategies({network = 1, isCurve = false, isRetired = false, isV1 = false, isAll = false}) {
+export async function listVaultsWithStrategies({network = 1, isCurve = false, isRetired = false, isV1 = false, isAll = false, isStable = false, isDefi = false}) {
 	network = Number(network);
-	const	result = await getStrategies({network, isCurve, isRetired, isV1, isAll});
+	const	result = await getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi});
 	return JSON.stringify(result);
 }
