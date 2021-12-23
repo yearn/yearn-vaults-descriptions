@@ -4,7 +4,6 @@ import	Strategies						from	'components/Strategies';
 import	IconChevron						from	'components/icons/IconChevron';
 import	IconExpand						from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
-import	IconRocket						from	'components/icons/IconRocket';
 
 function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 	const	[isExpanded, set_isExpanded] = React.useState(false);
@@ -38,9 +37,6 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 					{`${vault.display_name} — `}
 					<b className={'font-bold'}>{vault.name}</b>
 				</p>
-				<div>
-					{vault.hasBoost ? <IconRocket className={'ml-1'} width={16} height={16} /> : null}
-				</div>
 				<div className={'ml-auto mr-1 flex flex-row justify-center'}>
 					<a
 						onClick={e => e.stopPropagation()}
@@ -55,6 +51,7 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
 				{isExpanded ? (
 					<Strategies
+						isRetired={isRetired}
 						shouldHideValids={shouldHideValids}
 						chainExplorer={chainExplorer}
 						strategiesData={vault.strategies}
