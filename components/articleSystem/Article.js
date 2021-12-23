@@ -56,9 +56,13 @@ function	Article() {
 								})}
 							</h1>
 							{article.subtitle ? <div className={'mt-6'}>
-								<i className={'text-ygray-200'}>
-									{article.subtitle}
-								</i>
+								{article.subtitle.map(({text}, index) => {
+									return (
+										<i key={`subtitle_${index}`} className={'text-ygray-200'}>
+											{text}
+										</i>
+									);
+								})}
 							</div> : null}
 						</div>
 						<Paragraphs paragraphs={article.paragraphs} />
