@@ -16,13 +16,19 @@ function	AppWrapper(props) {
 		<>
 			<Head>
 				<title>{'Strategies Registry'}</title>
-				<link rel={'icon'} href={'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>'} />
 				<meta httpEquiv={'X-UA-Compatible'} content={'IE=edge'} />
 				<meta name={'viewport'} content={'width=device-width, initial-scale=1'} />
 				<meta name={'description'} content={'The Vaults at Yearn'} />
 				<meta name={'msapplication-TileColor'} content={'#62688F'} />
 				<meta name={'theme-color'} content={'#ffffff'} />
 				<meta charSet={'utf-8'} />
+
+				<link rel={'shortcut icon'} type={'image/x-icon'} href={'/favicons/favicon.ico'} />
+				<link rel={'apple-touch-icon'} sizes={'180x180'} href={'/favicons/apple-touch-icon.png'} />
+				<link rel={'icon'} type={'image/png'} sizes={'32x32'} href={'/favicons/favicon-32x32.png'} />
+				<link rel={'icon'} type={'image/png'} sizes={'16x16'} href={'/favicons/favicon-16x16.png'} />
+				<link rel={'icon'} type={'image/png'} sizes={'192x192'} href={'/favicons/android-chrome-192x192.png'} />
+				<link rel={'icon'} type={'image/png'} sizes={'512x512'} href={'/favicons/android-chrome-512x512.png'} />
 
 				<link rel={'preconnect'} href={'https://fonts.googleapis.com'} />
 				<link rel={'preconnect'} href={'https://fonts.gstatic.com'} crossOrigin={'true'} />

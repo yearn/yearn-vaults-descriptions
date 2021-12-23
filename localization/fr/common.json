@@ -6,5 +6,13 @@
 	"menu-defi-tokens": "Tokens DeFi",
 	"menu-curve-pools": "Tokens Curve",
 	"menu-retired-vaults": "Vaults désactivés",
-	"menu-v1-vaults": "Vaults v1"
+	"menu-v1-vaults": "Vaults v1",
+
+	"overview-title": "Bienvenue dans \nles Vaults de ~~Yearn~~",
+	"overview-description": "Ici, vous pourrez trouver des informations détaillées sur le fonctionnement des yVaults de Yearn ainsi que sur les actions (strategies) effectuées par ces coffres.\n\nCe site est le centre d'information privilégiée pour toutes les descriptions des yVaults. Tous les vaults en production sont désormais au moins en version 2. Tous les vaults de version 1 sont dépréciés.\n\nLes nouveaux vaults et stratégies sont accompagnés d'un ",
+	"overview-button": "Découvrir la magie de Yearn",
+
+	"curve-boost-title": "Les Multiplicateurs\nde Boost de Curve",
+	"curve-boost-description": "En utilisant, par exemple, la pool de liquidité crvCOMP les apporteurs de liquidité gagnent approximativement 12.82% d'APY grâce aux frais de trading, ainsi qu'un APY additionnel de 24.72% (à date)sous la forme d'allocation de CRV s'ils mettent en séquestre leurs tokens de liquidité dans la gauge de Curve.\n\nLes dépositeurs peuvent booster le montant de CRV gagné en les verrouillant dans le module de vote pour un boost maximal de  **x2.5**. . La valeur du boost dépend du montant de CRV verrouillé dans le module de vote, ainsi que de la taille du dépôt dans la pool de liquidité. Vous pouvez utiliser ce [calculateur](https://dao.curve.fi/minter/calc) afin de modéliser un multiplicateur. Ainsi, le boost maximal pour la pool crvCOMP est de 61.81% d'APY sous la forme d'allocation de CRV, tel que visible ci-dessous.",
+	"curve-boost-description-next": "Yearn met en réserve les tokens de liquidité dans la gauge pour récolter des CRV. 10% de ces rewards sont ensuite verrouillés dans notre vault yveCRV-DAO pour booster les gains de tous les vaults Yearn utilisant des strategies de Curve.\n\nPour plus d'informations sur le fonctionnement des multiplicateurs de boost de Curve, vous pouvez consulter la documentation de Curve — [ici](https://hackmd.io/CawF8dfsSk2OlN7-ubjipQ)."
 }

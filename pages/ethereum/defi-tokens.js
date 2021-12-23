@@ -8,7 +8,6 @@ import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 const	chainExplorer = 'https://etherscan.io';
 
 function	Index({vaults}) {
-	console.log(vaults);
 	const	{common} = useLocalization();
 
 	return (

@@ -1,11 +1,15 @@
 import	React							from	'react';
 import	Ghost							from	'components/icons/Ghost';
 import	Vaults							from	'components/Vaults';
+import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
+import	{parseMarkdown}					from	'utils';
 
 const	chainExplorer = 'http://ftmscan.com';
 
 function	Index({vaults}) {
+	const	{common} = useLocalization();
+
 	return (
 		<section>
 			<div className={'w-full mt-10 md:mt-20 pt-2'}>
@@ -14,14 +18,12 @@ function	Index({vaults}) {
 						<Ghost />
 					</div>
 					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
-						{'Fantom Vaults'}
+						{common['page-ftm-defi-tokens-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200'}>
-							{'Yearn Finance is now Multi-Chain! Yearn yVaults are now '}
-							<a href={'https://yearn.finance/#/vaults'} target={'_blank'} rel={'noreferrer'} className={'cursor-pointer underline text-yblue'}>{'live on the Fantom Network'}</a>
-							{'! Just like our v2 yVaults, the new Fantom yVaults are able to employ multiple strategies per vault.'}
-						</p>
+						<p
+							className={'text-ygray-200'}
+							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-defi-tokens-description'])}} />
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
 				</div>
@@ -31,7 +33,7 @@ function	Index({vaults}) {
 }
 
 export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isAll: true});
+	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isDefi: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}};
 }

@@ -73,29 +73,21 @@ function	MenuItems() {
 			<div className={'ml-4 space-y-4 mb-8'}>
 				<MenuItem
 					label={common['menu-stables']}
-					condition={router.pathname === '/ethereum/vaults'}
-					href={'/ethereum/vaults'} />
+					condition={router.pathname === '/fantom/stables'}
+					href={'/fantom/stables'} />
 				<MenuItem
 					label={common['menu-defi-tokens']}
-					condition={router.pathname === '/ethereum/vaults'}
-					href={'/ethereum/vaults'} />
+					condition={router.pathname === '/fantom/defi-tokens'}
+					href={'/fantom/defi-tokens'} />
 				<MenuItem
 					label={common['menu-curve-pools']}
-					condition={router.pathname === '/ethereum/vaults'}
-					href={'/ethereum/vaults'} />
+					condition={router.pathname === '/fantom/curve-pools'}
+					href={'/fantom/curve-pools'} />
 				<MenuItem
 					label={common['menu-retired-vaults']}
-					condition={router.pathname === '/ethereum/retired-vaults'}
-					href={'/ethereum/retired-vaults'} />
+					condition={router.pathname === '/fantom/retired-vaults'}
+					href={'/fantom/retired-vaults'} />
 			</div>
-
-			{/* <p className={'text-ygray-400 mb-4'}>{'Fantom Vaults'}</p>
-			<div className={'ml-4 space-y-4 mb-8'}>
-				<MenuItem
-					label={'Vaults'}
-					condition={router.pathname === '/fantom/vaults'}
-					href={'/fantom/vaults'} />
-			</div> */}
 		</div>
 	);
 }

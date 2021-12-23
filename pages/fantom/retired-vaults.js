@@ -1,11 +1,10 @@
 import	React							from	'react';
-import	Ghost							from	'components/icons/Ghost';
 import	Vaults							from	'components/Vaults';
+import	Sleep							from	'components/icons/Sleep';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
-import	{parseMarkdown}					from	'utils';
 
-const	chainExplorer = 'http://ftmscan.com';
+const	chainExplorer = 'https://etherscan.io';
 
 function	Index({vaults}) {
 	const	{common} = useLocalization();
@@ -15,17 +14,17 @@ function	Index({vaults}) {
 			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<Ghost />
+						<Sleep />
 					</div>
 					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
-						{common['page-ftm-stable-title']}
+						{common['page-ftm-retired-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p
-							className={'text-ygray-200'}
-							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-stable-description'])}} />
+						<p className={'text-ygray-200'}>
+							{common['page-ftm-retired-description']}
+						</p>
 					</div>
-					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} isRetired />)}
 				</div>
 			</div>
 		</section>
@@ -33,7 +32,7 @@ function	Index({vaults}) {
 }
 
 export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isStable: true});
+	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isRetired: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}};
 }

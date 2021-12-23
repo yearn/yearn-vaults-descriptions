@@ -1,12 +1,20 @@
 import {toAddress} from 'utils';
 
-const	STABLE_UNDERLYING = [
+const	STABLE_UNDERLYING = [];
+STABLE_UNDERLYING[1] = [
 	'0xdAC17F958D2ee523a2206206994597C13D831ec7', // USDT
 	'0x57Ab1ec28D129707052df4dF418D58a2D46d5f51', // sUSD
 	'0x6B175474E89094C44Da98b954EedeAC495271d0F', // DAI
 	'0x0000000000085d4780B73119b644AE5ecd22b376', // TUSD
 	'0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', // USDC
 	'0x5f98805A4E8be255a32880FDeC7F6728C6568bA0', // LUSD
+];
+STABLE_UNDERLYING[250] = [
+	'0x82f0B8B456c1A451378467398982d4834b6829c1', // MIM
+	'0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', // USDC
+	'0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E', // DAI
+	'0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355', // FRAX
+	'0x049d68029688eAbF473097a2fC38ef61633A3C7A', // fUSDT
 ];
 
 async function getVaultStrategies({vaultStrategies, stratTree}) {
@@ -63,11 +71,11 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable
 		if (isAll) {
 			// 
 		} else if (isStable) {
-			vaults = vaults.filter(e => STABLE_UNDERLYING.includes(e.token?.address));
+			vaults = vaults.filter(e => STABLE_UNDERLYING[network].includes(e.token?.address));
 		} else if (isDefi) {
 			vaults = vaults.filter(e => e.apy?.type !== 'crv');
 			vaults = vaults.filter(e => !e.name.includes('yvCurve'));
-			vaults = vaults.filter(e => !STABLE_UNDERLYING.includes(e.token?.address));
+			vaults = vaults.filter(e => !STABLE_UNDERLYING[network].includes(e.token?.address));
 		} else if (isCurve) {
 			vaults = vaults.filter(e => e.apy?.type === 'crv' || e.name.includes('yvCurve'));
 		} else {
