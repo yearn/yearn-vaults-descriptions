@@ -4,7 +4,7 @@ import	Strategies						from	'components/Strategies';
 import	IconChevron						from	'components/icons/IconChevron';
 import	IconExpand						from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
-import	IconRocket						from	'components/icons/Rocket';
+import	IconRocket						from	'components/icons/IconRocket';
 
 function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 	const	[isExpanded, set_isExpanded] = React.useState(false);

@@ -1,6 +1,6 @@
 import	React				from	'react';
 import	Image				from	'next/image';
-import	IconBigRocket		from	'components/icons/IconBigRocket';
+import	IconRocket			from	'components/icons/IconRocket';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
@@ -12,7 +12,7 @@ function	Index() {
 			<div className={'w-full mt-10 md:mt-20 pt-2'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<IconBigRocket />
+						<IconRocket width={40} height={40} />
 					</div>
 					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8 whitespace-pre-line'}>
 						{common['curve-boost-title']}

@@ -2,7 +2,7 @@ import	React				from	'react';
 import	Image				from	'next/image';
 import	IconEth				from	'components/icons/IconEth';
 import	IconYearn			from	'components/icons/IconYearn';
-import	Rocket				from	'components/icons/Rocket';
+import	IconRocket			from	'components/icons/IconRocket';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
@@ -45,7 +45,7 @@ function	Index() {
 						<p
 							className={'text-ygray-200 whitespace-pre-line inline'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['yearn-and-curve-synergy-description'])}} />
-						<Rocket className={'inline mb-1 ml-2'} />
+						<IconRocket className={'inline mb-1 ml-2'} />
 						<p
 							className={'text-ygray-200 whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['yearn-and-curve-synergy-description-next'])}} />
