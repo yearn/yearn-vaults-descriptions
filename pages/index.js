@@ -16,7 +16,7 @@ function	Index() {
 						<IconYearn />
 					</div>
 					<h1
-						className={'text-4xl md:text-6xl text-ygray-100 font-bold whitespace-pre mb-8'}
+						className={'text-4xl md:text-6xl text-ygray-100 font-bold whitespace-pre-line mb-8'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-title'])}} />
 					<div className={'max-w-xl mb-8'}>
 						<p
