@@ -5,7 +5,7 @@ import	IconChevron						from	'components/icons/IconChevron';
 import	IconExpand						from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
 
-function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
+function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	
@@ -25,17 +25,21 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 			className={'max-w-4xl w-full bg-white p-4 rounded-sm mb-0.5'}>
 			<div className={'flex flex-row items-center cursor-pointer'} onClick={onExpand}>
 				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
-					{isRetired ?
-						<IconRetired />
-						: <Image
-							src={vault.icon}
-							width={32}
-							height={32}
-							loading={'eager'} />}
+					{isApeTax ? 
+						<p className={'whitespace-nowrap'}>
+							{vault.icon}
+						</p>
+						: isRetired ?
+							<IconRetired />
+							: <Image
+								src={vault.icon}
+								width={32}
+								height={32}
+								loading={'eager'} />}
 				</div>
 				<p className={'text-ygray-200 mr-2 break-words'}>
-					{`${vault.display_name} — `}
-					<b className={'font-bold'}>{vault.name}</b>
+					{`${vault.display_name} ${isApeTax ? '' : '—'} `}
+					<b className={'font-bold'}>{isApeTax ? '' : vault.name}</b>
 				</p>
 				<div className={'ml-auto mr-1 flex flex-row justify-center'}>
 					<a

@@ -2,7 +2,7 @@ import	React							from	'react';
 import	Navbar							from	'components/Navbar';
 import	Vaults							from	'components/Vaults';
 import	Cogs							from	'components/icons/Cogs';
-import	{listVaultsWithStrategies}		from	'pages/api/strategies';
+import	{listVaultsWithStrategies}		from	'pages/api/ape-vaults';
 import	useNetwork						from	'contexts/useNetwork';
 
 function	Index({vaults}) {
@@ -48,7 +48,12 @@ function	Index({vaults}) {
 							</p>
 						</div>
 					</div>
-					{vaultList.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
+					{vaultList.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults
+						key={vault.name}
+						vault={vault}
+						chainExplorer={chainExplorer}
+						shouldHideValids
+						isApeTax />)}
 				</div>
 			</section>
 		</div>
