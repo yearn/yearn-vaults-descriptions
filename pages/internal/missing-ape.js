@@ -33,7 +33,7 @@ function	Index({vaults}) {
 							<Cogs />
 						</div>
 						<div className={'flex flex-row items-center mb-8'}>
-							<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold'}>{'Strategies'}</h1>
+							<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold'}>{'Strategies Ape.tax'}</h1>
 
 							<div
 								className={'p-2 -m-2 ml-2'}
@@ -44,11 +44,11 @@ function	Index({vaults}) {
 						</div>
 						<div className={'max-w-xl space-y-6 mb-12'}>
 							<p className={'text-ygray-200'}>
-								{'List of strategies with a missing description.'}
+								{'List of strategies with a missing description from ape.tax.'}
 							</p>
 						</div>
 					</div>
-					{vaultList.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults
+					{(vaultList || [])?.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults
 						key={vault.name}
 						vault={vault}
 						chainExplorer={chainExplorer}
@@ -58,12 +58,6 @@ function	Index({vaults}) {
 			</section>
 		</div>
 	);
-}
-
-export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 1});
-	const	vaults = JSON.parse(strategiesRaw);
-	return {props: {vaults}};
 }
 
 export default Index;

@@ -48,17 +48,11 @@ function	Index({vaults}) {
 							</p>
 						</div>
 					</div>
-					{vaultList.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
+					{(vaultList || [])?.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
 				</div>
 			</section>
 		</div>
 	);
-}
-
-export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 1});
-	const	vaults = JSON.parse(strategiesRaw);
-	return {props: {vaults}};
 }
 
 export default Index;
