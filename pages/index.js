@@ -23,7 +23,6 @@ function	Index() {
 							className={'text-ygray-200 whitespace-pre-line inline'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-description'])}}>
 						</p>
-						<Star className={'inline ml-1 -mt-1'} />
 					</div>
 					<div>
 						<Link href={'/yearn-and-curve'}>
