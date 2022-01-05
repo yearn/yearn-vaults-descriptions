@@ -16,11 +16,11 @@ function	Index({vaults}) {
 					<div className={'mb-8'}>
 						<RIP />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
 						{common['page-eth-v1-vaults-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200'}>
+						<p className={'text-ygray-200 dark:text-dark-white'}>
 							{common['page-eth-v1-vaults-description']}
 						</p>
 					</div>

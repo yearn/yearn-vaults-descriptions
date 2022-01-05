@@ -14,12 +14,12 @@ function	Index() {
 					<div className={'mb-8'}>
 						<IconRocket width={40} height={40} />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8 whitespace-pre-line'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8 whitespace-pre-line'}>
 						{common['curve-boost-title']}
 					</h1>
 					<div className={'max-w-xl mb-8'}>
 						<p
-							className={'text-ygray-200 whitespace-pre-line inline mt-6'}
+							className={'text-ygray-200 dark:text-dark-white whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['curve-boost-description'])}} />
 					</div>
 					<div className={'max-w-full'} style={{width: 675, height: 60}}>
@@ -31,7 +31,7 @@ function	Index() {
 					</div>
 					<div className={'max-w-xl my-8'}>
 						<p
-							className={'text-ygray-200 whitespace-pre-line inline mt-6'}
+							className={'text-ygray-200 dark:text-dark-white whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['curve-boost-description-next'])}} />
 					</div>
 				</div>

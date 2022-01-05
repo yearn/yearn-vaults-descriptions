@@ -17,11 +17,11 @@ function	Index({vaults}) {
 					<div className={'mb-8'}>
 						<IconVaults />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
 						{common['page-eth-stable-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200'}>
+						<p className={'text-ygray-200 dark:text-dark-white'}>
 							{common['page-eth-stable-description']}
 							<Meatball className={'inline mb-1 ml-2'} />
 						</p>

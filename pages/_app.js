@@ -1,12 +1,13 @@
-import	React									from	'react';
-import	Head									from	'next/head';
-import	{DefaultSeo}							from	'next-seo';
-import	{NetworkContextApp}						from	'contexts/useNetwork';
-import	Menu									from	'components/Menu';
+import	React						from	'react';
+import	Head						from	'next/head';
+import	{DefaultSeo}				from	'next-seo';
+import	{NetworkContextApp}			from	'contexts/useNetwork';
+import	{UIContextApp}				from	'contexts/useUI';
+import	{LocalizationContextApp}	from 'contexts/useLocalization';
+import	Menu						from	'components/Menu';
 
 import	'style/Default.css';
 import	'tailwindcss/tailwind.css';
-import {LocalizationContextApp} from 'contexts/useLocalization';
 
 function	AppWrapper(props) {
 	const	{Component, pageProps, router} = props;
@@ -81,15 +82,17 @@ function	MyApp(props) {
 	const	{Component, pageProps} = props;
 	
 	return (
-		<LocalizationContextApp router={props.router}>
-			<NetworkContextApp>
-				<AppWrapper
-					Component={Component}
-					pageProps={pageProps}
-					element={props.element}
-					router={props.router} />
-			</NetworkContextApp>
-		</LocalizationContextApp>
+		<UIContextApp>
+			<LocalizationContextApp router={props.router}>
+				<NetworkContextApp>
+					<AppWrapper
+						Component={Component}
+						pageProps={pageProps}
+						element={props.element}
+						router={props.router} />
+				</NetworkContextApp>
+			</LocalizationContextApp>
+		</UIContextApp>
 	);
 }
 

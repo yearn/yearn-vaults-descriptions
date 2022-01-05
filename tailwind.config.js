@@ -4,6 +4,7 @@ module.exports = {
 	corePlugins: {
 		ringColor: false,
 	},
+	darkMode: 'class',
 	purge: {
 		content: [
 			'./pages/**/*.js',
@@ -30,7 +31,16 @@ module.exports = {
 				600: '#F2F2F2',
 				'700': '#2c3e50',
 				'900': '#363636',
-			}
+			},
+			dark: {
+				900: '#09162E',
+				600: 'rgb(19,38,75)',
+				400: 'rgb(24,48,95)',
+				300: '#2f446f',
+				200: '#46597e',
+				100: '#5d6e8f',
+				white: 'rgba(255,255,255,0.9)',
+			},
 		},
 		extend: {
 			width: {

@@ -25,7 +25,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 	return (
 		<div
 			key={vault.name}
-			className={'max-w-4xl w-full bg-white p-4 rounded-sm mb-0.5'}>
+			className={'max-w-4xl w-full bg-white dark:bg-dark-400 p-4 rounded-sm mb-0.5'}>
 			<div className={`flex flex-row items-center ${isRetired ? '' : 'cursor-pointer'}`} onClick={onExpand}>
 				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
 					{isApeTax ? 
@@ -40,7 +40,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 								height={32}
 								loading={'eager'} />}
 				</div>
-				<p className={'text-ygray-200 mr-2 break-words'}>
+				<p className={'text-ygray-200 dark:text-dark-white mr-2 break-words'}>
 					{`${vault.display_name} ${isApeTax ? '' : '—'} `}
 					<b className={'font-bold'}>{isApeTax ? '' : vault.name}</b>
 				</p>
