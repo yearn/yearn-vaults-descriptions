@@ -10,6 +10,9 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	
 	function	onExpand() {
+		if (isRetired) {
+			return null;
+		}
 		if (isExpanded) {
 			set_isExpandedAnimation(false);
 			setTimeout(() => set_isExpanded(false), 500);
@@ -23,7 +26,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 		<div
 			key={vault.name}
 			className={'max-w-4xl w-full bg-white p-4 rounded-sm mb-0.5'}>
-			<div className={'flex flex-row items-center cursor-pointer'} onClick={onExpand}>
+			<div className={`flex flex-row items-center ${isRetired ? '' : 'cursor-pointer'}`} onClick={onExpand}>
 				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
 					{isApeTax ? 
 						<p className={'whitespace-nowrap'}>
@@ -47,12 +50,12 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 						href={`${chainExplorer}/address/${vault.address}#code`}
 						target={'_blank'}
 						rel={'noreferrer'}>
-						<IconExpand className={'mr-4'}/>
+						<IconExpand className={isRetired ? 'mr-0': 'mr-4'}/>
 					</a>
-					<IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
+					{!isRetired ? <IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/> : null}
 				</div>
 			</div>
-			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
+			{!isRetired ? <div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
 				{isExpanded ? (
 					<Strategies
 						isRetired={isRetired}
@@ -61,7 +64,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 						strategiesData={vault.strategies}
 						vaultSymbol={vault.symbol} />
 				) : <div />}
-			</div>
+			</div> : null}
 		</div>
 	);
 }
