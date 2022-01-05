@@ -9,16 +9,16 @@ const	LOCALES = {
 		'name': 'Français',
 		'symbol': 'Fr',
 	},
-	'es-es': {
-		'code': 'es-es',
-		'name': 'Español',
-		'symbol': 'Es',
-	},
-	'ru': {
-		'code': 'ru',
-		'name': 'Русский',
-		'symbol': 'Ru',
-	},
+	// 'es-es': {
+	// 	'code': 'es-es',
+	// 	'name': 'Español',
+	// 	'symbol': 'Es',
+	// },
+	// 'ru': {
+	// 	'code': 'ru',
+	// 	'name': 'Русский',
+	// 	'symbol': 'Ru',
+	// },
 };
 
 export default LOCALES;
