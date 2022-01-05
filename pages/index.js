@@ -1,6 +1,5 @@
 import	React				from	'react';
 import	Link				from	'next/link';
-import	Star				from	'components/icons/Star';
 import	IconYearn			from	'components/icons/IconYearn';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
