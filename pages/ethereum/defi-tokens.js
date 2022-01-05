@@ -1,6 +1,5 @@
 import	React							from	'react';
 import	IconVaults						from	'components/icons/IconVaults';
-import	Meatball						from	'components/icons/Meatball';
 import	Vaults							from	'components/Vaults';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
@@ -23,7 +22,6 @@ function	Index({vaults}) {
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p className={'text-ygray-200'}>
 							{common['page-eth-defi-tokens-description']}
-							<Meatball className={'inline mb-1 ml-2'} />
 						</p>
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
