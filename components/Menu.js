@@ -94,6 +94,7 @@ function	MenuItems() {
 function	Menu() {
 	const	{language, set_language} = useLocalization();
 	const	router = useRouter();
+	const	head = React.useRef();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	
@@ -108,6 +109,17 @@ function	Menu() {
 	}
 
 	React.useEffect(() => {
+		if (head?.current) {
+			head.current.oncontextmenu = (event) => {
+				if (event.button === 2) {
+					event.preventDefault();
+					router.push('/internal/missing-descriptions');
+				}
+			};
+		}
+	}, [head?.current]);
+
+	React.useEffect(() => {
 		set_isExpandedAnimation(false);
 		setTimeout(() => set_isExpanded(false), 500);
 	}, [router.pathname]);
@@ -118,7 +130,9 @@ function	Menu() {
 				<div className={'relative w-full h-full flex flex-col'}>
 					<div className={'flex flex-row justify-between items-center'}>
 						<Link href={'/'}>
-							<h1 className={'text-ygray-100 font-bold mb-6 md:mb-10 pt-6 md:pt-8 cursor-pointer'}>
+							<h1
+								ref={head}
+								className={'text-ygray-100 font-bold mb-6 md:mb-10 pt-6 md:pt-8 cursor-pointer'}>
 								{'The Vaults at '}
 								<span className={'text-yblue'}>{'Yearn'}</span>
 							</h1>
