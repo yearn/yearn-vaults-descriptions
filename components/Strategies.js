@@ -27,6 +27,11 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 									{strategy.name}
 								</a>
 								<div>
+									{strategy.noIPFS ? (
+										<span className={'bg-tag-withdraw text-ygray-200 font-bold rounded-md px-2 text-xs py-1 ml-2'}>
+											{'Missing IPFS file'}
+										</span>
+									) : null}
 									{!isRetired && strategiesWithBoost.includes(strategy.name) ? (
 										<IconRocket className={'ml-2'} width={16} height={16} />
 									): null}

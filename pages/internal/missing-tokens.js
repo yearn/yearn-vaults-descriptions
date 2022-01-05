@@ -134,19 +134,13 @@ function	Index({tokens}) {
 							</p>
 						</div>
 					</div>
-					{data.filter(e => e.hasMissingTokenInfo).map((vault) => (
+					{(data || [])?.filter(e => e.hasMissingTokenInfo).map((vault) => (
 						<Tokens key={vault.address} vault={vault} chainExplorer={chainExplorer} />
 					))}
 				</div>
 			</section>
 		</div>
 	);
-}
-
-export async function getStaticProps() {
-	const	tokensRaw = await listVaultsWithTokens({network: 1});
-	const	tokens = JSON.parse(tokensRaw);
-	return {props: {tokens}};
 }
 
 export default Index;

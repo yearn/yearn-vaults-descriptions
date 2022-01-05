@@ -5,6 +5,7 @@ import	useNetwork		from	'contexts/useNetwork';
 const options = ['Ethereum', 'Fantom'];
 const routerMapping = {
 	'/internal/missing-descriptions': 'Strategies',
+	'/internal/missing-ape': 'Strategies ape.tax',
 	'/internal/missing-tokens': 'Tokens',
 };
 
@@ -24,6 +25,8 @@ function	Navbar() {
 							onChange={e => {
 								if (e.target.value === 'Strategies')
 									router.push('/internal/missing-descriptions');
+								else if (e.target.value === 'Strategies ape.tax')
+									router.push('/internal/missing-ape');
 								else if (e.target.value === 'Tokens')
 									router.push('/internal/missing-tokens');
 							}}>
