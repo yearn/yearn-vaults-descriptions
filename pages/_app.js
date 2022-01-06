@@ -72,7 +72,7 @@ function	AppWrapper(props) {
 						element={props.element}
 						router={props.router}
 						{...pageProps} />
-					<div className={'absolute -bottom-12 text-center text-xs text-ygray-200 dark:text-white text-opacity-60 left-0 right-0 flex justify-center items-center'}>
+					<div className={'absolute -bottom-12 text-center text-xs text-ygray-200 dark:text-white text-opacity-60 dark:text-opacity-60 left-0 right-0 flex justify-center items-center'}>
 						<div className={'divide-x divide-ygray-700 divide-opacity-20 flex flex-row flex-wrap items-center justify-center'}>
 
 							<a href={'https://github.com/yearn/yearn-vaults-descriptions'} target={'_blank'} rel={'noreferrer'} className={'hover:underline pr-2'}>
