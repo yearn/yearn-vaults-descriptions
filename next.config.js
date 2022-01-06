@@ -12,6 +12,6 @@ module.exports = ({
 		],
 	},
 	env: {
-		WEBSITE_URI: 'https://strategies.major.tax/',
+		WEBSITE_URI: 'https://vaults.yearn.finance/',
 	}
 });
