@@ -1,5 +1,6 @@
 import	React				from	'react';
 import	Image				from	'next/image';
+import	Link				from	'next/link';
 import	IconEth				from	'components/icons/IconEth';
 import	IconYearn			from	'components/icons/IconYearn';
 import	IconRocket			from	'components/icons/IconRocket';
@@ -71,6 +72,13 @@ function	Index() {
 						<p
 							className={'text-ygray-200 whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['yearn-and-curve-yveCRV-description'])}} />
+					</div>
+					<div>
+						<Link href={'/curve-boost-multipliers'}>
+							<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+								{common['yearn-and-curve-next-button']}
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>
