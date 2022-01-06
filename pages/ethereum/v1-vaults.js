@@ -20,7 +20,7 @@ function	Index({vaults}) {
 						{common['page-eth-v1-vaults-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200 dark:text-dark-white'}>
+						<p className={'text-ygray-200 dark:text-dark-50'}>
 							{common['page-eth-v1-vaults-description']}
 						</p>
 					</div>

@@ -19,7 +19,7 @@ function	Index() {
 					</h1>
 					<div className={'max-w-xl mb-8'}>
 						<p
-							className={'text-ygray-200 dark:text-dark-white whitespace-pre-line inline mt-6'}
+							className={'text-ygray-200 dark:text-dark-50 whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['curve-boost-description'])}} />
 					</div>
 					<div className={'max-w-full'} style={{width: 675, height: 60}}>
@@ -31,7 +31,7 @@ function	Index() {
 					</div>
 					<div className={'max-w-xl my-8'}>
 						<p
-							className={'text-ygray-200 dark:text-dark-white whitespace-pre-line inline mt-6'}
+							className={'text-ygray-200 dark:text-dark-50 whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['curve-boost-description-next'])}} />
 					</div>
 				</div>

@@ -24,7 +24,7 @@ function	Index({vaults}) {
 						{common['page-eth-curve-pool-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200 dark:text-dark-white'}>
+						<p className={'text-ygray-200 dark:text-dark-50'}>
 							{common['page-eth-curve-pool-description']}
 						</p>
 					</div>

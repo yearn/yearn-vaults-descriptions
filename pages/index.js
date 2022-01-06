@@ -19,7 +19,7 @@ function	Index() {
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-title'])}} />
 					<div className={'max-w-xl mb-8'}>
 						<p
-							className={'text-ygray-200 dark:text-dark-white whitespace-pre-line inline'}
+							className={'text-ygray-200 dark:text-dark-50 whitespace-pre-line inline'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-description'])}}>
 						</p>
 					</div>

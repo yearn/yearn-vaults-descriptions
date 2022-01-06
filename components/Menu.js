@@ -8,7 +8,7 @@ import	LOCALES				from	'utils/locale';
 function	MenuItem({label, condition, href, className, height = 'h-6'}) {
 	return (
 		<Link href={href}>
-			<div className={`${condition ? 'text-yblue font-bold' : 'text-ygray-200 dark:text-dark-white'} cursor-pointer relative w-full ${className}`}>
+			<div className={`${condition ? 'text-yblue font-bold' : 'text-ygray-200 dark:text-dark-50'} cursor-pointer relative w-full ${className}`}>
 				{label}
 				<div className={'absolute top-0 z-20 hidden md:block'} style={{right: 4}}>
 					<div className={`w-1 ${height} bg-yblue rounded-sm ${condition ? 'opacity-100' : 'opacity-0'}`} />
@@ -42,7 +42,7 @@ function	MenuItems() {
 					href={'/curve-boost-multipliers'} />
 			</div>
 
-			<p className={'text-ygray-400 dark:text-dark-100 mb-2 md:mb-4'}>{'Ethereum'}</p>
+			<p className={'text-ygray-400 dark:text-dark-200 mb-2 md:mb-4'}>{'Ethereum'}</p>
 			<div className={'ml-4 space-y-2 md:space-y-4 mb-4 md:mb-8'}>
 				<MenuItem
 					label={common['menu-stables']}
@@ -69,7 +69,7 @@ function	MenuItems() {
 			</div>
 
 
-			<p className={'text-ygray-400 dark:text-dark-100 mb-2 md:mb-4'}>{'Fantom'}</p>
+			<p className={'text-ygray-400 dark:text-dark-200 mb-2 md:mb-4'}>{'Fantom'}</p>
 			<div className={'ml-4 space-y-2 md:space-y-4 mb-4 md:mb-8'}>
 				<MenuItem
 					label={common['menu-stables']}
@@ -127,7 +127,7 @@ function	Menu() {
 	}, [router.pathname]);
 
 	return (
-		<nav className={'w-full md:w-64.5 px-4 md:px-0 bg-white dark:bg-dark-400 md:dark:bg-dark-600 md:bg-opacity-0 shadow-sm md:shadow-none fixed md:relative z-50'}>
+		<nav className={'w-full md:w-64.5 px-4 md:px-0 bg-white dark:bg-dark-900 md:dark:bg-dark-900 md:bg-opacity-0 shadow-sm md:shadow-none fixed md:relative z-50'}>
 			<div className={'relative w-full h-full md:fixed md:w-64.5 z-20'}>
 				<div className={'relative w-full h-full flex flex-col'}>
 					<div className={'flex flex-row justify-between items-center'}>
@@ -143,7 +143,7 @@ function	Menu() {
 						<div className={'block md:hidden'}>
 							<select
 								value={language}
-								className={'m-0 mr-1 px-3 py-2 items-center cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-600 text-xs bg-white dark:bg-dark-600 font-semibold text-ygray-700 dark:text-dark-white pr-7 flex'}
+								className={'m-0 mr-1 px-3 py-2 items-center cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-600 text-xs bg-white dark:bg-dark-600 font-semibold text-ygray-700 dark:text-dark-50 pr-7 flex'}
 								onChange={e => set_language(e.target.value)}>
 								{Object.values(LOCALES).map((lang, index) => (
 									<option className={'cursor-pointer'} key={index} value={lang.code}>{lang.symbol}</option>
@@ -171,7 +171,7 @@ function	Menu() {
 										<div
 											key={lang.symbol}
 											onClick={() => set_language(lang.code)}
-											className={'text-ygray-200 dark:text-dark-white text-sm cursor-pointer'}>
+											className={'text-ygray-200 text-sm cursor-pointer'}>
 											{lang.symbol}
 										</div>
 									);
@@ -191,9 +191,9 @@ function	Menu() {
 				</div>
 			</div>
 			<div className={'absolute -right-1 top-0 z-10 hidden md:block inset-y-0'}>
-				<div className={'w-0.5 h-full bg-ygray-500 dark:bg-dark-400'} />
+				<div className={'w-0.5 h-full bg-ygray-500 dark:bg-dark-500'} />
 			</div>
-			<div className={`w-full inset-x-0 transition-max-height duration-500 overflow-hidden bg-white dark:bg-dark-400 fixed ${isExpandedAnimation ? 'max-h-max shadow-sm' : 'max-h-0'}`}>
+			<div className={`w-full inset-x-0 transition-max-height duration-500 overflow-hidden bg-white dark:bg-dark-900 fixed ${isExpandedAnimation ? 'max-h-max shadow-sm' : 'max-h-0'}`}>
 				{isExpanded ? (
 					<div className={'block md:hidden px-6 relative'}>
 						<MenuItems />
