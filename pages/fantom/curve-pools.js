@@ -21,11 +21,11 @@ function	Index({vaults}) {
 							height={40}
 							loading={'eager'} />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
 						{common['page-ftm-curve-pool-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200'}>
+						<p className={'text-ygray-200 dark:text-dark-50'}>
 							{common['page-ftm-curve-pool-description']}
 						</p>
 					</div>

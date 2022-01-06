@@ -18,12 +18,12 @@ function	Index({vaults}) {
 					<div className={'mb-8'}>
 						<Ghost />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
 						{common['page-ftm-stable-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p
-							className={'text-ygray-200'}
+							className={'text-ygray-200 dark:text-dark-50'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-stable-description'])}} />
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}

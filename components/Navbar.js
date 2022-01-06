@@ -21,7 +21,7 @@ function	Navbar() {
 					<div className={'items-center justify-start flex-row flex h-full'} key={routerMapping[router.pathname]}>
 						<select
 							value={routerMapping[router.pathname]}
-							className={'m-0 mr-2 px-3 py-2 items-center leading-4 cursor-pointer whitespace-nowrap border border-solid border-ygray-500 text-xs bg-white font-semibold text-ygray-700 pr-7 hidden md:flex'}
+							className={'m-0 mr-2 px-3 py-2 items-center leading-4 cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-900 text-xs bg-white dark:bg-dark-900 font-semibold text-ygray-700 dark:text-dark-50 pr-7 hidden md:flex'}
 							onChange={e => {
 								if (e.target.value === 'Strategies')
 									router.push('/internal/missing-descriptions');
@@ -40,7 +40,7 @@ function	Navbar() {
 					<div className={'items-center justify-start flex-row flex h-full'}>
 						<select
 							value={currentNetwork}
-							className={'m-0 mr-2 px-3 py-2 items-center leading-4 cursor-pointer whitespace-nowrap border border-solid border-ygray-500 text-xs bg-white font-semibold text-ygray-700 pr-7 hidden md:flex'}
+							className={'m-0 mr-2 px-3 py-2 items-center leading-4 cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-900 text-xs bg-white dark:bg-dark-900 font-semibold text-ygray-700 dark:text-dark-50 pr-7 hidden md:flex'}
 							onChange={e => set_currentNetwork(e.target.value)}>
 							{options.map((chain, index) => (
 								<option className={'cursor-pointer'} key={index} value={chain}>{chain}</option>

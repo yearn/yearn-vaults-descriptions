@@ -5,6 +5,9 @@
 html {
 	background: #F2F2F2;
 }
+html.dark {
+	background: #181B21;
+}
 
 html {
 	margin-left: calc(100vw - 100%);
