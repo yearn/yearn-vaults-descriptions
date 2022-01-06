@@ -1,6 +1,5 @@
 import	React				from	'react';
 import	Link				from	'next/link';
-import	Star				from	'components/icons/Star';
 import	IconYearn			from	'components/icons/IconYearn';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
@@ -16,14 +15,13 @@ function	Index() {
 						<IconYearn />
 					</div>
 					<h1
-						className={'text-4xl md:text-6xl text-ygray-100 font-bold whitespace-pre mb-8'}
+						className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold whitespace-pre-line mb-8'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-title'])}} />
 					<div className={'max-w-xl mb-8'}>
 						<p
-							className={'text-ygray-200 whitespace-pre-line inline'}
+							className={'text-ygray-200 dark:text-dark-50 whitespace-pre-line inline'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-description'])}}>
 						</p>
-						<Star className={'inline ml-1 -mt-1'} />
 					</div>
 					<div>
 						<Link href={'/yearn-and-curve'}>

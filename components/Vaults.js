@@ -5,11 +5,14 @@ import	IconChevron						from	'components/icons/IconChevron';
 import	IconExpand						from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
 
-function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
+function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	
 	function	onExpand() {
+		if (isRetired) {
+			return null;
+		}
 		if (isExpanded) {
 			set_isExpandedAnimation(false);
 			setTimeout(() => set_isExpanded(false), 500);
@@ -22,20 +25,24 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 	return (
 		<div
 			key={vault.name}
-			className={'max-w-4xl w-full bg-white p-4 rounded-sm mb-0.5'}>
-			<div className={'flex flex-row items-center cursor-pointer'} onClick={onExpand}>
+			className={`max-w-4xl w-full bg-white ${isExpanded ? 'dark:bg-dark-400' : 'dark:bg-dark-600'} transition-colors p-4 rounded-sm mb-0.5`}>
+			<div className={`flex flex-row items-center ${isRetired ? '' : 'cursor-pointer'}`} onClick={onExpand}>
 				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
-					{isRetired ?
-						<IconRetired />
-						: <Image
-							src={vault.icon}
-							width={32}
-							height={32}
-							loading={'eager'} />}
+					{isApeTax ? 
+						<p className={'whitespace-nowrap'}>
+							{vault.icon}
+						</p>
+						: isRetired ?
+							<IconRetired />
+							: <Image
+								src={vault.icon}
+								width={32}
+								height={32}
+								loading={'eager'} />}
 				</div>
-				<p className={'text-ygray-200 mr-2 break-words'}>
-					{`${vault.display_name} — `}
-					<b className={'font-bold'}>{vault.name}</b>
+				<p className={'text-ygray-200 dark:text-white mr-2 break-words'}>
+					{`${vault.display_name} ${isApeTax ? '' : '—'} `}
+					<b className={'font-bold'}>{isApeTax ? '' : vault.name}</b>
 				</p>
 				<div className={'ml-auto mr-1 flex flex-row justify-center'}>
 					<a
@@ -43,12 +50,12 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 						href={`${chainExplorer}/address/${vault.address}#code`}
 						target={'_blank'}
 						rel={'noreferrer'}>
-						<IconExpand className={'mr-4'}/>
+						<IconExpand className={isRetired ? 'mr-0': 'mr-4'}/>
 					</a>
-					<IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/>
+					{!isRetired ? <IconChevron className={isExpandedAnimation ? 'transform rotate-90 transition-transform' : 'transform rotate-0 transition-transform'}/> : null}
 				</div>
 			</div>
-			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
+			{!isRetired ? <div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
 				{isExpanded ? (
 					<Strategies
 						isRetired={isRetired}
@@ -57,7 +64,7 @@ function	Vaults({vault, chainExplorer, isRetired, shouldHideValids}) {
 						strategiesData={vault.strategies}
 						vaultSymbol={vault.symbol} />
 				) : <div />}
-			</div>
+			</div> : null}
 		</div>
 	);
 }

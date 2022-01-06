@@ -1,4 +1,5 @@
 import	React							from	'react';
+import	Link							from	'next/link';
 import	Ghost							from	'components/icons/Ghost';
 import	Vaults							from	'components/Vaults';
 import	useLocalization					from	'contexts/useLocalization';
@@ -17,15 +18,22 @@ function	Index({vaults}) {
 					<div className={'mb-8'}>
 						<Ghost />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
 						{common['page-ftm-defi-tokens-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p
-							className={'text-ygray-200'}
+							className={'text-ygray-200 dark:text-dark-50'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-defi-tokens-description'])}} />
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				</div>
+				<div className={'mt-8'}>
+					<Link href={'/fantom/curve-pools'}>
+						<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+							{common['page-ftm-defi-tokens-next-button']}
+						</button>
+					</Link>
 				</div>
 			</div>
 		</section>

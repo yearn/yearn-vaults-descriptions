@@ -1,7 +1,7 @@
 import	React							from	'react';
+import	Link							from	'next/link';
 import	Image							from	'next/image';
 import	Vaults							from	'components/Vaults';
-import	Meatball						from	'components/icons/Meatball';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 
@@ -21,16 +21,22 @@ function	Index({vaults}) {
 							height={40}
 							loading={'eager'} />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 font-bold mb-8'}>
+					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
 						{common['page-ftm-curve-pool-title']}
 					</h1>
 					<div className={'max-w-xl space-y-6 mb-12'}>
-						<p className={'text-ygray-200'}>
+						<p className={'text-ygray-200 dark:text-dark-50'}>
 							{common['page-ftm-curve-pool-description']}
-							<Meatball className={'inline mb-1 ml-2'} />
 						</p>
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				</div>
+				<div className={'mt-8'}>
+					<Link href={'/fantom/retired-vaults'}>
+						<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+							{common['page-ftm-curve-pool-next-button']}
+						</button>
+					</Link>
 				</div>
 			</div>
 		</section>

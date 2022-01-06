@@ -4,6 +4,7 @@ module.exports = {
 	corePlugins: {
 		ringColor: false,
 	},
+	darkMode: 'class',
 	purge: {
 		content: [
 			'./pages/**/*.js',
@@ -30,7 +31,17 @@ module.exports = {
 				600: '#F2F2F2',
 				'700': '#2c3e50',
 				'900': '#363636',
-			}
+			},
+			dark: {
+				900: '#181B21',
+				600: '#1C2028',
+				500: '#1E1E1E',
+				400: '#21252E',
+				200: '#535353',
+				100: '#5d6e8f',
+				50: '#8B8D90',
+				white: 'rgba(255,255,255,0.9)',
+			},
 		},
 		extend: {
 			width: {
@@ -45,7 +56,7 @@ module.exports = {
 				'6xl': '1200px',
 			},
 			maxHeight: {
-				'max': '1000px',
+				'max': '4000px',
 			},
 			lineHeight: {
 				'6xl': '64px',
