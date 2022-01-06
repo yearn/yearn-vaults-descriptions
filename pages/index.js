@@ -1,6 +1,5 @@
 import	React				from	'react';
 import	Link				from	'next/link';
-import	Star				from	'components/icons/Star';
 import	IconYearn			from	'components/icons/IconYearn';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
@@ -23,7 +22,6 @@ function	Index() {
 							className={'text-ygray-200 dark:text-dark-white whitespace-pre-line inline'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-description'])}}>
 						</p>
-						<Star className={'inline ml-1 -mt-1'} />
 					</div>
 					<div>
 						<Link href={'/yearn-and-curve'}>

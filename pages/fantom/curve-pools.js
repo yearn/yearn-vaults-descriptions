@@ -1,7 +1,6 @@
 import	React							from	'react';
 import	Image							from	'next/image';
 import	Vaults							from	'components/Vaults';
-import	Meatball						from	'components/icons/Meatball';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 
@@ -27,7 +26,6 @@ function	Index({vaults}) {
 					<div className={'max-w-xl space-y-6 mb-12'}>
 						<p className={'text-ygray-200 dark:text-dark-white'}>
 							{common['page-ftm-curve-pool-description']}
-							<Meatball className={'inline mb-1 ml-2'} />
 						</p>
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
