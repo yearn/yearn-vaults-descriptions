@@ -66,12 +66,40 @@ function	AppWrapper(props) {
 				}} />
 			<main id={'app'} className={'relative flex flex-col md:flex-row max-w-6xl mx-auto'} style={{minHeight: '100vh'}}>
 				<Menu />
-				<div className={'px-6 md:px-0 md:ml-10 w-full md:w-235.5 md:max-w-235.5 mb-16 pt-10 md:pt-0'}>
+				<div className={'px-6 md:px-0 md:ml-10 w-full md:w-235.5 md:max-w-235.5 mb-16 pt-10 md:pt-0 relative'}>
 					<Component
 						key={router.route}
 						element={props.element}
 						router={props.router}
 						{...pageProps} />
+					<div className={'absolute -bottom-12 text-center text-xs text-ygray-200 text-opacity-60 left-0 right-0 flex justify-center items-center'}>
+						<div className={'divide-x divide-ygray-700 divide-opacity-20 flex flex-row flex-wrap items-center justify-center'}>
+
+							<a href={'https://github.com/yearn/yearn-vaults-descriptions'} target={'_blank'} rel={'noreferrer'} className={'hover:underline pr-2'}>
+								{'Github'}
+							</a>
+
+							<a href={'https://yearn.finance'} target={'_blank'} rel={'noreferrer'} className={'hover:underline px-2'}>
+								{'Yearn.Finance'}
+							</a>
+
+							<a href={'https://contribute.yearn.rocks'} target={'_blank'} rel={'noreferrer'} className={'hover:underline px-2'}>
+								{'Contribute'}
+							</a>
+
+							<a href={'https://yearnfinance.notion.site'} target={'_blank'} rel={'noreferrer'} className={'hover:underline px-2'}>
+								{'Join'}
+							</a>
+
+							<a href={'https://yearn.watch'} target={'_blank'} rel={'noreferrer'} className={'hover:underline px-2'}>
+								{'Yearn.Watch'}
+							</a>
+
+							<a href={'https://api.yearn.finance/v1/chains/1/vaults/all'} target={'_blank'} rel={'noreferrer'} className={'hover:underline pl-2'}>
+								{'Vaults API'}
+							</a>
+						</div>
+					</div>
 				</div>
 			</main>
 		</>
