@@ -1,4 +1,5 @@
 import	React				from	'react';
+import	Link				from	'next/link';
 import	Image				from	'next/image';
 import	IconRocket			from	'components/icons/IconRocket';
 import	useLocalization		from	'contexts/useLocalization';
@@ -33,6 +34,13 @@ function	Index() {
 						<p
 							className={'text-ygray-200 whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['curve-boost-description-next'])}} />
+					</div>
+					<div>
+						<Link href={'/ethereum/stables'}>
+							<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+								{common['curve-boost-next-button']}
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>
