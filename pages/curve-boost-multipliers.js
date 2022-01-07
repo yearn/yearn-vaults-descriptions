@@ -35,9 +35,9 @@ function	Index() {
 							className={'text-ygray-200 dark:text-dark-50 whitespace-pre-line inline mt-6'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['curve-boost-description-next'])}} />
 					</div>
-					<div>
+					<div className={'self-center md:self-auto'}>
 						<Link href={'/ethereum/stables'}>
-							<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+							<button className={'text-white bg-yblue py-2 px-5 font-bold text-sm text-center md:text-left'} style={{width: 279}}>
 								{common['curve-boost-next-button']}
 							</button>
 						</Link>

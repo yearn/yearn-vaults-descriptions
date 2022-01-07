@@ -31,9 +31,9 @@ function	Index({vaults}) {
 					</div>
 					{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
 				</div>
-				<div className={'mt-8'}>
+				<div className={'mt-8 self-center md:self-auto'}>
 					<Link href={'/fantom/retired-vaults'}>
-						<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+						<button className={'text-white bg-yblue py-2 px-5 font-bold text-sm text-center md:text-left'} style={{width: 279}}>
 							{common['page-ftm-curve-pool-next-button']}
 						</button>
 					</Link>

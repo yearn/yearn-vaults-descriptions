@@ -23,9 +23,9 @@ function	Index() {
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-description'])}}>
 						</p>
 					</div>
-					<div>
+					<div className={'self-center md:self-auto'}>
 						<Link href={'/yearn-and-curve'}>
-							<button className={'text-white bg-yblue py-2 px-5 text-left font-bold text-sm'} style={{width: 279}}>
+							<button className={'text-white bg-yblue py-2 px-5 font-bold text-sm text-center md:text-left'} style={{width: 279}}>
 								{common['overview-button']}
 							</button>
 						</Link>
