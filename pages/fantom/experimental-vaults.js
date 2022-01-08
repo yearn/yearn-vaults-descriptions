@@ -46,7 +46,7 @@ function	Index({vaults}) {
 
 export async function getStaticProps() {
 	const	vaults = await listVaultsWithStrategies({network: 250});
-	return {props: {vaults: JSON.parse(vaults)}, revalidate: 60 * 60 * 24};
+	return {props: {vaults: JSON.parse(vaults)}, revalidate: 60 * 60 * 2};
 }
 
 export default Index;
