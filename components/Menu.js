@@ -94,6 +94,11 @@ function	MenuItems() {
 					condition={router.pathname === '/fantom/curve-pools'}
 					href={'/fantom/curve-pools'} />
 				<MenuItem
+					label={common['menu-experimental']}
+					hideIf={router.pathname !== '/fantom/experimental-vaults'}
+					condition={router.pathname === '/fantom/experimental-vaults'}
+					href={'/fantom/experimental-vaults'} />
+				<MenuItem
 					label={common['menu-retired-vaults']}
 					condition={router.pathname === '/fantom/retired-vaults'}
 					href={'/fantom/retired-vaults'} />
