@@ -33,9 +33,9 @@ function	Index({vaults}) {
 						isPublicApeTax />)}
 				</div>
 				<div className={'mt-8 self-center md:self-auto'}>
-					<Link href={'/fantom/stables'}>
+					<Link href={'/fantom/retired-vaults'}>
 						<button className={'text-white bg-yblue py-2 px-5 font-bold text-sm text-center md:text-left'} style={{width: 279}}>
-							{common['page-eth-curve-pool-next-button']}
+							{common['page-ftm-curve-pool-next-button']}
 						</button>
 					</Link>
 				</div>
