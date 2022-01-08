@@ -5,7 +5,10 @@ import	useLocalization		from	'contexts/useLocalization';
 import	useUI				from	'contexts/useUI';
 import	LOCALES				from	'utils/locale';
 
-function	MenuItem({label, condition, href, className, height = 'h-6'}) {
+function	MenuItem({label, condition, href, hideIf, className, height = 'h-6'}) {
+	if (hideIf) {
+		return null;
+	}
 	return (
 		<Link href={href}>
 			<div className={`${condition ? 'text-yblue font-bold' : 'text-ygray-200 dark:text-dark-50'} cursor-pointer relative w-full ${className}`}>
@@ -56,6 +59,13 @@ function	MenuItems() {
 					label={common['menu-curve-pools']}
 					condition={router.pathname === '/ethereum/curve-pools'}
 					href={'/ethereum/curve-pools'} />
+
+				<MenuItem
+					label={common['menu-experimental']}
+					hideIf={router.pathname !== '/ethereum/experimental-vaults'}
+					condition={router.pathname === '/ethereum/experimental-vaults'}
+					href={'/ethereum/experimental-vaults'} />
+
 				<MenuItem
 					label={common['menu-retired-vaults']}
 					condition={router.pathname === '/ethereum/retired-vaults'}

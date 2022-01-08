@@ -7,6 +7,7 @@
 	"menu-curve-pools": "Curve Pools",
 	"menu-retired-vaults": "Retired Vaults",
 	"menu-v1-vaults": "v1 Vaults",
+	"menu-experimental": "Experimental",
 
 	"overview-title": "Welcome to\nThe Vaults at ~~Yearn~~",
 	"overview-description": "Here you can find in-depth information about how Yearn’s yVaults operate and the actions (strategies) these vaults perform.\n\nThis website will maintain a one-stop location for all yVault descriptions. All vaults in production are now version 2 or higher. All version 1 yVaults have been deprecated.",
@@ -61,5 +62,8 @@
 
 	"page-ftm-retired-title": "Fantom Retired Vaults",
 	"page-ftm-retired-description": "These vaults are no longer active or are in the process of migrating to a newer version and being phased out. Strategies might have been paused, deposits might be closed, or they might have been removed from the website entirely.",
-	"page-ftm-retired-next-button": "Next: Overview"
+	"page-ftm-retired-next-button": "Next: Overview",
+
+	"page-experimental-ape-tax-title": "Experimental Vaults",
+	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information."
 }
