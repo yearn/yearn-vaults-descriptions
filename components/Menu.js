@@ -173,7 +173,10 @@ function	Menu() {
 									return (
 										<div
 											key={lang.symbol}
-											onClick={() => set_language(lang.code)}
+											onClick={() => {
+												router.push(router.pathname, router.asPath, {locale: lang.code});
+												set_language(lang.code);
+											}}
 											className={'text-ygray-200 text-sm cursor-pointer'}>
 											{lang.symbol}
 										</div>
