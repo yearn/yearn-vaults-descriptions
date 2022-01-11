@@ -12,11 +12,11 @@
 # How to - Add translations
 This project integrate a custom translation system, based on some standard and localization standards. New locales must be manually added and integrated.  
 All translations are stored in the `localization/[locale]` folder. Right now only the `common.json` file is used.  
-`[locale]` should be replaced with the locale code, e.g. `en-US`, `es`, `fr`. Codes can be found [here](http://www.lingoes.net/en/translator/langcode.htm).  
-Fallback for missing translations is the `en-US` locale.
+`[locale]` should be replaced with the locale code, e.g. `en`, `es`, `fr`. Codes can be found [here](http://www.lingoes.net/en/translator/langcode.htm).  
+Fallback for missing translations is the `en` locale.
 
 #### Create the translation file
-- **If the locale file exists**, aka `[locale]/common.json`, you can just check the missing translations from the reference file (`en-US/common.json`) and add them.  
+- **If the locale file exists**, aka `[locale]/common.json`, you can just check the missing translations from the reference file (`en/common.json`) and add them.  
 - **If the locale file does not exist**, you first need to create a new folder with your locale code, copy the `_common.json` file in it and rename it to `common.json`. Then, you can start translating.
 
 #### Add the locale to the list of supported locale
@@ -34,7 +34,7 @@ If not, just apprend the new locale to the object.
 In order to be able to auto-detect the locale and redirect the users browser to the correct locale, you need to add the locale Iso code to the `i18n.locales` array in the `next.config.js` file.
 ```diff
 	i18n: {
-+		locales: ['en-US', 'fr', 'es-es', 'ru'],
-		defaultLocale: 'en-US',
++		locales: ['en', 'fr', 'es', 'ru'],
+		defaultLocale: 'en',
 	},
 ```

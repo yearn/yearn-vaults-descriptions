@@ -144,7 +144,10 @@ function	Menu() {
 							<select
 								value={language}
 								className={'m-0 mr-1 px-3 py-2 items-center cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-600 text-xs bg-white dark:bg-dark-600 font-semibold text-ygray-700 dark:text-dark-50 pr-7 flex'}
-								onChange={e => set_language(e.target.value)}>
+								onChange={(e) => {
+									router.push(router.pathname, router.asPath, {locale: e.target.value});
+									set_language(e.target.value);
+								}}>
 								{Object.values(LOCALES).map((lang, index) => (
 									<option className={'cursor-pointer'} key={index} value={lang.code}>{lang.symbol}</option>
 								))}

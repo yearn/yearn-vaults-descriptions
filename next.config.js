@@ -2,8 +2,8 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = ({
 	i18n: {
-		locales: ['en-US', 'fr', 'es-es', 'ru'],
-		defaultLocale: 'en-US',
+		locales: ['en', 'fr', 'es', 'ru'],
+		defaultLocale: 'en',
 	},
 	plugins: [new Dotenv()],
 	images: {

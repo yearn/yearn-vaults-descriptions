@@ -5,18 +5,18 @@ const	Localization = createContext();
 function	getCommons(language) {
 	try {
 		const	_common = require(`/localization/${language}/common.json`);
-		const	_commonFallback = require('/localization/en-US/common.json');
+		const	_commonFallback = require('/localization/en/common.json');
 		const	_commonWithFallback = Object.assign({..._commonFallback}, {..._common});
 		return (_commonWithFallback);
 	} catch (e) {
-		const	_common = require('/localization/en-US/common.json');
+		const	_common = require('/localization/en/common.json');
 		return (_common);
 	}
 }
 
 export const LocalizationContextApp = ({children, router}) => {
-	const	[language, set_language] = React.useState(router.locale || 'en-US');
-	const	[common, set_common] = React.useState(getCommons(router.locale || 'en-US'));
+	const	[language, set_language] = React.useState(router.locale || 'en');
+	const	[common, set_common] = React.useState(getCommons(router.locale || 'en'));
 
 	React.useEffect(() => {
 		set_common(getCommons(language));
