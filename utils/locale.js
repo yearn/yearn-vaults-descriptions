@@ -1,6 +1,6 @@
 const	LOCALES = {
-	'en-US': {
-		'code': 'en-US',
+	'en': {
+		'code': 'en',
 		'name': 'English',
 		'symbol': 'En',
 	},
@@ -9,8 +9,8 @@ const	LOCALES = {
 		'name': 'Français',
 		'symbol': 'Fr',
 	},
-	// 'es-es': {
-	// 	'code': 'es-es',
+	// 'es': {
+	// 	'code': 'es',
 	// 	'name': 'Español',
 	// 	'symbol': 'Es',
 	// },
