@@ -40,7 +40,7 @@ function	Index({vaults}) {
 	);
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isStable: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}};
