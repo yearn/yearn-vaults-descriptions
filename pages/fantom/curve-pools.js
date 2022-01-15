@@ -46,7 +46,7 @@ function	Index({vaults}) {
 export async function getStaticProps() {
 	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isCurve: true});
 	const	vaults = JSON.parse(strategiesRaw);
-	return {props: {vaults}};
+	return {props: {vaults}, revalidate: 60 * 60};
 }
 
 export default Index;
