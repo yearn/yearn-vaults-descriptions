@@ -8,7 +8,7 @@
 	"menu-retired-vaults": "Vaults Aposentados",
 	"menu-v1-vaults": "Vaults v1",
 
-	"overview-title": "Bem-vindo ao\nVaults de ~~Yearn~~",
+	"overview-title": "Bem-vindo ao\nVaulst de ~~Yearn~~",
 	"overview-description": "Aqui você pode encontrar informações detalhadas sobre como os yVaults de Yearn operam e as ações (estratégias) que esses vaults executam.\n\nEste site manterá um local único para todas as descrições dos yVaults. Todos os vaults em produção agora são da versão 2 ou superior. Todos os yVaults da versão 1 foram descontinuados.",
 	"overview-button": "Veja Como a Mágica Acontece",
 
@@ -16,7 +16,7 @@
 	"yearn-and-curve-eth-vault-description": "Yearn Finance começou em, e tem a maioria de seus yVaults rodando na Ethereum Mainnet. Implementamos mais de 250 estratégias e 100 yVaults em Ethereum. Os que estão atualmente em produção você pode encontrar nas seções abaixo.",
 	"yearn-and-curve-synergy-title": "Sinergia Yearn e Curve",
 	"yearn-and-curve-synergy-description": "Um dos componentes críticos da infraestrutura da Yearn inclui um relacionamento colaborativo com [Curve.fi](https://curve.fi/). Vários vaults de Yearn fornecem liquidez aos pools do Curve e fazem stake dos tokens do provedor de liquidez (LP) nos respectivos \"gauges\", ganhando recompensas em CRV.\n\nYearn bloqueia **10%** de todas as recompensas CRV recebidas no yveCRV-DAO (\"Backscratcher\") para obter uma quantidade adicional de CRV.\n\nNas descrições da estratégia, os vaults que são impulsionados são indicados com um",
-	"yearn-and-curve-synergy-description-next": "\n\nPara uma compreensão mais profunda, consulte a seção [Entendendo os Multiplicadores de Incentivo de Curve](/curve-boost-multipliers).\n\nAlém disso, os 90% restantes do CRV ganho são trocados pelos respectivos tokens de LP, e depositados novamente no vault. A única exceção é o vault yvUSDN3Crv que trava 50% do CRV ganho no vault Backscratcher e troca os restantes 50%.",
+	"yearn-and-curve-synergy-description-next": "\n\nPara uma compreensão mais profunda, consulte a seção [Entendendo os Multiplicadores de Incentivo de Curve](/pt/curve-boost-multipliers).\n\nAlém disso, os 90% restantes do CRV ganho são trocados pelos respectivos tokens de LP, e depositados novamente no vault. A única exceção é o vault yvUSDN3Crv que trava 50% do CRV ganho no vault Backscratcher e troca os restantes 50%.",
 	"yearn-and-curve-yveCRV-title": "veCRV-DAO yVault\n(yveCRV-DAO)",
 	"yearn-and-curve-yveCRV-subtitle": "AKA — Backscratcher",
 	"yearn-and-curve-yveCRV-description": "Este vault converte seu CRV em yveCRV, obtendo para você uma parte contínua das taxas de Curve, que são aumentadas sobre o que você ganha fazendo stake em Curve. Quanto mais CRV for convertido, maiores serão suas recompensas semanais. Toda sexta-feira, eles podem ser reivindicados do vault como 3Crv (token de LP do 3pool de Curve).\n\nYearn, por si só, deposita 10% de todos os CRV ganhos neste vault e dá suas recompensas de 3crv aos detentores de tokens do vault, sendo daí de onde vêm as recompensas semanais incentivadas.\n\nO depósito não é reversível: você só pode converter CRV em yveCRV, pois o CRV está perpetuamente em stake no depósito de votação de Curve. Todos os vaults enviam 10% do CRV ganho para este vault, para sustentar os níveis de incentivo.\n\nPara informações mais detalhadas, consulte este artigo no Medium: [https://medium.com/iearn/thats-boost-folks-7afae75db826](https://medium.com/iearn/thats-boost-folks-7afae75db826)",
