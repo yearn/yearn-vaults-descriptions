@@ -9,6 +9,11 @@ const	LOCALES = {
 		'name': 'Français',
 		'symbol': 'Fr',
 	},
+	'pt': {
+		'code': 'pt',
+		'name': 'Português',
+		'symbol': 'Pt',
+	},
 	// 'es': {
 	// 	'code': 'es',
 	// 	'name': 'Español',
