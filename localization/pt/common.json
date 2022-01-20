@@ -8,7 +8,7 @@
 	"menu-retired-vaults": "Vaults Aposentados",
 	"menu-v1-vaults": "Vaults v1",
 
-	"overview-title": "Bem-vindo ao\nVaulst de ~~Yearn~~",
+	"overview-title": "Bem-vindo ao\nVaults de ~~Yearn~~",
 	"overview-description": "Aqui você pode encontrar informações detalhadas sobre como os yVaults de Yearn operam e as ações (estratégias) que esses vaults executam.\n\nEste site manterá um local único para todas as descrições dos yVaults. Todos os vaults em produção agora são da versão 2 ou superior. Todos os yVaults da versão 1 foram descontinuados.",
 	"overview-button": "Veja Como a Mágica Acontece",
 
@@ -24,7 +24,7 @@
 
 	"curve-boost-title": "Entendendo os Multiplicadores \nde Incentivo de Curve",
 	"curve-boost-description": "Usando o pool crvCOMP como exemplo, os provedores de liquidez ganham aproximadamente 12,82% APY em taxas de negociação e um adicional de 24,72% APY (na data desta publicação) na forma de recompensas CRV, se eles fizerem o stake de seus tokens de provedor de liquidez no gauge da Curve.\n\nOs depositantes podem aumentar as recompensas CRV obtidas ao bloquear CRV no módulo de depósito de votação, com um aumento máximo de **2,5x**. O tamanho do incentivo depende da quantidade de CRV travado no escrow de voto e do tamanho do depósito no pool de liquidez; no entanto, esta [calculadora](https://dao.curve.fi/minter/calc) é útil na modelagem de potenciais multiplicadores de incentivos. O incentivo máximo para o pool crvCOMP rende um APY de 61,81% adicional na forma de recompensas CRV, que é exibido abaixo.",
-	"curve-boost-description-next": "Yearn faz stake do token de provedor de liquidez Curve no gauge para obter recompensas CRV. 10% dessas recompensas estão bloqueadas em nosso cofre yveCRV-DAO (descrito acima) para aumentar as recompensas de todos os yVaults com estratégias de curva.\n\nPara obter mais informações sobre multiplicadores de aumento de curva, consulte a documentação da Curve para este tópico — [aqui]( https://hackmd.io/CawF8dfsSk2OlN7-ubjipQ).",
+	"curve-boost-description-next": "Yearn faz stake do token de provedor de liquidez Curve no gauge para obter recompensas CRV. 10% dessas recompensas estão bloqueadas em nosso cofre yveCRV-DAO (descrito acima) para aumentar as recompensas de todos os yVaults com estratégias de curva.\n\nPara obter mais informações sobre multiplicadores de aumento de curva, consulte a documentação da Curve para este tópico — [aqui](https://hackmd.io/CawF8dfsSk2OlN7-ubjipQ).",
 	"curve-boost-next-button": "Próximo: Ethereum: Stablecoins",
 
 	"page-eth-stable-title": "Stablecoins",
