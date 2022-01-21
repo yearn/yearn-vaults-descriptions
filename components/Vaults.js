@@ -25,6 +25,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 	return (
 		<div
 			key={vault.name}
+			id={vault.address}
 			className={`max-w-4xl w-full bg-white ${isExpanded ? 'dark:bg-dark-400' : 'dark:bg-dark-600'} transition-colors p-4 rounded-sm mb-0.5`}>
 			<div className={`flex flex-row items-center ${isRetired ? '' : 'cursor-pointer'}`} onClick={onExpand}>
 				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
