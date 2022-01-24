@@ -5,7 +5,7 @@ import	IconChevron						from	'components/icons/IconChevron';
 import	IconExpand						from	'components/icons/Expand';
 import	IconRetired						from	'components/icons/IconRetired';
 
-function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
+function	Vaults({vault, chainExplorer, isRetired, isApeTax, isPublicApeTax, shouldHideValids}) {
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	const	[isUriCopied, set_isUriCopied] = React.useState(false);
@@ -30,7 +30,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 			className={`max-w-4xl w-full bg-white ${isExpanded ? 'dark:bg-dark-400' : 'dark:bg-dark-600'} transition-colors p-4 rounded-sm mb-0.5`}>
 			<div className={`flex flex-row items-center group ${isRetired ? '' : 'cursor-pointer'}`} onClick={onExpand}>
 				<div className={'mr-4 w-8 flex justify-center items-center'} style={{minWidth: 32}}>
-					{isApeTax ? 
+					{isApeTax || isPublicApeTax ? 
 						<p className={'whitespace-nowrap'}>
 							{vault.icon}
 						</p>
@@ -43,8 +43,8 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, shouldHideValids}) {
 								loading={'eager'} />}
 				</div>
 				<p className={'text-ygray-200 dark:text-white mr-2 break-words'}>
-					{`${vault.display_name} ${isApeTax ? '' : '—'} `}
-					<b className={'font-bold'}>{isApeTax ? '' : vault.name}</b>
+					{`${vault.display_name} ${isApeTax || isPublicApeTax ? '' : '—'} `}
+					<b className={'font-bold'}>{isApeTax || isPublicApeTax ? '' : vault.name}</b>
 				</p>
 				<div onClick={(e) => {
 					e.stopPropagation();

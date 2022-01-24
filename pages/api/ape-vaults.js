@@ -127,9 +127,10 @@ async function getStrategies({network}) {
 
 	const	vaults = (await (await fetch(`https://ape.tax/api/vaults?network=${network}`)).json()).data;
 	const	vaultsWithStrats = [];
+	const	filteredVaults = vaults.filter(e => e.status !== 'endorsed');
 
-	for (let index = 0; index < vaults.length; index++) {
-		const vault = vaults[index];
+	for (let index = 0; index < filteredVaults.length; index++) {
+		const vault = filteredVaults[index];
 		const	[strategies, hasMissingStrategiesDescriptions] = await getVaultStrategies({
 			vaultAddress: vault.address,
 			network,
