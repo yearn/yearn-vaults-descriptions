@@ -2,6 +2,7 @@ import	React				from	'react';
 import	Link				from	'next/link';
 import	HeadIconYearn		from	'components/icons/HeadIconYearn';
 import	HeadIconEth			from	'components/icons/HeadIconEth';
+import	HeadIconFtm			from	'components/icons/HeadIconFtm';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
@@ -26,8 +27,9 @@ function	Index() {
 					</div>
 				</div>
 			</div>
+
 			<div className={'w-full'}>
-				<div className={'flex flex-row items-center mb-6'}>
+				<div className={'flex flex-row items-center mb-2'}>
 					<div className={'mr-4 w-10 h-10'}>
 						<HeadIconEth className={'w-10 h-10'}/>
 					</div>
@@ -38,11 +40,32 @@ function	Index() {
 					</div>
 				</div>
 				<div className={'w-full max-w-full'}>
-					<p className={'text-gray-blue-1 dark:text-gray-3'}>
-						{common['yearn-and-curve-eth-vault-description']}
+					<p
+						className={'text-gray-blue-1 dark:text-gray-3'}
+						dangerouslySetInnerHTML={{__html: parseMarkdown(common['yearn-and-curve-eth-vault-description'])}}>
 					</p>
 				</div>
 			</div>
+
+			<div className={'w-full'}>
+				<div className={'flex flex-row items-center mt-8 mb-2'}>
+					<div className={'mr-4 w-10 h-10'}>
+						<HeadIconFtm className={'w-10 h-10'}/>
+					</div>
+					<div>
+						<h1 className={'title'}>
+							{common['yearn-and-curve-ftm-vault-title']}
+						</h1>
+					</div>
+				</div>
+				<div className={'w-full max-w-full'}>
+					<p
+						className={'text-gray-blue-1 dark:text-gray-3'}
+						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-stable-description'])}}>
+					</p>
+				</div>
+			</div>
+
 			<div className={'mt-16 w-full'}>
 				<div className={'self-center md:self-auto'}>
 					<Link href={'/yearn-and-curve'}>

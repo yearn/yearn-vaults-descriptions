@@ -24,7 +24,7 @@ export function truncateHex(address, size) {
 
 export function	parseMarkdown(markdownText) {
 	const htmlText = markdownText
-		.replace(/\[(.*?)\]\((.*?)\)/gim, "<a class='underline cursor-pointer text-yblue' target='_blank' href='$2'>$1</a>")
+		.replace(/\[(.*?)\]\((.*?)\)/gim, "<a class='hover:underline cursor-pointer text-yearn-blue' target='_blank' href='$2'>$1</a>")
 		.replace(/~~(.*?)~~/gim, "<span class='text-yblue'>$1</span>")
 		.replace(/\*\*(.*?)\*\*/gim, "<span class='font-bold'>$1</span>")
 		;

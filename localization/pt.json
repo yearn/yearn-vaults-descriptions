@@ -14,6 +14,7 @@
 	"overview-button": "Veja Como a Mágica Acontece",
 
 	"yearn-and-curve-eth-vault-title": "Vaults Ethereum",
+	"yearn-and-curve-ftm-vault-title": "Vaults Fantom",
 	"yearn-and-curve-eth-vault-description": "Yearn Finance começou em, e tem a maioria de seus yVaults rodando na Ethereum Mainnet. Implementamos mais de 250 estratégias e 100 yVaults em Ethereum. Os que estão atualmente em produção você pode encontrar nas seções abaixo.",
 	"yearn-and-curve-synergy-title": "Sinergia Yearn e\nCurve",
 	"yearn-and-curve-synergy-description": "Um dos componentes críticos da infraestrutura da Yearn inclui um relacionamento colaborativo com [Curve.fi](https://curve.fi/). Vários vaults de Yearn fornecem liquidez aos pools do Curve e fazem stake dos tokens do provedor de liquidez (LP) nos respectivos \"gauges\", ganhando recompensas em CRV.\n\nYearn bloqueia **10%** de todas as recompensas CRV recebidas no yveCRV-DAO (\"Backscratcher\") para obter uma quantidade adicional de CRV.",
