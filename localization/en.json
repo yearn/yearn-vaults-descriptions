@@ -1,4 +1,5 @@
 {
+	"title": "Vaults",
 	"menu-overview": "Overview",
 	"menu-yearn-curve": "Yearn and Curve",
 	"menu-curve-boost-multiplier": "Curve Boost Multipliers",
@@ -15,8 +16,8 @@
 
 	"yearn-and-curve-eth-vault-title": "Ethereum Vaults",
 	"yearn-and-curve-eth-vault-description": "Yearn Finance started and has the majority of its yVaults running on Ethereum Mainnet. We have deployed over 250 strategies and 100 yVaults on Ethereum. The ones that are currently running in production you can find in the sections below.",
-	"yearn-and-curve-synergy-title": "Yearn and Curve Synergy",
-	"yearn-and-curve-synergy-description": "One of the critical components of Yearn’s infrastructure includes a collaborative relationship with [Curve.fi](https://curve.fi/). Several Yearn vaults provide liquidity into Curve pools and stake the liquidity provider (LP) tokens into the respective gauges, earning CRV rewards.\n\nYearn locks **10%** of all CRV rewards earned into the yveCRV-DAO (“Backscratcher”) to obtain an additional amount of CRV.\n\nIn the strategy descriptions, vaults that are boosted are indicated with a",
+	"yearn-and-curve-synergy-title": "Yearn and Curve\nSynergy",
+	"yearn-and-curve-synergy-description": "One of the critical components of Yearn’s infrastructure includes a collaborative relationship with [Curve.fi](https://curve.fi/). Several Yearn vaults provide liquidity into Curve pools and stake the liquidity provider (LP) tokens into the respective gauges, earning CRV rewards.\n\nYearn locks **10%** of all CRV rewards earned into the yveCRV-DAO (“Backscratcher”) to obtain an additional amount of CRV.",
 	"yearn-and-curve-synergy-description-next": "\n\nFor a deeper understanding, refer to the [Understanding Curve Boost Multipliers](/curve-boost-multipliers) section.\n\nFurthermore, the remaining 90% of the CRV earned are swapped into the respective LP tokens, and re-deposited into the vault. The only exception is the yvUSDN3Crv vault that locks 50% of the CRV earned into the Backscratcher vault and swaps the remaining 50%.",
 	"yearn-and-curve-yveCRV-title": "veCRV-DAO yVault\n(yveCRV-DAO)",
 	"yearn-and-curve-yveCRV-subtitle": "AKA — Backscratcher",
@@ -65,5 +66,10 @@
 	"page-ftm-retired-next-button": "Next: Overview",
 
 	"page-experimental-ape-tax-title": "Experimental Vaults",
-	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information."
+	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information.",
+
+	"footer-contribute": "Contribute",
+	"footer-join": "Join Yearn",
+	"footer-watch": "Yearn.watch",
+	"footer-vault-api": "Vault API"
 }

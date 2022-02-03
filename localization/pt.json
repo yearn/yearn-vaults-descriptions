@@ -1,4 +1,5 @@
 {
+	"title": "Vaults",
 	"menu-overview": "Visão Geral",
 	"menu-yearn-curve": "Yearn e Curve",
 	"menu-curve-boost-multiplier": "Multiplicador de Incentivo Curve",
@@ -14,8 +15,8 @@
 
 	"yearn-and-curve-eth-vault-title": "Vaults Ethereum",
 	"yearn-and-curve-eth-vault-description": "Yearn Finance começou em, e tem a maioria de seus yVaults rodando na Ethereum Mainnet. Implementamos mais de 250 estratégias e 100 yVaults em Ethereum. Os que estão atualmente em produção você pode encontrar nas seções abaixo.",
-	"yearn-and-curve-synergy-title": "Sinergia Yearn e Curve",
-	"yearn-and-curve-synergy-description": "Um dos componentes críticos da infraestrutura da Yearn inclui um relacionamento colaborativo com [Curve.fi](https://curve.fi/). Vários vaults de Yearn fornecem liquidez aos pools do Curve e fazem stake dos tokens do provedor de liquidez (LP) nos respectivos \"gauges\", ganhando recompensas em CRV.\n\nYearn bloqueia **10%** de todas as recompensas CRV recebidas no yveCRV-DAO (\"Backscratcher\") para obter uma quantidade adicional de CRV.\n\nNas descrições da estratégia, os vaults que são impulsionados são indicados com um",
+	"yearn-and-curve-synergy-title": "Sinergia Yearn e\nCurve",
+	"yearn-and-curve-synergy-description": "Um dos componentes críticos da infraestrutura da Yearn inclui um relacionamento colaborativo com [Curve.fi](https://curve.fi/). Vários vaults de Yearn fornecem liquidez aos pools do Curve e fazem stake dos tokens do provedor de liquidez (LP) nos respectivos \"gauges\", ganhando recompensas em CRV.\n\nYearn bloqueia **10%** de todas as recompensas CRV recebidas no yveCRV-DAO (\"Backscratcher\") para obter uma quantidade adicional de CRV.",
 	"yearn-and-curve-synergy-description-next": "\n\nPara uma compreensão mais profunda, consulte a seção [Entendendo os Multiplicadores de Incentivo de Curve](/pt/curve-boost-multipliers).\n\nAlém disso, os 90% restantes do CRV ganho são trocados pelos respectivos tokens de LP, e depositados novamente no vault. A única exceção é o vault yvUSDN3Crv que trava 50% do CRV ganho no vault Backscratcher e troca os restantes 50%.",
 	"yearn-and-curve-yveCRV-title": "veCRV-DAO yVault\n(yveCRV-DAO)",
 	"yearn-and-curve-yveCRV-subtitle": "AKA — Backscratcher",

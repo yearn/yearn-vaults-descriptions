@@ -7,7 +7,8 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:react/recommended',
-		'plugin:react-hooks/recommended'
+		'plugin:react-hooks/recommended',
+		'plugin:tailwindcss/recommended'
 	],
 	'parserOptions': {
 		'ecmaFeatures': {
@@ -17,7 +18,8 @@ module.exports = {
 		'sourceType': 'module'
 	},
 	'plugins': [
-		'react'
+		'react',
+		'tailwindcss'
 	],
 	'rules': {
 		'indent': [2, 'tab'],
@@ -28,6 +30,6 @@ module.exports = {
 		'object-curly-spacing': [2, 'never'],
 		'array-bracket-spacing': [2, 'never'],
 		'react/jsx-curly-brace-presence': ['error', {'props': 'always', 'children': 'always'}],
-		'semi': 'error',
+		'semi': 'error'
 	}
 };

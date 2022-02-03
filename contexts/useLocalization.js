@@ -4,12 +4,12 @@ const	Localization = createContext();
 
 function	getCommons(language) {
 	try {
-		const	_common = require(`/localization/${language}/common.json`);
-		const	_commonFallback = require('/localization/en/common.json');
+		const	_common = require(`/localization/${language}.json`);
+		const	_commonFallback = require('/localization/en.json');
 		const	_commonWithFallback = Object.assign({..._commonFallback}, {..._common});
 		return (_commonWithFallback);
 	} catch (e) {
-		const	_common = require('/localization/en/common.json');
+		const	_common = require('/localization/en.json');
 		return (_common);
 	}
 }

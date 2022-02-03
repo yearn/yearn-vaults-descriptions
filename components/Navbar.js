@@ -14,14 +14,14 @@ function	Navbar() {
 	const router = useRouter();
 
 	return (
-		<nav className={'w-full flex flex-col relative'}>
-			<div className={'justify-between flex flex-row w-full absolute right-0'}>
+		<nav className={'flex relative flex-col w-full'}>
+			<div className={'flex absolute right-0 flex-row justify-between w-full'}>
 				<div />
 				<div className={'flex flex-row space-x-2 h-full'}>
-					<div className={'items-center justify-start flex-row flex h-full'} key={routerMapping[router.pathname]}>
+					<div className={'flex flex-row justify-start items-center h-full'} key={routerMapping[router.pathname]}>
 						<select
 							value={routerMapping[router.pathname]}
-							className={'m-0 mr-2 px-3 py-2 items-center leading-4 cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-900 text-xs bg-white dark:bg-dark-900 font-semibold text-ygray-700 dark:text-dark-50 pr-7 hidden md:flex'}
+							className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 text-xs font-semibold whitespace-nowrap rounded-sm border-none cursor-pointer button-light'}
 							onChange={e => {
 								if (e.target.value === 'Strategies')
 									router.push('/internal/missing-descriptions');
@@ -37,10 +37,10 @@ function	Navbar() {
 							))}
 						</select>
 					</div>
-					<div className={'items-center justify-start flex-row flex h-full'}>
+					<div className={'flex flex-row justify-start items-center h-full'}>
 						<select
 							value={currentNetwork}
-							className={'m-0 mr-2 px-3 py-2 items-center leading-4 cursor-pointer whitespace-nowrap border border-solid border-ygray-500 dark:border-dark-900 text-xs bg-white dark:bg-dark-900 font-semibold text-ygray-700 dark:text-dark-50 pr-7 hidden md:flex'}
+							className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 text-xs font-semibold whitespace-nowrap rounded-sm border-none cursor-pointer button-light'}
 							onChange={e => set_currentNetwork(e.target.value)}>
 							{options.map((chain, index) => (
 								<option className={'cursor-pointer'} key={index} value={chain}>{chain}</option>

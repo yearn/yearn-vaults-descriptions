@@ -1,12 +1,12 @@
 import	React							from	'react';
 import	{parseMarkdown}					from	'utils';
-import	IconRocket						from	'components/icons/IconRocket';
+import	HeadIconRocket					from	'components/icons/HeadIconRocket';
 
 function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValids, isRetired}) {
 	if (strategiesData.length === 0) {
 		return (
 			<section aria-label={'STRATEGIES'}>
-				<div className={'w-full text-ygray-200 dark:text-dark-50 dark:text-dark-50'}>
+				<div className={'w-full text-gray-blue-1 dark:text-gray-3'}>
 					<i
 						className={'text-xs'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown('No strategy detected.')}} />
@@ -20,24 +20,24 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 		<section aria-label={'STRATEGIES'} className={'mt-4 '}>
 			{
 				strategiesData.filter(s => shouldHideValids ? !s.description : true).map((strategy, index) => (
-					<div key={index} className={'flex flex-col ml-4 md:ml-12 relative'}>
-						<div className={'text-ygray-200 dark:text-dark-50 mb-4'}>
-							<div className={'mb-2 flex flex-row items-center'}>
-								<a href={`${chainExplorer}/address/${strategy.address}#code`} target={'_blank'} className={'inline text-yblue underline'} rel={'noreferrer'}>
+					<div key={index} className={'flex relative flex-col ml-4 md:ml-12'}>
+						<div className={'mb-4 text-gray-blue-1 dark:text-gray-3'}>
+							<div className={'flex flex-row items-center mb-2'}>
+								<a href={`${chainExplorer}/address/${strategy.address}#code`} target={'_blank'} className={'inline text-yearn-blue hover:underline'} rel={'noreferrer'}>
 									{strategy.name}
 								</a>
 								<div>
 									{strategy.noIPFS ? (
-										<span className={'bg-tag-withdraw text-ygray-200 dark:text-dark-50 font-bold rounded-md px-2 text-xs py-1 ml-2'}>
+										<span className={'py-1 px-2 ml-2 text-xs font-bold text-gray-blue-1 dark:text-gray-3 bg-yearn-blue rounded-md'}>
 											{'Missing IPFS file'}
 										</span>
 									) : null}
 									{!isRetired && strategiesWithBoost.includes(strategy.name) ? (
-										<IconRocket className={'ml-2'} width={16} height={16} />
+										<HeadIconRocket className={'ml-2'} width={16} height={16} />
 									): null}
 								</div>
 							</div>
-							<div className={'w-full pr-4 md:pr-16'}>
+							<div className={'pr-4 w-full md:pr-16'}>
 								{strategy?.description ? 
 									<p className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown(strategy?.description.replace(/{{token}}/g, vaultSymbol) || '')}} />
 									:

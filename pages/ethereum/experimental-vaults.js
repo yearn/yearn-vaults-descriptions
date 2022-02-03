@@ -12,29 +12,33 @@ function	Index({vaults}) {
 	const	{common} = useLocalization();
 
 	return (
-		<section>
-			<div className={'w-full mt-10 md:mt-20 pt-2'}>
+		<section className={'p-4 w-full bg-white dark:bg-black rounded-sm'}>
+			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
 						<IconApe />
 					</div>
-					<h1 className={'text-4xl md:text-6xl text-ygray-100 dark:text-white font-bold mb-8'}>
+					<h1 className={'mb-8 text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
 						{common['page-experimental-ape-tax-title']}
 					</h1>
-					<div className={'max-w-xl space-y-6 mb-12'}>
+					<div className={'mb-8 w-full max-w-full'}>
 						<p
-							className={'text-ygray-200 dark:text-dark-50'}
+							className={'inline text-gray-blue-1 dark:text-gray-3 whitespace-pre-line'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-experimental-ape-tax-description'])}} />
 					</div>
-					{(vaults || []).map((vault) => <Vaults
-						key={vault.name}
-						vault={vault}
-						chainExplorer={chainExplorer}
-						isPublicApeTax />)}
 				</div>
-				<div className={'mt-8 self-center md:self-auto'}>
-					<Link href={'/ethereum/retired-vaults'}>
-						<button className={'text-white bg-yblue py-2 px-5 font-bold text-sm text-center md:text-left'} style={{width: 279}}>
+			</div>
+			<div className={'w-full'}>
+				{(vaults || []).map((vault) => <Vaults
+					key={vault.name}
+					vault={vault}
+					chainExplorer={chainExplorer}
+					isPublicApeTax />)}
+			</div>
+			<div className={'w-full'}>
+				<div className={'self-center mt-8 md:self-auto'}>
+					<Link href={'/ethereum/defi-tokens'}>
+						<button className={'button-large button-filled'}>
 							{common['page-eth-curve-pool-next-button']}
 						</button>
 					</Link>
