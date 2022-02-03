@@ -25,7 +25,6 @@ function	Footer() {
 			<a href={'https://api.yearn.finance/v1/chains/1/vaults/all'} target={'_blank'} className={'pr-6 text-gray-blue-1 dark:text-gray-3 link'} rel={'noreferrer'}>
 				{common['footer-vault-api']}
 			</a>
-
 			<div className={'px-3 ml-auto text-gray-blue-1 dark:text-gray-3 link'}>
 				<a href={'https://twitter.com/iearnfinance'} target={'_blank'} rel={'noreferrer'}><IconTwitter /></a>
 			</div>
