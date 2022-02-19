@@ -33,7 +33,7 @@ function	Index({vaults}) {
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
-					<Link href={'/ethereum/defi-tokens'}>
+					<Link href={'/ethereum/v1-vaults'}>
 						<button className={'button-large button-filled'}>
 							{common['page-eth-retired-next-button']}
 						</button>
