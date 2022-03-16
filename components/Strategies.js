@@ -42,7 +42,7 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 							</div>
 							<div className={'pr-4 w-full md:pr-16'}>
 								{strategy?.description ? 
-									<p className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown((strategy?.localization?.[language]?.description || strategy?.description).replace(/{{token}}/g, vaultSymbol) || '')}} />
+									<p className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown((strategy?.localization?.[language]?.description || strategy?.description || '').replace(/{{token}}/g, vaultSymbol) || '')}} />
 									:
 									<i className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown('No description provided for this strategy.')}} />
 								}
