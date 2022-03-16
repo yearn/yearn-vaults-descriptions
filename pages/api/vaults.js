@@ -31,13 +31,15 @@ async function getVaultStrategies({vaultStrategies, stratTree}) {
 			strategies.push({
 				address: strategyAddress || '',
 				name: details?.name || strategyName || '',
-				description: (details?.description ? details.description : '')
+				description: (details?.description ? details.description : ''),
+				localization: (details?.localization ? details.localization : {})
 			});	
 		} else {
 			strategies.push({
 				address: strategyAddress || '',
 				name: strategyName || '',
-				description: ''
+				description: '',
+				localization: {}
 			});	
 			hasMissingStrategiesDescriptions = true;
 		}
@@ -56,6 +58,7 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable
 			stratTree[toAddress(address)] = {
 				description: stratDetails.description,
 				name: stratDetails.name,
+				localization: stratDetails.localization
 			};
 		}
 	}
