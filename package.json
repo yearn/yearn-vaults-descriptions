@@ -29,7 +29,7 @@
     "tailwindcss": "^3.0.18"
   },
   "devDependencies": {
-    "eslint": "^8.8.0",
+    "eslint": "^8.11.0",
     "eslint-config-next": "^12.0.10",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
