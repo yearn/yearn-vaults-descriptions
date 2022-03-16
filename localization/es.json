@@ -39,7 +39,7 @@
 	"page-eth-curve-pool-next-button": "Siguiente: Vaults retiradas",
 
 	"page-eth-defi-tokens-title": "Tokens Defi",
-	"page-eth-defi-tokens-description": "Curve yVaults acepta depósitos de tokens de fondos de liquidez obtenidos al proporcionarlos a los fondos de liquidez en Curve Finance. Para ingresar a estas vaults, debe depositar los activos subyacentes en sus respectivos fondos en Curve Finance".,
+	"page-eth-defi-tokens-description": "Curve yVaults acepta depósitos de tokens de fondos de liquidez obtenidos al proporcionarlos a los fondos de liquidez en Curve Finance. Para ingresar a estas vaults, debe depositar los activos subyacentes en sus respectivos fondos en Curve Finance.",
 	"page-eth-defi-tokens-next-button": "Siguiente: Pools en Curve",
 
 	"page-eth-retired-title": "Vaults Retiradas",
