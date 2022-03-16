@@ -1,8 +1,11 @@
 import	React							from	'react';
 import	{parseMarkdown}					from	'utils';
 import	HeadIconRocket					from	'components/icons/HeadIconRocket';
+import	useLocalization					from	'contexts/useLocalization';
 
 function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValids, isRetired}) {
+	const	{language} = useLocalization();
+
 	if (strategiesData.length === 0) {
 		return (
 			<section aria-label={'STRATEGIES'}>
@@ -24,7 +27,7 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 						<div className={'mb-4 text-gray-blue-1 dark:text-gray-3'}>
 							<div className={'flex flex-row items-center mb-2'}>
 								<a href={`${chainExplorer}/address/${strategy.address}#code`} target={'_blank'} className={'inline text-yearn-blue hover:underline'} rel={'noreferrer'}>
-									{strategy.name}
+									{strategy?.localization?.[language]?.name || strategy.name}
 								</a>
 								<div>
 									{strategy.noIPFS ? (
@@ -39,7 +42,7 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 							</div>
 							<div className={'pr-4 w-full md:pr-16'}>
 								{strategy?.description ? 
-									<p className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown(strategy?.description.replace(/{{token}}/g, vaultSymbol) || '')}} />
+									<p className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown((strategy?.localization?.[language]?.description || strategy?.description || '').replace(/{{token}}/g, vaultSymbol) || '')}} />
 									:
 									<i className={'inline'} dangerouslySetInnerHTML={{__html: parseMarkdown('No description provided for this strategy.')}} />
 								}
