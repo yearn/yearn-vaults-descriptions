@@ -10,7 +10,7 @@ import	LOCALES							from	'utils/locale';
 const META_GH_PROTOCOL_URI = `${process.env.META_GITHUB_URL}/tree/master/data/protocols`;
 
 function Protocol({name, filename, description, missingTranslationsLocales}) {
-	const {currentChainId} = useNetwork();
+	const	{currentChainId} = useNetwork();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 
