@@ -2,12 +2,62 @@ import	React							from	'react';
 import	Navbar							from	'components/Navbar';
 import	HeadIconCogs					from	'components/icons/HeadIconCogs';
 import	useNetwork						from	'contexts/useNetwork';
+import	IconChevron						from	'components/icons/IconChevron';
+import	IconLinkOut						from	'components/icons/IconLinkOut';
 import {filterProtocolsWithMissingTranslations, listProtocols} from 'pages/api/protocols';
 
+const YEARN_META_GH_PROTOCOL_URI = 'https://github.com/yearn/yearn-meta/blob/master/data/protocols';
+
+function Protocol({name, filename, description, missingTranslationsLocales}) {
+	const {currentChainId} = useNetwork();
+	const	[isExpanded, set_isExpanded] = React.useState(false);
+	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
+
+	function	onExpand() {
+		if (isExpanded) {
+			set_isExpandedAnimation(false);
+			setTimeout(() => set_isExpanded(false), 500);
+		} else {
+			set_isExpanded(true);
+			setTimeout(() => set_isExpandedAnimation(true), 1);
+		}
+	}
+
+	return (
+		<div
+			className={`max-w-4xl w-full ${isExpanded ? 'bg-white-blue-1 dark:bg-black' : 'bg-white-blue-2 hover:bg-white-blue-1 dark:bg-black-1'} transition-colors p-4 rounded-sm mb-0.5`}>
+			<div className={'group flex flex-row items-center cursor-pointer'} onClick={onExpand}>
+				<p className={'mr-2 dark:text-white break-words text-dark-blue-1'}>
+					<b className={'font-bold'}>{name}</b>
+				</p>
+				<span className={'py-1 px-2 ml-2 text-xs font-bold text-white dark:text-gray-3 bg-yearn-blue rounded-md'}>
+					{`Missing ${missingTranslationsLocales.length} translations`}
+				</span>
+				<div className={'flex flex-row justify-center mr-1 ml-auto'}>
+					<a
+						onClick={e => e.stopPropagation()}
+						target={'_blank'}
+						href={`${YEARN_META_GH_PROTOCOL_URI}/${currentChainId}/${filename}.json`}
+						rel={'noreferrer'}>
+						<IconLinkOut className={'mr-4 w-4 h-4 text-yearn-blue'} />
+					</a>
+					<IconChevron className={isExpandedAnimation ? 'transform -rotate-90 transition-transform text-gray-blue-1 dark:text-gray-3 w-4 h-4' : 'transform -rotate-180 transition-transform text-gray-blue-1 dark:text-gray-3 w-4 h-4'} />
+				</div>
+			</div>
+			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
+				{isExpanded ? (
+					<div className={'space-y-2 mt-4'}>
+						<p>{description}</p>
+						<p className={'text-xs'}>{`Missing translations for ${missingTranslationsLocales.map(data => data.name).join(', ')}`}</p>
+					</div>
+				) : <div />}
+			</div>
+		</div>
+	);	
+}
 
 function	Index({protocolsList}) {
 	const	[protocols, set_protocols] = React.useState(protocolsList ?? []);
-	const [protocolsWithMissingTranslations, set_protocolsWithMissingTranslations] = React.useState();
 	const [filterLocale, set_filterLocale] = React.useState('');
 	const	[isFetchingData, set_isFetchingData] = React.useState(false);
 	const	{currentNetwork} = useNetwork();
@@ -17,11 +67,12 @@ function	Index({protocolsList}) {
 		const _data = await listProtocols(_currentNetwork);
 		set_protocols(_data);
 
-		const _protocolsWithMissingTranslations = filterProtocolsWithMissingTranslations(_data);
-		set_protocolsWithMissingTranslations(_protocolsWithMissingTranslations);
-
 		set_isFetchingData(false);
 	}
+
+	const protocolsWithMissingTranslations = React.useMemo(() => {
+		return filterProtocolsWithMissingTranslations(protocols, filterLocale);
+	}, [protocols, filterLocale]);
 
 	React.useEffect(() => {
 		refetchData(currentNetwork === 'Ethereum' ? 1 : currentNetwork === 'Fantom' ? 250 : 1);
@@ -56,7 +107,7 @@ function	Index({protocolsList}) {
 						</div>
 					</div>
 					<div className={'w-full'}>
-						{'Todo: render translations here'}
+						{protocolsWithMissingTranslations.map(protocol => <Protocol key={protocol.name} {...protocol} />)}
 					</div>
 				</div>
 			</div>

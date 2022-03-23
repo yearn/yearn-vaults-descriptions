@@ -1,3 +1,5 @@
+import LOCALES from 'utils/locale';
+
 const BASE_API_URL = 'https://meta.yearn.network';
 
 /**
@@ -20,15 +22,21 @@ const BASE_API_URL = 'https://meta.yearn.network';
  */
 export async function listProtocols(chainId) {
 	const protocolApiUrl = `${BASE_API_URL}/protocols/${chainId}`;
-	const names = (await (await fetch(`${protocolApiUrl}/index`)).json())['files'];
+	const protocolFilenames = (await (await fetch(`${protocolApiUrl}/index`)).json())['files'];
 
-	if (!(names instanceof Array)) {
-		console.warn('names is not an array.');
+	if (!(protocolFilenames instanceof Array)) {
+		console.warn('protocolFilenames is not an array.');
 		return [];
 	}
 
-	const protocolPromises = names.map(async (name) => {
-		return  fetch(`${protocolApiUrl}/${name}`).then(res => res.json());
+	const protocolPromises = protocolFilenames.map(async (name) => {
+		return  fetch(`${protocolApiUrl}/${name}`).then(async (res) => {
+			const data = await res.json();
+			return {
+				...data,
+				filename: name
+			};
+		});
 	});
 
 	return Promise.all(protocolPromises);
@@ -39,7 +47,7 @@ export async function listProtocols(chainId) {
  * 
  * A "missingTranslationsLocales" field will be added for each protocol with missing translations
  */
-export function filterProtocolsWithMissingTranslations(protocols, locale) {
+export function filterProtocolsWithMissingTranslations(protocols = [], locale = '') {
 	if (!(protocols instanceof Array)) {
 		console.warn('protocols is not an array.');
 		return [];
@@ -52,7 +60,9 @@ export function filterProtocolsWithMissingTranslations(protocols, locale) {
 			...protocol,
 			missingTranslationsLocales
 		};
-	}).filter(protocol => protocol.missingTranslationsLocales.length > 0 || protocol.missingTranslationsLocales.includes(locale));
+	}).filter(protocol => {
+		return protocol.missingTranslationsLocales.length > 0 || protocol.missingTranslationsLocales.some(localeData => localeData.code.toLowerCase() === locale.toLowerCase());
+	});
 }
 
 function findProtocolMissingTranslations(protocol) {
@@ -61,7 +71,7 @@ function findProtocolMissingTranslations(protocol) {
 
 	for (const [locale, translation] of Object.entries(protocol.localization ?? {})) {
 		if (!translation.description || (locale != 'en' && englishDescription === translation.description)) {
-			missingTranslations.push(locale);
+			missingTranslations.push(LOCALES[locale]);
 		}
 	}
 
