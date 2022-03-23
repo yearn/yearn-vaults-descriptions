@@ -4,7 +4,7 @@ import	HeadIconCogs					from	'components/icons/HeadIconCogs';
 import	useNetwork						from	'contexts/useNetwork';
 import	IconChevron						from	'components/icons/IconChevron';
 import	IconLinkOut						from	'components/icons/IconLinkOut';
-import {filterProtocolsWithMissingTranslations, listProtocols} from 'pages/api/protocols';
+import	{filterProtocolsWithMissingTranslations, listProtocols} from 'pages/api/protocols';
 import	LOCALES							from	'utils/locale';
 
 const META_GH_PROTOCOL_URI = `${process.env.META_GITHUB_URL}/tree/master/data/protocols`;
