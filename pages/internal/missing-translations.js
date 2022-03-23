@@ -59,7 +59,7 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 
 function	Index({protocolsList}) {
 	const	[protocols, set_protocols] = React.useState(protocolsList ?? []);
-	const [localeFilter, set_localeFilter] = React.useState('');
+	const	[localeFilter, set_localeFilter] = React.useState('');
 	const	[isFetchingData, set_isFetchingData] = React.useState(false);
 	const	{currentNetwork} = useNetwork();
 
