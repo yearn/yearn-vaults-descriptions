@@ -28,7 +28,7 @@ export async function listProtocols(chainId) {
 	}
 
 	const protocolPromises = names.map(async (name) => {
-		return await fetch(`${protocolApiUrl}/${name}`).json();
+		return  fetch(`${protocolApiUrl}/${name}`).then(res => res.json());
 	});
 
 	return Promise.all(protocolPromises);

@@ -1,27 +1,30 @@
 import	React							from	'react';
 import	Navbar							from	'components/Navbar';
-import	Vaults							from	'components/Vaults';
 import	HeadIconCogs					from	'components/icons/HeadIconCogs';
-import	{listVaultsWithStrategies}		from	'pages/api/strategies';
 import	useNetwork						from	'contexts/useNetwork';
+import {filterProtocolsWithMissingTranslations, listProtocols} from 'pages/api/protocols';
 
 
-function	Index({vaults}) {
-	const	[vaultList, set_vaultList] = React.useState(vaults);
+function	Index({protocolsList}) {
+	const	[protocols, set_protocols] = React.useState(protocolsList ?? []);
+	const [protocolsWithMissingTranslations, set_protocolsWithMissingTranslations] = React.useState();
+	const [filterLocale, set_filterLocale] = React.useState('');
 	const	[isFetchingData, set_isFetchingData] = React.useState(false);
-	const	[chainExplorer, set_chainExplorer] = React.useState('https://etherscan.io');
 	const	{currentNetwork} = useNetwork();
 
 	async function	refetchData(_currentNetwork) {
 		set_isFetchingData(true);
-		const _data = await listVaultsWithStrategies({network: _currentNetwork});
-		set_vaultList(JSON.parse(_data));
+		const _data = await listProtocols(_currentNetwork);
+		set_protocols(_data);
+
+		const _protocolsWithMissingTranslations = filterProtocolsWithMissingTranslations(_data);
+		set_protocolsWithMissingTranslations(_protocolsWithMissingTranslations);
+
 		set_isFetchingData(false);
 	}
 
 	React.useEffect(() => {
 		refetchData(currentNetwork === 'Ethereum' ? 1 : currentNetwork === 'Fantom' ? 250 : 1);
-		set_chainExplorer(currentNetwork === 'Ethereum' ? 'https://etherscan.io' : currentNetwork === 'Fantom' ? 'http://ftmscan.com' : 'https://etherscan.io');
 	}, [currentNetwork]);
 
 	return (
@@ -31,12 +34,12 @@ function	Index({vaults}) {
 				<div className={'w-full max-w-5xl'}>
 					<div className={'flex flex-col'}>
 						<div className={'mb-8'}>
-							<HeadIconCogs className={'text-yearn-blue dark:text-white'} />
+							<HeadIconCogs className={'dark:text-white text-yearn-blue'} />
 						</div>
 						<div className={'w-full'}>
 							<div className={'flex flex-col'}>
 								<div className={'flex flex-row items-center mb-8 w-full'}>
-									<h1 className={'text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
+									<h1 className={'text-4xl font-bold dark:text-white whitespace-pre-line md:text-6xl text-dark-blue-1'}>
 										{'Translations'}
 									</h1>
 									<div
@@ -53,7 +56,7 @@ function	Index({vaults}) {
 						</div>
 					</div>
 					<div className={'w-full'}>
-						{(vaultList || [])?.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
+						{'Todo: render translations here'}
 					</div>
 				</div>
 			</div>
