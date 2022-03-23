@@ -47,7 +47,7 @@ export async function listProtocols(chainId) {
  * 
  * A "missingTranslationsLocales" field will be added for each protocol with missing translations
  */
-export function filterProtocolsWithMissingTranslations(protocols = [], locale = '') {
+export function filterProtocolsWithMissingTranslations(protocols = [], localeFilter = '') {
 	if (!(protocols instanceof Array)) {
 		console.warn('protocols is not an array.');
 		return [];
@@ -61,7 +61,11 @@ export function filterProtocolsWithMissingTranslations(protocols = [], locale = 
 			missingTranslationsLocales
 		};
 	}).filter(protocol => {
-		return protocol.missingTranslationsLocales.length > 0 || protocol.missingTranslationsLocales.some(localeData => localeData.code.toLowerCase() === locale.toLowerCase());
+		if (localeFilter) {
+			return protocol.missingTranslationsLocales.some(localeData => localeData.code.toLowerCase() === localeFilter.toLowerCase());
+		}
+
+		return protocol.missingTranslationsLocales.length > 0;
 	});
 }
 

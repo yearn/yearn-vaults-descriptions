@@ -5,6 +5,7 @@ import	useNetwork						from	'contexts/useNetwork';
 import	IconChevron						from	'components/icons/IconChevron';
 import	IconLinkOut						from	'components/icons/IconLinkOut';
 import {filterProtocolsWithMissingTranslations, listProtocols} from 'pages/api/protocols';
+import LOCALES from 'utils/locale';
 
 const YEARN_META_GH_PROTOCOL_URI = 'https://github.com/yearn/yearn-meta/blob/master/data/protocols';
 
@@ -30,7 +31,7 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 				<p className={'mr-2 dark:text-white break-words text-dark-blue-1'}>
 					<b className={'font-bold'}>{name}</b>
 				</p>
-				<span className={'py-1 px-2 ml-2 text-xs font-bold text-white dark:text-gray-3 bg-yearn-blue rounded-md'}>
+				<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
 					{`Missing ${missingTranslationsLocales.length} translations`}
 				</span>
 				<div className={'flex flex-row justify-center mr-1 ml-auto'}>
@@ -46,7 +47,7 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 			</div>
 			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
 				{isExpanded ? (
-					<div className={'space-y-2 mt-4'}>
+					<div className={'mt-4 space-y-2'}>
 						<p>{description}</p>
 						<p className={'text-xs'}>{`Missing translations for ${missingTranslationsLocales.map(data => data.name).join(', ')}`}</p>
 					</div>
@@ -58,7 +59,7 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 
 function	Index({protocolsList}) {
 	const	[protocols, set_protocols] = React.useState(protocolsList ?? []);
-	const [filterLocale, set_filterLocale] = React.useState('');
+	const [localeFilter, set_localeFilter] = React.useState('');
 	const	[isFetchingData, set_isFetchingData] = React.useState(false);
 	const	{currentNetwork} = useNetwork();
 
@@ -71,8 +72,8 @@ function	Index({protocolsList}) {
 	}
 
 	const protocolsWithMissingTranslations = React.useMemo(() => {
-		return filterProtocolsWithMissingTranslations(protocols, filterLocale);
-	}, [protocols, filterLocale]);
+		return filterProtocolsWithMissingTranslations(protocols, localeFilter);
+	}, [protocols, localeFilter]);
 
 	React.useEffect(() => {
 		refetchData(currentNetwork === 'Ethereum' ? 1 : currentNetwork === 'Fantom' ? 250 : 1);
@@ -101,12 +102,25 @@ function	Index({protocolsList}) {
 									</div>
 								</div>
 								<div className={'mb-8 text-gray-blue-1 dark:text-gray-3'}>
-									{'List of protocols with no translations or missing translations.'}
+									{`List of protocols with no translations or missing translations. (Found ${protocolsWithMissingTranslations.length})`}
+								</div>
+								<div className={'flex flex-row items-center space-x-4'}>
+									<p className={'font-bold'}>{'Filter by locale'}</p>
+									<select
+										value={localeFilter}
+										onChange={e => set_localeFilter(e.target.value)}
+										className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 w-24 text-xs font-semibold whitespace-nowrap rounded-sm border-none cursor-pointer button-light'}
+									>
+										<option className={'cursor-pointer'} value={''}>{'All'}</option>
+										{Object.entries(LOCALES).map(([locale, localeData], index) => (
+											<option className={'cursor-pointer'} key={index} value={locale}>{localeData.name}</option>
+										))}
+									</select>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div className={'w-full'}>
+					<div className={'mt-4 w-full'}>
 						{protocolsWithMissingTranslations.map(protocol => <Protocol key={protocol.name} {...protocol} />)}
 					</div>
 				</div>
