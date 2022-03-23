@@ -1,6 +1,6 @@
 import LOCALES from 'utils/locale';
 
-const BASE_API_URL = 'https://meta.yearn.network';
+const BASE_API_URL = process.env.META_API_URL;
 
 /**
  * Return all protocols of that network

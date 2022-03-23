@@ -7,7 +7,7 @@ import	IconLinkOut						from	'components/icons/IconLinkOut';
 import {filterProtocolsWithMissingTranslations, listProtocols} from 'pages/api/protocols';
 import LOCALES from 'utils/locale';
 
-const YEARN_META_GH_PROTOCOL_URI = 'https://github.com/yearn/yearn-meta/blob/master/data/protocols';
+const META_GH_PROTOCOL_URI = `${process.env.META_GITHUB_URL}/tree/master/data/protocols`;
 
 function Protocol({name, filename, description, missingTranslationsLocales}) {
 	const {currentChainId} = useNetwork();
@@ -38,7 +38,7 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 					<a
 						onClick={e => e.stopPropagation()}
 						target={'_blank'}
-						href={`${YEARN_META_GH_PROTOCOL_URI}/${currentChainId}/${filename}.json`}
+						href={`${META_GH_PROTOCOL_URI}/${currentChainId}/${filename}.json`}
 						rel={'noreferrer'}>
 						<IconLinkOut className={'mr-4 w-4 h-4 text-yearn-blue'} />
 					</a>
