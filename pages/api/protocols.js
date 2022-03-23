@@ -1,3 +1,4 @@
+import axios from 'axios';
 import LOCALES from 'utils/locale';
 
 const BASE_API_URL = process.env.META_API_URL;
@@ -22,7 +23,7 @@ const BASE_API_URL = process.env.META_API_URL;
  */
 export async function listProtocols(chainId) {
 	const protocolApiUrl = `${BASE_API_URL}/protocols/${chainId}`;
-	const protocolFilenames = (await (await fetch(`${protocolApiUrl}/index`)).json())['files'];
+	const protocolFilenames = await axios.get(`${protocolApiUrl}/index`).then(res => res.data['files']);
 
 	if (!(protocolFilenames instanceof Array)) {
 		console.warn('protocolFilenames is not an array.');
@@ -30,10 +31,9 @@ export async function listProtocols(chainId) {
 	}
 
 	const protocolPromises = protocolFilenames.map(async (name) => {
-		return  fetch(`${protocolApiUrl}/${name}`).then(async (res) => {
-			const data = await res.json();
+		return  axios.get(`${protocolApiUrl}/${name}`).then(async (res) => {
 			return {
-				...data,
+				...res.data,
 				filename: name
 			};
 		});
