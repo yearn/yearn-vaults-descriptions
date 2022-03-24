@@ -9,10 +9,14 @@ import	LOCALES							from	'utils/locale';
 
 const META_GH_PROTOCOL_URI = `${process.env.META_GITHUB_URL}/tree/master/data/protocols`;
 
-function Protocol({name, filename, description, missingTranslationsLocales}) {
+function Protocol({name, filename, description, missingTranslationsLocales, localeFilter}) {
 	const	{currentChainId} = useNetwork();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
+
+	const missingTranslationCounts = React.useMemo(() => {
+		return localeFilter ? 1 : missingTranslationsLocales.length;
+	}, [missingTranslationsLocales, localeFilter]);
 
 	function	onExpand() {
 		if (isExpanded) {
@@ -32,7 +36,7 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 					<b className={'font-bold'}>{name}</b>
 				</p>
 				<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
-					{`Missing ${missingTranslationsLocales.length} translations`}
+					{`Missing ${missingTranslationCounts} ${missingTranslationCounts > 1 ? 'translations' : 'translation'}`}
 				</span>
 				<div className={'flex flex-row justify-center mr-1 ml-auto'}>
 					<a
@@ -47,9 +51,9 @@ function Protocol({name, filename, description, missingTranslationsLocales}) {
 			</div>
 			<div className={`w-full transition-max-height duration-500 overflow-hidden ${isExpandedAnimation ? 'max-h-max' : 'max-h-0'}`}>
 				{isExpanded ? (
-					<div className={'mt-4 space-y-2'}>
+					<div className={'mt-4 space-y-2 dark:text-gray-3'}>
 						<p>{description}</p>
-						<p className={'text-xs'}>{`Missing translations for ${missingTranslationsLocales.map(data => data.name).join(', ')}`}</p>
+						{(!localeFilter || localeFilter === 'en') && <p className={'text-xs'}>{`Missing translations for ${missingTranslationsLocales.map(data => data.name).join(', ')}`}</p>}
 					</div>
 				) : <div />}
 			</div>
@@ -105,7 +109,7 @@ function	Index({protocolsList}) {
 									{`List of protocols with no translations or missing translations. (Found ${protocolsWithMissingTranslations.length})`}
 								</div>
 								<div className={'flex flex-row items-center space-x-4'}>
-									<p className={'font-bold'}>{'Filter by locale'}</p>
+									<p className={'font-bold dark:text-gray-3'}>{'Filter by locale'}</p>
 									<select
 										value={localeFilter}
 										onChange={e => set_localeFilter(e.target.value)}
@@ -121,7 +125,7 @@ function	Index({protocolsList}) {
 						</div>
 					</div>
 					<div className={'mt-4 w-full'}>
-						{protocolsWithMissingTranslations.map(protocol => <Protocol key={protocol.name} {...protocol} />)}
+						{protocolsWithMissingTranslations.map(protocol => <Protocol key={protocol.name} localeFilter={localeFilter} {...protocol} />)}
 					</div>
 				</div>
 			</div>
