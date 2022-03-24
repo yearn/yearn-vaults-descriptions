@@ -21,6 +21,8 @@ module.exports = ({
 		USE_PRICE_TRI_CRYPTO: false,
 		CG_IDS: [],
 		TOKENS: [],
-		ALCHEMY_KEY: process.env.ALCHEMY_KEY
+		ALCHEMY_KEY: process.env.ALCHEMY_KEY,
+		META_API_URL: 'https://meta.yearn.network',
+		META_GITHUB_URL: 'https://github.com/yearn/yearn-meta'
 	}
 });

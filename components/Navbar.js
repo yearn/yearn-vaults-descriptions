@@ -7,6 +7,7 @@ const routerMapping = {
 	'/internal/missing-descriptions': 'Strategies',
 	'/internal/missing-ape': 'Strategies ape.tax',
 	'/internal/missing-tokens': 'Tokens',
+	'/internal/missing-translations': 'Translations'
 };
 
 function	Navbar() {
@@ -29,6 +30,8 @@ function	Navbar() {
 									router.push('/internal/missing-ape');
 								else if (e.target.value === 'Tokens')
 									router.push('/internal/missing-tokens');
+								else if (e.target.value === 'Translations')
+									router.push('/internal/missing-translations');
 							}}>
 							{Object.entries(routerMapping).map(([key, value]) => (
 								<option className={'cursor-pointer'} key={key} value={value}>
