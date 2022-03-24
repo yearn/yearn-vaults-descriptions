@@ -9,7 +9,7 @@ import	LOCALES							from	'utils/locale';
 
 const META_GH_PROTOCOL_URI = `${process.env.META_GITHUB_URL}/tree/master/data/protocols`;
 
-function Protocol({name, filename, description, missingTranslationsLocales, localeFilter}) {
+function Protocol({name, filename, description, missingTranslationsLocales, localeFilter, localization}) {
 	const	{currentChainId} = useNetwork();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
@@ -35,9 +35,17 @@ function Protocol({name, filename, description, missingTranslationsLocales, loca
 				<p className={'mr-2 dark:text-white break-words text-dark-blue-1'}>
 					<b className={'font-bold'}>{name}</b>
 				</p>
-				<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
-					{`Missing ${missingTranslationCounts} ${missingTranslationCounts > 1 ? 'translations' : 'translation'}`}
-				</span>
+				{
+					!localization ? (
+						<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
+							{'No localization data is found'}
+						</span>
+					) : (
+						<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
+							{`Missing ${missingTranslationCounts} ${missingTranslationCounts > 1 ? 'translations' : 'translation'}`}
+						</span>
+					)
+				}
 				<div className={'flex flex-row justify-center mr-1 ml-auto'}>
 					<a
 						onClick={e => e.stopPropagation()}
