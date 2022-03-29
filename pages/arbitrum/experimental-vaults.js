@@ -49,7 +49,7 @@ function	Index({vaults}) {
 }
 
 export async function getStaticProps() {
-	const	vaults = await listVaultsWithStrategies({network: 1}); //change network to 42161 when api available
+	const	vaults = await listVaultsWithStrategies({network: 42161});
 	return {props: {vaults: JSON.parse(vaults)}, revalidate: 60 * 60 * 2};
 }
 
