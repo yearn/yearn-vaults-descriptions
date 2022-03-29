@@ -78,6 +78,10 @@
 	"page-arbi-curve-pool-description": "Curve yVaults accept deposits of liquidity pool tokens obtained by providing to the liquidity pools on Curve Finance. To enter these vaults you need to deposit the underlying asset(s) to their respective pool on Curve Finance.",
 	"page-arbi-curve-pool-next-button": "Next: Retired Vaults",
 
+	"page-arbi-retired-title": "Arbitrum Retired Vaults",
+	"page-arbi-retired-description": "These vaults are no longer active or are in the process of migrating to a newer version and being phased out. Strategies might have been paused, deposits might be closed, or they might have been removed from the website entirely.",
+	"page-arbi-retired-next-button": "Next: Overview",
+
 	"page-experimental-ape-tax-title": "Experimental Vaults",
 	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information.",
 
