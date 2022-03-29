@@ -14,7 +14,7 @@ export function getProvider(chain = 1) {
 	} else if (chain === 1337) {
 		return new ethers.providers.JsonRpcProvider('http://localhost:8545');
 	} else if (chain === 42161) {
-		return new ethers.providers.JsonRpcProvider(`https://speedy-nodes-nyc.moralis.io/${process.env.MORALIS_ARBITRUM_KEY}/arbitrum/mainnet`);
+		return new ethers.providers.JsonRpcProvider('https://arbitrum.public-rpc.com');
 	} 
 	return new ethers.providers.InfuraProvider('homestead', '9aa3d95b3bc440fa88ea12eaa4456161');
 }
