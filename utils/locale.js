@@ -41,7 +41,7 @@ const	LOCALES = {
 	},
 	'zh': {
 		'code': 'zh',
-		'name': '中国人',
+		'name': '中文',
 		'symbol': 'Zh',
 	},
 	'hi': {
