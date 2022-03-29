@@ -103,6 +103,31 @@ function	MenuItems() {
 					condition={router.pathname === '/fantom/retired-vaults'}
 					href={'/fantom/retired-vaults'} />
 			</div>
+
+			<p className={'mb-2 text-gray-blue-2 dark:text-gray-3/60 md:mb-4'}>{'Arbitrum'}</p>
+			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
+				<MenuItem
+					label={common['menu-stables']}
+					condition={router.pathname === '/arbitrum/stables'}
+					href={'/arbitrum/stables'} />
+				<MenuItem
+					label={common['menu-defi-tokens']}
+					condition={router.pathname === '/arbitrum/defi-tokens'}
+					href={'/arbitrum/defi-tokens'} />
+				<MenuItem
+					label={common['menu-curve-pools']}
+					condition={router.pathname === '/arbitrum/curve-pools'}
+					href={'/arbitrum/curve-pools'} />
+				<MenuItem
+					label={common['menu-experimental']}
+					hideIf={router.pathname !== '/arbitrum/experimental-vaults'}
+					condition={router.pathname === '/arbitrum/experimental-vaults'}
+					href={'/arbitrum/experimental-vaults'} />
+				<MenuItem
+					label={common['menu-retired-vaults']}
+					condition={router.pathname === '/arbitrum/retired-vaults'}
+					href={'/arbitrum/retired-vaults'} />
+			</div>
 		
 
 		</div>
