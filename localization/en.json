@@ -64,7 +64,11 @@
 
 	"page-ftm-retired-title": "Fantom Retired Vaults",
 	"page-ftm-retired-description": "These vaults are no longer active or are in the process of migrating to a newer version and being phased out. Strategies might have been paused, deposits might be closed, or they might have been removed from the website entirely.",
-	"page-ftm-retired-next-button": "Next: Overview",
+	"page-ftm-retired-next-button": "Next: Arbitrum: Stables",
+
+	"page-arbi-stable-title": "Arbitrum Stable",
+	"page-arbi-stable-description": "Yearn Finance is now Multi-Chain! Yearn yVaults are now [live on the Arbitrum Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Arbitrum yVaults are able to employ multiple strategies per vault.",
+	"page-arbi-stable-next-button": "Next: DeFi Tokens",
 
 	"page-experimental-ape-tax-title": "Experimental Vaults",
 	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information.",

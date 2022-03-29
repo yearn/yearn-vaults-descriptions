@@ -1,12 +1,12 @@
 import	React							from	'react';
 import	Link							from	'next/link';
+import	HeadIconVaults					from	'components/icons/HeadIconVaults';
 import	Vaults							from	'components/Vaults';
-import	HeadIconSleep					from	'components/icons/HeadIconSleep';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
 
-const	chainExplorer = 'http://ftmscan.com';
+const	chainExplorer = 'https://arbiscan.io/';
 
 function	Index({vaults}) {
 	const	{common} = useLocalization();
@@ -16,26 +16,26 @@ function	Index({vaults}) {
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<HeadIconSleep width={40} height={40} className={'text-yearn-blue dark:text-white'} />
+						<HeadIconVaults width={40} height={40} className={'text-yearn-blue dark:text-white'} />
 					</div>
 					<h1 className={'mb-8 text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
-						{common['page-ftm-retired-title']}
+						{common['page-arbi-stable-title']}
 					</h1>
 					<div className={'mb-8 w-full max-w-full'}>
 						<p
 							className={'inline text-gray-blue-1 dark:text-gray-3 whitespace-pre-line'}
-							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-retired-description'])}} />
+							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-arbi-stable-description'])}} />
 					</div>
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} isRetired />)}
+				{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
-					<Link href={'/arbitrum/stables'}>
+					<Link href={'/arbitrum/defi-tokens'}>
 						<button className={'button-large button-filled'}>
-							{common['page-ftm-retired-next-button']}
+							{common['page-arbi-stable-next-button']}
 						</button>
 					</Link>
 				</div>
@@ -45,7 +45,7 @@ function	Index({vaults}) {
 }
 
 export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isRetired: true});
+	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isStable: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}, revalidate: 60 * 60};
 }
