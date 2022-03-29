@@ -17,6 +17,10 @@ STABLE_UNDERLYING[250] = [
 	'0x049d68029688eAbF473097a2fC38ef61633A3C7A', // fUSDT
 ];
 
+STABLE_UNDERLYING[42161] = [
+	'0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9', // USDT
+];
+
 async function getVaultStrategies({vaultStrategies, stratTree}) {
 	const 	strategies = [];
 	let		hasMissingStrategiesDescriptions = false;
@@ -50,7 +54,6 @@ async function getVaultStrategies({vaultStrategies, stratTree}) {
 async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi}) {
 	let		allStrategiesAddr = await (await fetch(`https://meta.yearn.network/strategies/${network}/all`)).json();
 	const	stratTree = {};
-
 	for (let index = 0; index < allStrategiesAddr.length; index++) {
 		const stratDetails = allStrategiesAddr[index];
 		for (let jindex = 0; jindex < (stratDetails.addresses).length; jindex++) {
