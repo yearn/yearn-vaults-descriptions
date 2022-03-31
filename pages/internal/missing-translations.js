@@ -32,16 +32,16 @@ function Protocol({name, filename, description, missingTranslationsLocales, loca
 		<div
 			className={`max-w-4xl w-full ${isExpanded ? 'bg-white-blue-1 dark:bg-black' : 'bg-white-blue-2 hover:bg-white-blue-1 dark:bg-black-1'} transition-colors p-4 rounded-sm mb-0.5`}>
 			<div className={'group flex flex-row items-center cursor-pointer'} onClick={onExpand}>
-				<p className={'mr-2 dark:text-white break-words text-dark-blue-1'}>
+				<p className={'mr-2 text-dark-blue-1 dark:text-white break-words'}>
 					<b className={'font-bold'}>{name}</b>
 				</p>
 				{
 					!localization ? (
-						<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
+						<span className={'py-1 px-2 ml-2 text-xs font-bold text-white dark:text-gray-3 bg-yearn-blue rounded-md'}>
 							{'No localization data is found'}
 						</span>
 					) : (
-						<span className={'py-1 px-2 ml-2 text-xs font-bold text-white rounded-md dark:text-gray-3 bg-yearn-blue'}>
+						<span className={'py-1 px-2 ml-2 text-xs font-bold text-white dark:text-gray-3 bg-yearn-blue rounded-md'}>
 							{`Missing ${missingTranslationCounts} ${missingTranslationCounts > 1 ? 'translations' : 'translation'}`}
 						</span>
 					)
@@ -109,12 +109,12 @@ function	Index({protocolsList}) {
 				<div className={'w-full max-w-5xl'}>
 					<div className={'flex flex-col'}>
 						<div className={'mb-8'}>
-							<HeadIconCogs className={'dark:text-white text-yearn-blue'} />
+							<HeadIconCogs className={'text-yearn-blue dark:text-white'} />
 						</div>
 						<div className={'w-full'}>
 							<div className={'flex flex-col'}>
 								<div className={'flex flex-row items-center mb-8 w-full'}>
-									<h1 className={'text-4xl font-bold dark:text-white whitespace-pre-line md:text-6xl text-dark-blue-1'}>
+									<h1 className={'text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
 										{'Translations'}
 									</h1>
 									<div
