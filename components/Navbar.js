@@ -2,7 +2,7 @@ import	React			from	'react';
 import	{useRouter}		from	'next/router';
 import	useNetwork		from	'contexts/useNetwork';
 
-const options = ['Ethereum', 'Fantom'];
+const options = ['Ethereum', 'Fantom', 'Arbitrum'];
 const routerMapping = {
 	'/internal/missing-descriptions': 'Strategies',
 	'/internal/missing-ape': 'Strategies ape.tax',
