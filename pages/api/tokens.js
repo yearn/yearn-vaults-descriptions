@@ -33,7 +33,6 @@ async function getTokens({network}) {
 
 	for (let index = 0; index < vaultDataFromIPFS.length; index++) {
 		const vaultDetails = vaultDataFromIPFS[index];
-		console.log(vaultDetails)
 		const address = vaultDetails.address;
 		vaultTree[toAddress(address)] = true;
 	}
