@@ -118,3 +118,6 @@ h1.title {
 
     }
 }
+.max-w-6xl {
+	@apply max-w-[1216px] px-4;
+}

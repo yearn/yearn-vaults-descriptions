@@ -48,7 +48,7 @@ async function getVaultStrategies({vaultStrategies, stratTree}) {
 }
 
 async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi}) {
-	let		allStrategiesAddr = await (await fetch(`https://meta.yearn.network/strategies/${network}/all`)).json();
+	let		allStrategiesAddr = await (await fetch(`${process.env.META_API_URL}/strategies/${network}/all`)).json();
 	const	stratTree = {};
 
 	for (let index = 0; index < allStrategiesAddr.length; index++) {
@@ -111,21 +111,11 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable
 	return (vaultsWithStrats);
 }
 
-const	vaultsMapping = {};
-let		vaultsMappingAccess = {};
 export default async function handler(req, res) {
-	let		{network, isCurve, isRetired, isV1, isAll, isStable, isDefi, revalidate} = req.query;
+	let		{network, isCurve, isRetired, isV1, isAll, isStable, isDefi} = req.query;
 	network = Number(network);
-
-	const	now = new Date().getTime();
-	const	lastAccess = vaultsMappingAccess[network] || 0;
-	if (lastAccess === 0 || ((now - lastAccess) > 5 * 60 * 1000) || revalidate === 'true' || !vaultsMapping[network]) {
-		const	result = await getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi});
-		vaultsMapping[network] = result;
-		vaultsMappingAccess[network] = now;
-	}
-	res.setHeader('Cache-Control', 's-maxage=6000'); // 60 minutes
-	return res.status(200).json(vaultsMapping[network]);
+	const	result = await getStrategies({network, isCurve, isRetired, isV1, isAll, isStable, isDefi});
+	return res.status(200).json(result);
 }
 
 export async function listVaultsWithStrategies({network = 1, isCurve = false, isRetired = false, isV1 = false, isAll = false, isStable = false, isDefi = false}) {

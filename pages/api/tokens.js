@@ -16,8 +16,8 @@ async function getVaultStrategies({vaultAddress, wantAddress, wantName, tokenTre
 }
 
 async function getTokens({network}) {
-	let		vaultDataFromIPFS = await (await fetch(`https://meta.yearn.network/vaults/${network}/all`)).json();
-	let		dataFromIPFS = await (await fetch(`https://meta.yearn.network/tokens/${network}/all`)).json();
+	let		vaultDataFromIPFS = await (await fetch(`${process.env.META_API_URL}/vaults/${network}/all`)).json();
+	let		dataFromIPFS = await (await fetch(`${process.env.META_API_URL}/tokens/${network}/all`)).json();
 	const	tokenTree = {};
 	const	vaultTree = {};
 
@@ -33,6 +33,7 @@ async function getTokens({network}) {
 
 	for (let index = 0; index < vaultDataFromIPFS.length; index++) {
 		const vaultDetails = vaultDataFromIPFS[index];
+		console.log(vaultDetails)
 		const address = vaultDetails.address;
 		vaultTree[toAddress(address)] = true;
 	}
@@ -66,21 +67,11 @@ async function getTokens({network}) {
 	return (vaultsWithStrats);
 }
 
-const	tokenMapping = {};
-let		tokenMappingAccess = {};
 export default async function handler(req, res) {
-	let		{network, revalidate} = req.query;
+	let		{network} = req.query;
 	network = Number(network);
-
-	const	now = new Date().getTime();
-	const	lastAccess = tokenMappingAccess[network] || 0;
-	if (lastAccess === 0 || ((now - lastAccess) > 5 * 60 * 1000) || revalidate === 'true' || !tokenMapping[network]) {
-		const	result = await getTokens({network});
-		tokenMapping[network] = result;
-		tokenMappingAccess[network] = now;
-	}
-	res.setHeader('Cache-Control', 's-maxage=300'); // 5 minutes
-	return res.status(200).json(tokenMapping[network]);
+	const result = await getTokens({network});
+	return res.status(200).json(result);
 }
 
 export async function listVaultsWithTokens({network = 1}) {

@@ -22,7 +22,7 @@ module.exports = ({
 		CG_IDS: [],
 		TOKENS: [],
 		ALCHEMY_KEY: process.env.ALCHEMY_KEY,
-		META_API_URL: 'https://meta.yearn.network',
+		META_API_URL: 'https://meta.yearn.finance/api',
 		META_GITHUB_URL: 'https://github.com/yearn/yearn-meta'
 	}
 });

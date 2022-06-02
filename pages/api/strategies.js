@@ -31,7 +31,7 @@ async function getVaultStrategies({vaultStrategies, stratTree}) {
 }
 
 async function getStrategies({network}) {
-	let		allStrategiesAddr = await (await fetch(`https://meta.yearn.network/strategies/${network}/all`)).json();
+	let		allStrategiesAddr = await (await fetch(`${process.env.META_API_URL}/strategies/${network}/all`)).json();
 	const	stratTree = {};
 
 	for (let index = 0; index < allStrategiesAddr.length; index++) {
@@ -71,21 +71,11 @@ async function getStrategies({network}) {
 	return (vaultsWithStrats);
 }
 
-const	oneVaultStrategiesMapping = {};
-let		oneVaultStrategiesMappingAccess = {};
 export default async function handler(req, res) {
-	let		{network, revalidate} = req.query;
+	let		{network} = req.query;
 	network = Number(network);
-
-	const	now = new Date().getTime();
-	const	lastAccess = oneVaultStrategiesMappingAccess[network] || 0;
-	if (lastAccess === 0 || ((now - lastAccess) > 5 * 60 * 1000) || revalidate === 'true' || !oneVaultStrategiesMapping[network]) {
-		const	result = await getStrategies({network});
-		oneVaultStrategiesMapping[network] = result;
-		oneVaultStrategiesMappingAccess[network] = now;
-	}
-	res.setHeader('Cache-Control', 's-maxage=300'); // 5 minutes
-	return res.status(200).json(oneVaultStrategiesMapping[network]);
+	const	result = await getStrategies({network});
+	return res.status(200).json(result);
 }
 
 export async function listVaultsWithStrategies({network = 1}) {
