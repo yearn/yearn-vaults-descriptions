@@ -1,8 +1,6 @@
 import axios from 'axios';
 import LOCALES from 'utils/locale';
 
-const BASE_API_URL = process.env.META_API_URL;
-
 /**
  * Return all protocols of that network
  * 
@@ -22,7 +20,7 @@ const BASE_API_URL = process.env.META_API_URL;
  * }
  */
 export async function listProtocols(chainId) {
-	const protocolApiUrl = `${BASE_API_URL}/protocols/${chainId}`;
+	const protocolApiUrl = `${process.env.META_API_URL}/${chainId}/protocols`;
 	const protocolFilenames = await axios.get(`${protocolApiUrl}/index`).then(res => res.data['files']);
 
 	if (!(protocolFilenames instanceof Array)) {

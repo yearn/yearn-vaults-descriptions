@@ -16,8 +16,8 @@ async function getVaultStrategies({vaultAddress, wantAddress, wantName, tokenTre
 }
 
 async function getTokens({network}) {
-	let		vaultDataFromIPFS = await (await fetch(`${process.env.META_API_URL}/vaults/${network}/all`)).json();
-	let		dataFromIPFS = await (await fetch(`${process.env.META_API_URL}/tokens/${network}/all`)).json();
+	let		vaultDataFromIPFS = await (await fetch(`${process.env.META_API_URL}/${network}/vaults/all`)).json();
+	let		dataFromIPFS = await (await fetch(`${process.env.META_API_URL}/${network}/tokens/all`)).json();
 	const	tokenTree = {};
 	const	vaultTree = {};
 
