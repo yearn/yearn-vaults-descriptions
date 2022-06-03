@@ -112,7 +112,7 @@ async function getVaultStrategies({vaultAddress, network, stratTree}) {
 }
 
 async function getStrategies({network}) {
-	let		allStrategiesAddr = await (await fetch(`${process.env.META_API_URL}/strategies/${network}/all`)).json();
+	let		allStrategiesAddr = await (await fetch(`${process.env.META_API_URL}/${network}/strategies/all`)).json();
 	const	stratTree = {};
 	for (let index = 0; index < allStrategiesAddr.length; index++) {
 		const stratDetails = allStrategiesAddr[index];
