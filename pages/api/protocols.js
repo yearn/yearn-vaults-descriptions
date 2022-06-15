@@ -21,23 +21,7 @@ import LOCALES from 'utils/locale';
  */
 export async function listProtocols(chainId) {
 	const protocolApiUrl = `${process.env.META_API_URL}/${chainId}/protocols`;
-	const protocolFilenames = await axios.get(`${protocolApiUrl}/index`).then(res => res.data['files']);
-
-	if (!(protocolFilenames instanceof Array)) {
-		console.warn('protocolFilenames is not an array.');
-		return [];
-	}
-
-	const protocolPromises = protocolFilenames.map(async (name) => {
-		return  axios.get(`${protocolApiUrl}/${name}`).then(async (res) => {
-			return {
-				...res.data,
-				filename: name
-			};
-		});
-	});
-
-	return Promise.all(protocolPromises);
+	return await axios.get(`${protocolApiUrl}/all?loc=all`).then(res => res.data);
 }
 
 /**
