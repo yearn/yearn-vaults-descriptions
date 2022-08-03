@@ -33,7 +33,7 @@ function	Index({vaults}) {
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				{vaults.map((vault) => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} />)}
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
