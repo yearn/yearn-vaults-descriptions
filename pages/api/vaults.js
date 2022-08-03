@@ -63,7 +63,7 @@ async function getStrategies({network, isCurve, isRetired, isV1, isAll, isStable
 		}
 	}
 
-	let	vaults = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
+	let	vaults = (await (await fetch(`https://api.ycorpo.com/${network}/vaults/all`)).json());
 	if (isRetired) {
 		vaults = vaults.filter(e => e?.migration?.available === true);
 	} else if (isV1) {

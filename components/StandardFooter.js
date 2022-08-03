@@ -22,7 +22,7 @@ function	Footer() {
 			<a href={'https://yearn.watch'} target={'_blank'} className={'pr-6 text-gray-blue-1 dark:text-gray-3 link'} rel={'noreferrer'}>
 				{common['footer-watch']}
 			</a>
-			<a href={'https://api.yearn.finance/v1/chains/1/vaults/all'} target={'_blank'} className={'pr-6 text-gray-blue-1 dark:text-gray-3 link'} rel={'noreferrer'}>
+			<a href={'https://api.ycorpo.com/1/vaults/all'} target={'_blank'} className={'pr-6 text-gray-blue-1 dark:text-gray-3 link'} rel={'noreferrer'}>
 				{common['footer-vault-api']}
 			</a>
 			<div className={'px-3 ml-auto text-gray-blue-1 dark:text-gray-3 link'}>
