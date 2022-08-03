@@ -8,7 +8,8 @@ module.exports = ({
 	plugins: [new Dotenv()],
 	images: {
 		domains: [
-			'rawcdn.githack.com'
+			'rawcdn.githack.com',
+			'raw.githubusercontent.com'
 		],
 	},
 	env: {
