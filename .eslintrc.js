@@ -7,10 +7,9 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:import/recommended',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
 		'plugin:tailwindcss/recommended',
-		'plugin:@typescript-eslint/recommended'
+		'plugin:@typescript-eslint/recommended',
+		'plugin:@next/next/recommended',
 	],
 	'parser': '@typescript-eslint/parser',
 	'parserOptions': {
