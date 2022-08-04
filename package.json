@@ -8,8 +8,8 @@
     "analyze": "ANALYZE=true next build",
     "start": "next start",
     "export": "next export",
-    "lint": "eslint . --ext .js,.jsx && prettier --check --use-tabs --tab-width=4 **/**.json",
-    "lintfix": "eslint --ext .js,.jsx --fix && prettier --write --use-tabs --tab-width=4 **/**.json"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx && prettier --check --use-tabs --tab-width=4 **/**.json",
+    "lintfix": "eslint --ext .js,.jsx.ts,.tsx --fix && prettier --write --use-tabs --tab-width=4 **/**.json"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -30,6 +30,9 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
     "eslint": "^8.11.0",
     "eslint-config-next": "^12.0.10",
     "eslint-plugin-react": "^7.28.0",
