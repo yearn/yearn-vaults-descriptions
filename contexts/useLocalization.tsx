@@ -1,8 +1,14 @@
 import	React, {useContext, createContext}	from	'react';
 
-const	Localization = createContext();
+type TLocalizationContext = {
+	common: object,
+	language: string,
+	set_language: React.Dispatch<React.SetStateAction<string>>
+}
 
-function	getCommons(language) {
+const	Localization = createContext<TLocalizationContext | undefined>(undefined);
+
+function	getCommons(language: string): object {
 	try {
 		const	_common = require(`/localization/${language}.json`);
 		const	_commonFallback = require('/localization/en.json');
@@ -14,11 +20,16 @@ function	getCommons(language) {
 	}
 }
 
-export const LocalizationContextApp = ({children, router}) => {
+type TProps = {
+  children: React.ReactNode;
+	router: {locale: string};
+}
+
+export const LocalizationContextApp: React.FunctionComponent<TProps> = ({children, router}): React.ReactElement => {
 	const	[language, set_language] = React.useState(router.locale || 'en');
 	const	[common, set_common] = React.useState(getCommons(router.locale || 'en'));
 
-	React.useEffect(() => {
+	React.useEffect((): void => {
 		set_common(getCommons(language));
 	}, [language]);
 
@@ -34,5 +45,5 @@ export const LocalizationContextApp = ({children, router}) => {
 	);
 };
 
-export const useLocalization = () => useContext(Localization);
+export const useLocalization = (): TLocalizationContext | undefined => useContext(Localization);
 export default useLocalization;
