@@ -5,7 +5,7 @@ import	HeadIconRocket		from	'components/icons/HeadIconRocket';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
-function	Index() {
+function	Index(): JSX.Element {
 	const	{common} = useLocalization();
 
 	return (

@@ -5,7 +5,7 @@ import	HeadIconYearn		from	'components/icons/HeadIconYearn';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
-function	Index() {
+function	Index(): JSX.Element {
 	const	{common} = useLocalization();
 
 	return (
