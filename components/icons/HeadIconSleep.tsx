@@ -1,6 +1,10 @@
 import	React							from	'react';
 
-function	Icon({className}) {
+type TProps = {
+	className: string | undefined,
+}
+
+function	Icon ({className}: TProps): JSX.Element {
 	return (
 		<svg width={'48'} height={'40'} viewBox={'0 0 48 40'} fill={'none'} className={className} xmlns={'http://www.w3.org/2000/svg'}>
 			<path d={'M37.6341 14.6H43.1912C44.7111 14.6 45.9395 15.8078 45.9395 17.3C45.9395 18.7922 44.7093 20 43.1894 20H27.6659L35.9126 7.4H30.3555C28.8356 7.4 27.6054 6.1922 27.6054 4.7C27.6054 3.2078 28.8356 2 30.3555 2H46L37.6341 14.6Z'} fill={'currentcolor'}/>

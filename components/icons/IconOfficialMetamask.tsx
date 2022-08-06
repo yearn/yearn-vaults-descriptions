@@ -1,6 +1,10 @@
 import	React							from	'react';
 
-function	Icon({className}) {
+type TProps = {
+	className: string | undefined,
+}
+
+function	Icon ({className}: TProps): JSX.Element {
 	return (
 		<svg version={'1.1'} id={'Layer_1'} xmlns={'http://www.w3.org/2000/svg'} viewBox={'0 0 318.6 318.6'} xmlSpace={'preserve'} className={className}>
 			<polygon strokeLinecap={'round'} strokeLinejoin={'round'} fill={'#E2761B'} stroke={'#E2761B'} points={'274.1,35.5 174.6,109.4 193,65.8'}/>

@@ -1,6 +1,10 @@
 import	React							from	'react';
 
-function	Icon({className}) {
+type TProps = {
+	className: string | undefined,
+}
+
+function	Icon ({className}: TProps): JSX.Element {
 	return (
 		<svg viewBox={'0 0 300 185'} version={'1.1'} xmlns={'http://www.w3.org/2000/svg'} className={className}>
 			<g id={'Page-1'} stroke={'none'} strokeWidth={'1'} fill={'none'} fillRule={'evenodd'}>
