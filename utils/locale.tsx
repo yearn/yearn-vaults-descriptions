@@ -2,68 +2,68 @@ const	LOCALES = {
 	'en': {
 		'code': 'en',
 		'name': 'English',
-		'symbol': 'En',
+		'symbol': 'En'
 	},
 	'fr': {
 		'code': 'fr',
 		'name': 'Français',
-		'symbol': 'Fr',
+		'symbol': 'Fr'
 	},
 	'es': {
 		'code': 'es',
 		'name': 'Español',
-		'symbol': 'Es',
+		'symbol': 'Es'
 	},
 	'de': {
 		'code': 'de',
 		'name': 'Deutsch',
-		'symbol': 'De',
+		'symbol': 'De'
 	},
 	'pt': {
 		'code': 'pt',
 		'name': 'Português',
-		'symbol': 'Pt',
+		'symbol': 'Pt'
 	},
 	'tr': {
 		'code': 'tr',
 		'name': 'Türkçe',
-		'symbol': 'Tr',
+		'symbol': 'Tr'
 	},
 	'el': {
 		'code': 'el',
 		'name': 'Ελληνικά',
-		'symbol': 'El',
+		'symbol': 'El'
 	},
 	'vi': {
 		'code': 'vi',
 		'name': 'Tiếng Việt',
-		'symbol': 'Vi',
+		'symbol': 'Vi'
 	},
 	'zh': {
 		'code': 'zh',
 		'name': '中文',
-		'symbol': 'Zh',
+		'symbol': 'Zh'
 	},
 	'hi': {
 		'code': 'hi',
 		'name': 'हिन्दी',
-		'symbol': 'Hi',
+		'symbol': 'Hi'
 	},
 	'ja': {
 		'code': 'ja',
 		'name': '日本',
-		'symbol': 'Ja',
+		'symbol': 'Ja'
 	},
 	'id': {
 		'code': 'id',
 		'name': 'Indonesia',
-		'symbol': 'Id',
+		'symbol': 'Id'
 	},
 	'ru': {
 		'code': 'ru',
 		'name': 'Русский',
-		'symbol': 'Ru',
-	},
+		'symbol': 'Ru'
+	}
 };
 
 export default LOCALES;
