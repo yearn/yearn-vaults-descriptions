@@ -1,14 +1,14 @@
 import	React, {useContext, createContext}	from	'react';
 
 type TLocalizationContext = {
-	common: object,
+	common: {[key: string]: string},
 	language: string,
-	set_language: React.Dispatch<React.SetStateAction<string>>
+	set_language?: React.Dispatch<React.SetStateAction<string>>
 }
 
-const	Localization = createContext<TLocalizationContext | undefined>(undefined);
+const	Localization = createContext<TLocalizationContext>({common: getCommons('en'), language: 'en'});
 
-function	getCommons(language: string): object {
+function	getCommons(language: string): {[key: string]: string} {
 	try {
 		const	_common = require(`/localization/${language}.json`);
 		const	_commonFallback = require('/localization/en.json');
@@ -45,5 +45,5 @@ export const LocalizationContextApp: React.FunctionComponent<TProps> = ({childre
 	);
 };
 
-export const useLocalization = (): TLocalizationContext | undefined => useContext(Localization);
+export const useLocalization = (): TLocalizationContext => useContext(Localization);
 export default useLocalization;
