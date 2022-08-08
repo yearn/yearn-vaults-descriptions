@@ -22,7 +22,7 @@ function useLocalStorage(key: string, initialValue: string): [string, React.Disp
 
 	// Return a wrapped version of useState's setter function that ...
 	// ... persists the new value to localStorage.
-	const set_value = (value: string | React.SetStateAction<string>): void => {
+	const set_value = (value: React.SetStateAction<string>): void => {
 		try {
 			// Allow value to be a function so we have same API as useState
 			const valueToStore = value instanceof Function ? value(storedValue) : value;

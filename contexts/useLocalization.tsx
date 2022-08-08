@@ -22,12 +22,12 @@ function	getCommons(language: string): {[key: string]: string} {
 
 type TProps = {
   children: React.ReactNode;
-	router: {locale: string};
+	locale: string | undefined;
 }
 
-export const LocalizationContextApp: React.FunctionComponent<TProps> = ({children, router}): React.ReactElement => {
-	const	[language, set_language] = React.useState(router.locale || 'en');
-	const	[common, set_common] = React.useState(getCommons(router.locale || 'en'));
+export const LocalizationContextApp: React.FC<TProps> = ({children, locale}): React.ReactElement => {
+	const	[language, set_language] = React.useState(locale || 'en');
+	const	[common, set_common] = React.useState(getCommons(locale || 'en'));
 
 	React.useEffect((): void => {
 		set_common(getCommons(language));

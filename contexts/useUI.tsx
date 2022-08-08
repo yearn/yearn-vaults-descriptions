@@ -12,7 +12,7 @@ type TProps = {
   children: React.ReactNode;
 }
 
-export const UIContextApp: React.FunctionComponent<TProps> = ({children}): React.ReactElement => {
+export const UIContextApp: React.FC<TProps> = ({children}): React.ReactElement => {
 	const	[theme, set_theme] = useLocalStorage('theme', 'light-initial');
 
 	useEffect((): void => {

@@ -20,7 +20,7 @@ type TProps = {
   children: React.ReactNode;
 }
 
-export const NetworkContextApp: React.FunctionComponent<TProps> = ({children}): React.ReactElement => {
+export const NetworkContextApp: React.FC<TProps> = ({children}): React.ReactElement => {
 	const	[currentNetwork, set_currentNetwork] = React.useState(options[0]);
 
 
