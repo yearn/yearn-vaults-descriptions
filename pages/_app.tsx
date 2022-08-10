@@ -1,5 +1,6 @@
 import	React, {ReactElement}			from  'react';
 import  {AppProps}								from  'next/app';
+import	{WithYearn}								from	'@yearn-finance/web-lib/contexts';
 import	{NetworkContextApp}				from	'contexts/useNetwork';
 import	{UIContextApp}				    from	'contexts/useUI';
 import	{LocalizationContextApp}	from  'contexts/useLocalization';
@@ -41,17 +42,27 @@ function	MyApp(props: AppProps): ReactElement {
 	const	{Component, pageProps, router} = props;
 	
 	return (
-		<UIContextApp>
-			<LocalizationContextApp locale={router.locale}>
-				<NetworkContextApp>
-					<Meta/>
-					<WithLayout
-						Component={Component}
-						pageProps={pageProps}
-						router={props.router} />
-				</NetworkContextApp>
-			</LocalizationContextApp>
-		</UIContextApp>
+		<WithYearn
+			options={{
+				web3: {
+					shouldUseWallets: true,
+					shouldUseStrictChainMode: false,
+					defaultChainID: 1,
+					supportedChainID: [1, 250, 42161, 1337, 31337]
+				}
+			}}>
+			<UIContextApp>
+				<LocalizationContextApp locale={router.locale}>
+					<NetworkContextApp>
+						<Meta/>
+						<WithLayout
+							Component={Component}
+							pageProps={pageProps}
+							router={props.router} />
+					</NetworkContextApp>
+				</LocalizationContextApp>
+			</UIContextApp>
+		</WithYearn>
 	);
 }
 
