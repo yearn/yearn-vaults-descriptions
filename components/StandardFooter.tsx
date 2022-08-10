@@ -1,4 +1,4 @@
-import	React						from	'react';
+import	React, {ReactElement}						from	'react';
 import	Link						from	'next/link';
 import	IconTwitter					from	'components/icons/IconTwitter';
 import	IconGithub					from	'components/icons/IconGithub';
@@ -7,7 +7,7 @@ import	IconYearnFooter				from	'components/icons/IconYearnFooter';
 import	useLocalization			from	'contexts/useLocalization';
 import meta from 'public/manifest.json';
 
-function	Footer() {
+function	Footer(): ReactElement {
 	const	{common} = useLocalization();
 	return (
 		<footer className={'hidden flex-row items-center py-8 mx-auto w-full max-w-6xl bg-white-blue-1 dark:bg-black-1 md:flex'}>
