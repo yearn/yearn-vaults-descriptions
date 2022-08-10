@@ -1,16 +1,17 @@
-import	React			from	'react';
+import	React, {ReactElement}			from	'react';
 import	{useRouter}		from	'next/router';
 import	useNetwork		from	'contexts/useNetwork';
 
 const options = ['Ethereum', 'Fantom', 'Arbitrum'];
-const routerMapping = {
+
+const routerMapping: { [key: string]: string }  = {
 	'/internal/missing-descriptions': 'Strategies',
 	'/internal/missing-ape': 'Strategies ape.tax',
 	'/internal/missing-tokens': 'Tokens',
 	'/internal/missing-translations': 'Translations'
 };
 
-function	Navbar() {
+function	Navbar(): ReactElement {
 	const {currentNetwork, set_currentNetwork} = useNetwork();
 	const router = useRouter();
 
@@ -23,7 +24,7 @@ function	Navbar() {
 						<select
 							value={routerMapping[router.pathname]}
 							className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 text-xs font-semibold whitespace-nowrap rounded-sm border-none cursor-pointer button-light'}
-							onChange={e => {
+							onChange={(e): void => {
 								if (e.target.value === 'Strategies')
 									router.push('/internal/missing-descriptions');
 								else if (e.target.value === 'Strategies ape.tax')
@@ -33,7 +34,7 @@ function	Navbar() {
 								else if (e.target.value === 'Translations')
 									router.push('/internal/missing-translations');
 							}}>
-							{Object.entries(routerMapping).map(([key, value]) => (
+							{Object.entries(routerMapping).map(([key, value]): ReactElement => (
 								<option className={'cursor-pointer'} key={key} value={value}>
 									{value}
 								</option>
@@ -44,8 +45,12 @@ function	Navbar() {
 						<select
 							value={currentNetwork}
 							className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 text-xs font-semibold whitespace-nowrap rounded-sm border-none cursor-pointer button-light'}
-							onChange={e => set_currentNetwork(e.target.value)}>
-							{options.map((chain, index) => (
+							onChange={(e): void => {
+								if(set_currentNetwork){
+									set_currentNetwork(e.target.value);
+								}
+							}}>
+							{options.map((chain, index): ReactElement => (
 								<option className={'cursor-pointer'} key={index} value={chain}>{chain}</option>
 							))}
 						</select>
