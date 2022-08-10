@@ -1,4 +1,4 @@
-import	React				from	'react';
+import	React, {ReactElement}				from	'react';
 import	Link				from	'next/link';
 import	HeadIconYearn		from	'components/icons/HeadIconYearn';
 import	HeadIconEth			from	'components/icons/HeadIconEth';
@@ -6,7 +6,7 @@ import	HeadIconFtm			from	'components/icons/HeadIconFtm';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
-function	Index() {
+function	Index(): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
