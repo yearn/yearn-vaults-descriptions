@@ -7,7 +7,9 @@ module.exports = {
 	darkMode: 'class',
 	content: [
 		'./pages/**/*.js',
-		'./components/**/*.js'
+		'./components/**/*.js',
+		'./pages/**/*.tsx',
+		'./components/**/*.tsx'
 	],
 	theme: {
 		colors: {
