@@ -1,11 +1,11 @@
-import	React				from	'react';
+import	React, {ReactElement}				from	'react';
 import	Link				from	'next/link';
 import	Image				from	'next/image';
 import	HeadIconRocket		from	'components/icons/HeadIconRocket';
 import	useLocalization		from	'contexts/useLocalization';
 import	{parseMarkdown}		from	'utils';
 
-function	Index(): JSX.Element {
+function	Index(): ReactElement {
 	const	{common} = useLocalization();
 
 	return (

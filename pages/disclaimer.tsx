@@ -1,8 +1,8 @@
-import	React					from	'react';
+import	React, {ReactElement}					from	'react';
 import	Link					from	'next/link';
 import	IconCross				from	'components/icons/IconCross';
 
-function	DisclaimerPage(): JSX.Element {
+function	DisclaimerPage(): ReactElement {
 	return (
 		<div className={'mt-2 w-full'}>
 			<div className={'p-6 bg-white dark:bg-black'}>
