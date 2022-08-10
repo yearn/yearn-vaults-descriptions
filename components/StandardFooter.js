@@ -5,6 +5,7 @@ import	IconGithub					from	'components/icons/IconGithub';
 import	IconDiscord					from	'components/icons/IconDiscord';
 import	IconYearnFooter				from	'components/icons/IconYearnFooter';
 import	useLocalization			from	'contexts/useLocalization';
+import meta from 'public/manifest.json';
 
 function	Footer() {
 	const	{common} = useLocalization();
@@ -29,7 +30,7 @@ function	Footer() {
 				<a href={'https://twitter.com/iearnfinance'} target={'_blank'} rel={'noreferrer'}><IconTwitter /></a>
 			</div>
 			<div className={'px-3 text-gray-blue-1 dark:text-gray-3 link'}>
-				<a href={process.env.PROJECT_GITHUB_URL} target={'_blank'} rel={'noreferrer'}><IconGithub /></a>
+				<a href={meta.github} target={'_blank'} rel={'noreferrer'}><IconGithub /></a>
 			</div>
 			<div className={'px-3 text-gray-blue-1 dark:text-gray-3 link'}>
 				<a href={'https://discord.yearn.finance/'} target={'_blank'} rel={'noreferrer'}><IconDiscord /></a>
