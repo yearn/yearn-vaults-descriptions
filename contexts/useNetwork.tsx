@@ -11,10 +11,10 @@ const NETWORK_IDS: { [key: string]: number } = {
 type TNetworkContext = {
 	currentNetwork: string,
 	currentChainId: number,
-	set_currentNetwork: React.Dispatch<React.SetStateAction<string>>
+	set_currentNetwork?: React.Dispatch<React.SetStateAction<string>>
 }
 
-const	Network = createContext<TNetworkContext | undefined>(undefined);
+const	Network = createContext<TNetworkContext>({currentNetwork: options[0], currentChainId: NETWORK_IDS[options[0]]});
 
 type TProps = {
   children: React.ReactNode;
@@ -36,5 +36,5 @@ export const NetworkContextApp: React.FC<TProps> = ({children}): React.ReactElem
 	);
 };
 
-export const useNetwork = (): TNetworkContext | undefined => useContext(Network);
+export const useNetwork = (): TNetworkContext => useContext(Network);
 export default useNetwork;
