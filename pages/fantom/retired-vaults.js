@@ -16,7 +16,7 @@ function	Index({vaults}) {
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<HeadIconSleep width={40} height={40} className={'text-yearn-blue dark:text-white'} />
+						<HeadIconSleep className={'text-yearn-blue dark:text-white'} />
 					</div>
 					<h1 className={'mb-8 text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
 						{common['page-ftm-retired-title']}

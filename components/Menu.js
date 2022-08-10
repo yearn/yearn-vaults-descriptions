@@ -138,7 +138,7 @@ function	MenuMobile() {
 					<div className={'flex flex-row justify-between items-center'}>
 						<Link href={'/'}>
 							<div className={'flex flex-row items-start'}>
-								<IconYearnFilled />
+								<IconYearnFilled className={'text-yearn-blue dark:text-white'} />
 								<h1 className={'pl-1.5 text-lg font-bold text-dark-blue-1 dark:text-white'} style={{paddingTop: 1}}>{` ${common['title']}`}</h1>
 							</div>
 						</Link>
