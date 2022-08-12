@@ -1,25 +1,34 @@
-import	React							from	'react';
-import	Image							from	'next/image';
+import	React, {ReactElement}	from	'react';
+import	Image									from	'next/image';
 import	Strategies						from	'components/Strategies';
 import	IconChevron						from	'components/icons/IconChevron';
 import	IconLinkOut						from	'components/icons/IconLinkOut';
 import	IconRetired						from	'components/icons/IconRetired';
+import {TVaultWithStrats} 		from 'types/index';
 
-function	Vaults({vault, chainExplorer, isRetired, isApeTax, isPublicApeTax, shouldHideValids}) {
+type	TVault = {
+	vault: TVaultWithStrats
+	chainExplorer: string
+	isRetired?: boolean
+	isApeTax?: boolean
+	isPublicApeTax?: boolean
+	shouldHideValids?: boolean
+}
+
+function	Vaults({vault, chainExplorer, isRetired, isApeTax, isPublicApeTax, shouldHideValids}: TVault): ReactElement {
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	const	[isUriCopied, set_isUriCopied] = React.useState(false);
 	
-	function	onExpand() {
-		if (isRetired) {
-			return null;
-		}
-		if (isExpanded) {
-			set_isExpandedAnimation(false);
-			setTimeout(() => set_isExpanded(false), 500);
-		} else {
-			set_isExpanded(true);
-			setTimeout(() => set_isExpandedAnimation(true), 1);
+	function	onExpand(): void {
+		if (!isRetired) {
+			if (isExpanded) {
+				set_isExpandedAnimation(false);
+				setTimeout((): void => set_isExpanded(false), 500);
+			} else {
+				set_isExpanded(true);
+				setTimeout((): void => set_isExpandedAnimation(true), 1);
+			}
 		}
 	}
 
@@ -46,11 +55,11 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, isPublicApeTax, shou
 					{`${vault.display_name} ${isApeTax || isPublicApeTax ? '' : '—'} `}
 					<b className={'font-bold'}>{isApeTax || isPublicApeTax ? '' : vault.name}</b>
 				</p>
-				<div onClick={(e) => {
+				<div onClick={(e): void => {
 					e.stopPropagation();
 					set_isUriCopied(true);
 					navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}#${vault.address}`);
-					setTimeout(() => set_isUriCopied(false), 1500);
+					setTimeout((): void => set_isUriCopied(false), 1500);
 				}}>
 					{isUriCopied ?
 						<svg aria-hidden={'true'} focusable={'false'} data-prefix={'fas'} data-icon={'clipboard-check'} className={'p-2 -m-2 w-8 h-8 text-yearn-blue/20 hover:text-yearn-blue/80 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'} role={'img'} xmlns={'http://www.w3.org/2000/svg'} viewBox={'0 0 384 512'}><path fill={'currentColor'} d={'M336 64h-53.88C268.9 26.8 233.7 0 192 0S115.1 26.8 101.9 64H48C21.5 64 0 85.48 0 112v352C0 490.5 21.5 512 48 512h288c26.5 0 48-21.48 48-48v-352C384 85.48 362.5 64 336 64zM192 64c17.67 0 32 14.33 32 32s-14.33 32-32 32S160 113.7 160 96S174.3 64 192 64zM282.9 262.8l-88 112c-4.047 5.156-10.02 8.438-16.53 9.062C177.6 383.1 176.8 384 176 384c-5.703 0-11.25-2.031-15.62-5.781l-56-48c-10.06-8.625-11.22-23.78-2.594-33.84c8.609-10.06 23.77-11.22 33.84-2.594l36.98 31.69l72.52-92.28c8.188-10.44 23.3-12.22 33.7-4.062C289.3 237.3 291.1 252.4 282.9 262.8z'}></path></svg>
@@ -59,7 +68,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, isPublicApeTax, shou
 				</div>
 				<div className={'flex flex-row justify-center mr-1 ml-auto'}>
 					<a
-						onClick={e => e.stopPropagation()}
+						onClick={(e): void => e.stopPropagation()}
 						href={`${chainExplorer}/address/${vault.address}#code`}
 						target={'_blank'}
 						rel={'noreferrer'}>
