@@ -1,14 +1,15 @@
-import	React							from	'react';
+import	React, {ReactElement}							from	'react';
 import	Link							from	'next/link';
 import	HeadIconVaults					from	'components/icons/HeadIconVaults';
 import	Vaults							from	'components/Vaults';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
+import 	{TVaultWithStrats} 		from 'types/index';
 
 const	chainExplorer = 'https://etherscan.io';
 
-function	Index({vaults}) {
+function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
@@ -29,7 +30,7 @@ function	Index({vaults}) {
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				{vaults.map((vault): ReactElement => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
@@ -44,6 +45,7 @@ function	Index({vaults}) {
 	);
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export async function getStaticProps() {
 	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isDefi: true});
 	const	vaults = JSON.parse(strategiesRaw);

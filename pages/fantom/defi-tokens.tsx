@@ -1,14 +1,15 @@
-import	React							from	'react';
+import	React, {ReactElement}							from	'react';
 import	Link							from	'next/link';
 import	HeadIconGhost					from	'components/icons/HeadIconGhost';
 import	Vaults							from	'components/Vaults';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
+import {TVaultWithStrats} 	from 'types/index';
 import	{parseMarkdown}					from	'utils';
 
 const	chainExplorer = 'http://ftmscan.com';
 
-function	Index({vaults}) {
+function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
@@ -29,7 +30,7 @@ function	Index({vaults}) {
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				{vaults.map((vault): ReactElement => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
@@ -44,7 +45,8 @@ function	Index({vaults}) {
 	);
 }
 
-export async function getStaticProps() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getStaticProps(): Promise<any>{
 	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isDefi: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}, revalidate: 60 * 60};

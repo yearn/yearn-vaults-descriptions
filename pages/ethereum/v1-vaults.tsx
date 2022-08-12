@@ -1,14 +1,15 @@
-import	React							from	'react';
+import	React, {ReactElement}							from	'react';
 import	Link							from	'next/link';
-import	Image							from	'next/image';
 import	Vaults							from	'components/Vaults';
+import	HeadIconRIP						from	'components/icons/HeadIconRIP';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
+import 	{TVaultWithStrats} 		from 'types/index';
 
-const	chainExplorer = 'http://ftmscan.com';
+const	chainExplorer = 'https://etherscan.io';
 
-function	Index({vaults}) {
+function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
@@ -16,30 +17,26 @@ function	Index({vaults}) {
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<Image
-							src={'/CRV.png'}
-							width={40}
-							height={40}
-							loading={'eager'} />
+						<HeadIconRIP className={'text-yearn-blue dark:text-white'} />
 					</div>
 					<h1 className={'mb-8 text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
-						{common['page-ftm-curve-pool-title']}
+						{common['page-eth-v1-vaults-title']}
 					</h1>
 					<div className={'mb-8 w-full max-w-full'}>
 						<p
 							className={'inline text-gray-blue-1 dark:text-gray-3 whitespace-pre-line'}
-							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-curve-pool-description'])}} />
+							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-eth-v1-vaults-description'])}} />
 					</div>
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				{vaults.map((vault): ReactElement => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} isRetired />)}
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
-					<Link href={'/fantom/retired-vaults'}>
+					<Link href={'/fantom/stables'}>
 						<button className={'button-large button-filled'}>
-							{common['page-ftm-curve-pool-next-button']}
+							{common['page-eth-v1-vaults-next-button']}
 						</button>
 					</Link>
 				</div>
@@ -48,8 +45,9 @@ function	Index({vaults}) {
 	);
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export async function getStaticProps() {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 250, isCurve: true});
+	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isV1: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}, revalidate: 60 * 60};
 }
