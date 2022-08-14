@@ -3,10 +3,10 @@ import	useLocalStorage									from	'hooks/useLocalStorage';
 
 type TUIContext = {
 	theme: string,
-	switchTheme:  () => void;
+	switchTheme?:  () => void;
 }
 
-const	UI = createContext<TUIContext | undefined>(undefined);
+const	UI = createContext<TUIContext>({theme: 'light-initial'});
 
 type TProps = {
   children: React.ReactNode;
@@ -45,7 +45,7 @@ export const UIContextApp: React.FC<TProps> = ({children}): React.ReactElement =
 	);
 };
 
-export const useUI = (): TUIContext | undefined => useContext(UI);
+export const useUI = (): TUIContext => useContext(UI);
 export default useUI;
 
 

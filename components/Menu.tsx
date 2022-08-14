@@ -1,4 +1,4 @@
-import	React				from	'react';
+import	React, {ReactElement}				from	'react';
 import	{useRouter}			from	'next/router';
 import	Link				from	'next/link';
 import	useLocalization		from	'contexts/useLocalization';
@@ -7,7 +7,18 @@ import	IconYearnFilled		from	'components/icons/IconYearnFilled';
 import	IconHamburger		from	'components/icons/IconHamburger';
 import	LOCALES				from	'utils/locale';
 
-function	MenuItem({label, condition, href, hideIf, className, height = 'h-6'}) {
+
+type	TMenuItem = {
+	label: string,
+	condition: boolean,
+	href: string,
+	hideIf?: boolean,
+	className?: string,
+	height?: string
+}
+
+
+function	MenuItem({label, condition, href, hideIf, className, height = 'h-6'}: TMenuItem): ReactElement | null {
 	if (hideIf) {
 		return null;
 	}
@@ -23,7 +34,7 @@ function	MenuItem({label, condition, href, hideIf, className, height = 'h-6'}) {
 	);
 }
 
-function	MenuItems() {
+function	MenuItems(): ReactElement {
 	const	router = useRouter();
 	const	{common} = useLocalization();
 	return (
@@ -109,26 +120,26 @@ function	MenuItems() {
 	);
 }
 
-function	MenuMobile() {
+function	MenuMobile(): ReactElement {
 	const	{common, language, set_language} = useLocalization();
 	const	{theme, switchTheme} = useUI();
 	const	router = useRouter();
 	const	[isExpanded, set_isExpanded] = React.useState(false);
 	const	[isExpandedAnimation, set_isExpandedAnimation] = React.useState(false);
 	
-	function	onExpand() {
+	function	onExpand(): void {
 		if (isExpanded) {
 			set_isExpandedAnimation(false);
-			setTimeout(() => set_isExpanded(false), 500);
+			setTimeout((): void => set_isExpanded(false), 500);
 		} else {
 			set_isExpanded(true);
-			setTimeout(() => set_isExpandedAnimation(true), 1);
+			setTimeout((): void => set_isExpandedAnimation(true), 1);
 		}
 	}
 
-	React.useEffect(() => {
+	React.useEffect((): void => {
 		set_isExpandedAnimation(false);
-		setTimeout(() => set_isExpanded(false), 500);
+		setTimeout((): void => set_isExpanded(false), 500);
 	}, [router.asPath]);
 
 	return (
@@ -139,7 +150,7 @@ function	MenuMobile() {
 						<Link href={'/'}>
 							<div className={'flex flex-row items-start'}>
 								<IconYearnFilled className={'text-yearn-blue dark:text-white'} />
-								<h1 className={'pl-1.5 text-lg font-bold text-dark-blue-1 dark:text-white'} style={{paddingTop: 1}}>{` ${common['title']}`}</h1>
+								<h1 className={'pl-1.5 text-lg font-bold text-dark-blue-1 dark:text-white'} style={{paddingTop: 1}}>{` ${common.title}`}</h1>
 							</div>
 						</Link>
 						<IconHamburger className={'block w-6 h-6 text-yearn-blue dark:text-white'} onClick={onExpand} />
@@ -154,11 +165,13 @@ function	MenuMobile() {
 							<select
 								value={language}
 								className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 text-xs font-semibold text-dark-blue-1 dark:text-white whitespace-nowrap bg-white dark:bg-black rounded-sm border-none cursor-pointer'}
-								onChange={(e) => {
+								onChange={(e): void => {
 									router.push(router.asPath, router.asPath, {locale: e.target.value});
-									set_language(e.target.value);
+									if(set_language){
+										set_language(e.target.value);
+									}
 								}}>
-								{Object.values(LOCALES).map((lang, index) => (
+								{Object.values(LOCALES).map((lang, index): ReactElement => (
 									<option className={'cursor-pointer'} key={index} value={lang.code}>{lang.name}</option>
 								))}
 							</select>
@@ -179,15 +192,17 @@ function	MenuMobile() {
 	);
 }
 
-function	MenuDesktop() {
+function	MenuDesktop(): ReactElement {
 	const	{common, language, set_language} = useLocalization();
 	const	{theme, switchTheme} = useUI();
 	const	router = useRouter();
 	const	head = React.useRef();
 	
-	React.useEffect(() => {
+	React.useEffect((): void => {
 		if (head?.current) {
-			head.current.oncontextmenu = (event) => {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			head.current.oncontextmenu = (event: { button: number; preventDefault: () => void; }): void => {
 				if (event.button === 2) {
 					event.preventDefault();
 					router.push('/internal/missing-descriptions');
@@ -202,9 +217,11 @@ function	MenuDesktop() {
 				<div className={'flex relative flex-col w-full h-full'}>
 					<div className={'flex flex-row justify-between items-center'}>
 						<Link href={'/'}>
+							{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+							{/* @ts-ignore */}
 							<span ref={head} className={'flex flex-row items-start cursor-pointer'}>
 								<IconYearnFilled />
-								<h1 className={'pl-1.5 text-lg font-bold text-dark-blue-1 dark:text-white'} style={{paddingTop: 1}}>{` ${common['title']}`}</h1>
+								<h1 className={'pl-1.5 text-lg font-bold text-dark-blue-1 dark:text-white'} style={{paddingTop: 1}}>{` ${common.title}`}</h1>
 							</span>
 						</Link>
 					</div>
@@ -216,11 +233,13 @@ function	MenuDesktop() {
 							<select
 								value={language}
 								className={'flex items-center py-2 px-3 pr-7 m-0 mr-1 text-xs font-semibold whitespace-nowrap rounded-sm border-none cursor-pointer button-light'}
-								onChange={(e) => {
+								onChange={(e): void => {
 									router.push(router.asPath, router.asPath, {locale: e.target.value});
-									set_language(e.target.value);
+									if(set_language){
+										set_language(e.target.value);
+									}
 								}}>
-								{Object.values(LOCALES).map((lang, index) => (
+								{Object.values(LOCALES).map((lang, index): ReactElement => (
 									<option className={'cursor-pointer'} key={index} value={lang.code}>{lang.name}</option>
 								))}
 							</select>

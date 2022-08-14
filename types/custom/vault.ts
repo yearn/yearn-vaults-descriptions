@@ -2,21 +2,49 @@
 
 export type TVaultStrategy = {
   address: string,
-	name: string
+	name: string,
 	description: string,
-	localization?: object
+	localization?: object,
+	noIPFS?: boolean
 }
 
 export type TVaultStrategies = [strategies: TVaultStrategy[], hasMissingStrategiesDescriptions: boolean];
 
 export type TStratTree = {
 	[key: string]: {
-		description: string
-		name: string
+		description: string,
+		name: string,
 		localization?: object
 	}
 }
 
+// For vault data retrieved from ape.tax/api
+export type TApeVault = {
+	title: string,
+	logo: string,
+	displayName: string,
+	src: string,
+	status: string,
+	type: string,
+	address: string,
+	network: number,
+	data: {
+		apiVersion: string,
+		depositLimit: string,
+		totalAssets: string,
+		availableDepositLimit: string,
+		pricePerShare: string,
+		decimals: number,
+		activation: number
+	},
+	want: {
+		address: string,	
+		symbol: string,
+		cgID: string
+	}
+}
+
+// For vault data retrieved from api.yearn.finance/v1
 export type TVault = {
 	inception: number,
 	address: string,
@@ -42,16 +70,16 @@ export type TVault = {
 		gross_apr: number,
 		net_apy: number
 		fees: {
-			performance: number | null
-			withdrawal: number | null
-			management: number | null
-			keep_crv: number | null
+			performance: number | null,
+			withdrawal: number | null,
+			management: number | null,
+			keep_crv: number | null,
 			cvx_keep_crv: number | null
 		},
 		points: {
 			week_ago: number,
 			month_ago: number,
-			inception: number,
+			inception: number
 		}
 		composite: {
 			boost: boolean
@@ -72,11 +100,12 @@ export type TVault = {
 
 export type TVaultWithStrats = {
   address: string,
-	symbol: string
-	underlying: string
-	name: string
-	display_name: string
-	icon: string
-	hasBoost: boolean
+	symbol: string,
+	underlying: string,
+	name: string,
+	display_name: string,
+	icon: string,
+	hasBoost?: boolean,
 	strategies: TVaultStrategy[]
+	hasMissingStrategiesDescriptions?: boolean
 }
