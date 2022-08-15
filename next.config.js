@@ -8,7 +8,8 @@ module.exports = ({
 	plugins: [new Dotenv()],
 	images: {
 		domains: [
-			'rawcdn.githack.com'
+			'rawcdn.githack.com',
+			'raw.githubusercontent.com'
 		],
 	},
 	env: {
@@ -22,6 +23,7 @@ module.exports = ({
 		CG_IDS: [],
 		TOKENS: [],
 		ALCHEMY_KEY: process.env.ALCHEMY_KEY,
+		API_URL: 'https://api.ycorpo.com',
 		META_API_URL: 'https://meta.yearn.finance/api',
 		META_GITHUB_URL: 'https://github.com/yearn/yearn-meta'
 	}

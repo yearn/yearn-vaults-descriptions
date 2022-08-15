@@ -46,7 +46,7 @@ async function getStrategies({network}) {
 		}
 	}
 
-	let		vaults = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
+	let		vaults = (await (await fetch(`${process.env.API_URL}/${network}/vaults/all`)).json());
 	vaults = vaults.filter(e => !e.migration || !e.migration?.available);
 	vaults = vaults.filter(e => e.type !== 'v1');
 	const	vaultsWithStrats = [];

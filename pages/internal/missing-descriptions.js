@@ -72,7 +72,7 @@ function	Index({vaults}) {
 						</div>
 					</div>
 					<div className={'w-full'}>
-						{(vaultList || [])?.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
+						{(vaultList || [])?.filter(e => e.hasMissingStrategiesDescriptions).map((vault) => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
 					</div>
 				</div>
 			</div>
