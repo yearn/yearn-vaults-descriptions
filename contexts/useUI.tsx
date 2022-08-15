@@ -1,8 +1,8 @@
 import	React, {useEffect, useContext, createContext}	from	'react';
-import	useLocalStorage									from	'hooks/useLocalStorage';
+import {useLocalStorage} from '@yearn-finance/web-lib/hooks';
 
 type TUIContext = {
-	theme: string,
+	theme: string | unknown,
 	switchTheme?:  () => void;
 }
 
@@ -38,7 +38,7 @@ export const UIContextApp: React.FC<TProps> = ({children}): React.ReactElement =
 		<UI.Provider
 			value={{
 				theme,
-				switchTheme: (): void => set_theme((t): string => t === 'dark' ? 'light' : 'dark')
+				switchTheme: (): void => set_theme((prevTheme: string): string => prevTheme === 'dark' ? 'light' : 'dark')
 			}}>
 			{children}
 		</UI.Provider>
