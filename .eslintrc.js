@@ -9,7 +9,7 @@ module.exports = {
 		'plugin:import/recommended',
 		'plugin:tailwindcss/recommended',
 		'plugin:@typescript-eslint/recommended',
-		'plugin:@next/next/recommended',
+		'plugin:@next/next/recommended'
 	],
 	'parser': '@typescript-eslint/parser',
 	'parserOptions': {

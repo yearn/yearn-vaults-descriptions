@@ -9,7 +9,7 @@ module.exports = ({
 	images: {
 		domains: [
 			'rawcdn.githack.com'
-		],
+		]
 	},
 	env: {
 		USE_PRICES: false,
