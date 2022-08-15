@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
-import	{ethers}				from	'ethers';
-import	{Provider, Contract}	from	'ethcall';
+import	{Contract}	from	'ethcall';
+import 	{providers} from '@yearn-finance/web-lib/utils';
 import	{toAddress}				from	'utils';
-import {NextApiRequest, NextApiResponse} from 'next/types';
-import {TStratTree, TStrategyMetadata, TApeVault, TVaultStrategies, TVaultWithStrats} from 'types';
+import 	{NextApiRequest, NextApiResponse} from 'next/types';
+import 	{TStratTree, TStrategyMetadata, TApeVault, TVaultStrategies, TVaultWithStrats} from 'types';
+import {ethers} from 'ethers';
 
 export function getProvider(chain = 1): ethers.providers.JsonRpcProvider {
 	if (chain === 1) {
@@ -22,30 +23,6 @@ export function getProvider(chain = 1): ethers.providers.JsonRpcProvider {
 	return new ethers.providers.InfuraProvider('homestead', '9aa3d95b3bc440fa88ea12eaa4456161');
 }
 
-export async function newEthCallProvider(provider: ethers.providers.JsonRpcProvider, chainID: number): Promise<Provider>  {
-	const	ethcallProvider = new Provider();
-	if (chainID === 1337) {
-		await	ethcallProvider.init(new ethers.providers.JsonRpcProvider('http://localhost:8545'));
-		if(ethcallProvider.multicall){
-			ethcallProvider.multicall.address = '0xc04d660976c923ddba750341fe5923e47900cf24';
-		}
-
-		return ethcallProvider;
-	}
-	await	ethcallProvider.init(provider);
-	if (chainID === 250) {
-		if(ethcallProvider.multicall){
-			ethcallProvider.multicall.address = '0xc04d660976c923ddba750341fe5923e47900cf24';
-		}
-	}
-	if (chainID === 42161) {
-		if(ethcallProvider.multicall){
-			ethcallProvider.multicall.address = '0x10126Ceb60954BC35049f24e819A380c505f8a0F';
-		}
-	}
-	return	ethcallProvider;
-}
-
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 async function fetchStrategies({vaultAddress, network}: {vaultAddress: string, network: number}) {
 	const	vaultContract = new Contract(
@@ -57,7 +34,7 @@ async function fetchStrategies({vaultAddress, network}: {vaultAddress: string, n
 	for (let i = 0; i < strategiesIndex.length; i++) {
 		calls.push(vaultContract.withdrawalQueue(strategiesIndex[i]));
 	}
-	const	ethcallProvider = await newEthCallProvider(getProvider(network), network);
+	const	ethcallProvider = await providers.newEthCallProvider(getProvider(network));
 	const	callResult = await ethcallProvider.tryAll(calls);
 	return	callResult.filter((a): boolean => a !== ethers.constants.AddressZero);
 }
@@ -72,9 +49,9 @@ async function fetchNames({addresses, network}: {addresses: string[], network: n
 		);
 		calls.push(strategyContract.name());
 	}
-	const	ethcallProvider = await newEthCallProvider(getProvider(network), network);
+	const	ethcallProvider = await providers.newEthCallProvider(getProvider(network));
 	const	callResult = await ethcallProvider.tryAll(calls);
-	return	callResult.filter((a): boolean => a !== ethers.constants.AddressZero);	
+	return	callResult.filter((a): boolean => a !== ethers.constants.AddressZero);
 }
 
 
