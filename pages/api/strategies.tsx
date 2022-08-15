@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
+import {NextApiRequest, NextApiResponse} from 'next/types';
 import {toAddress} from 'utils';
+import {TVaultWithStrats, TStrategyMetadata, TStratTree, TVault,
+	TVaultStrategy, TVaultStrategies} from 'types';
 
-async function getVaultStrategies({vaultStrategies, stratTree}) {
+async function getVaultStrategies({vaultStrategies, stratTree}: {vaultStrategies: TVaultStrategy[], stratTree: TStratTree}): Promise<TVaultStrategies> {
 	const 	strategies = [];
 	let		hasMissingStrategiesDescriptions = false;
 	for (let i = 0; i < vaultStrategies.length; i++) {
@@ -30,9 +34,9 @@ async function getVaultStrategies({vaultStrategies, stratTree}) {
 	return ([strategies, hasMissingStrategiesDescriptions]);
 }
 
-async function getStrategies({network}) {
-	let		allStrategiesAddr = await (await fetch(`${process.env.META_API_URL}/${network}/strategies/all`)).json();
-	const	stratTree = {};
+async function getStrategies({network}: {network: number}): Promise<TVaultWithStrats[]> {
+	const		allStrategiesAddr: TStrategyMetadata[] = await (await fetch(`${process.env.META_API_URL}/${network}/strategies/all`)).json();
+	const	stratTree: TStratTree = {};
 
 	for (let index = 0; index < allStrategiesAddr.length; index++) {
 		const stratDetails = allStrategiesAddr[index];
@@ -46,9 +50,9 @@ async function getStrategies({network}) {
 		}
 	}
 
-	let		vaults = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
-	vaults = vaults.filter(e => !e.migration || !e.migration?.available);
-	vaults = vaults.filter(e => e.type !== 'v1');
+	let		vaults: TVault[] = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
+	vaults = vaults.filter((e): boolean => !e.migration || !e.migration?.available);
+	vaults = vaults.filter((e): boolean => e.type !== 'v1');
 	const	vaultsWithStrats = [];
 
 	for (let index = 0; index < vaults.length; index++) {
@@ -71,14 +75,14 @@ async function getStrategies({network}) {
 	return (vaultsWithStrats);
 }
 
-export default async function handler(req, res) {
-	let		{network} = req.query;
-	network = Number(network);
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export default async function handler(req: NextApiRequest, res: NextApiResponse){
+	const network = Number(req.query.network);
 	const	result = await getStrategies({network});
 	return res.status(200).json(result);
 }
 
-export async function listVaultsWithStrategies({network = 1}) {
+export async function listVaultsWithStrategies({network = 1}): Promise<string> {
 	network = Number(network);
 	const	result = await getStrategies({network});
 	return JSON.stringify(result);

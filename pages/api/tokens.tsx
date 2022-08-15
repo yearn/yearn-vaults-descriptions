@@ -1,25 +1,33 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
+import {NextApiRequest, NextApiResponse} from 'next/types';
 import {toAddress} from 'utils';
+import {TVaultMetadata, TTokenMetadata, TTokenTree, TVaultTree,
+	TVault, TGetTokenStratParams, TTokenStrategy, TToken} from 'types';
 
-async function getVaultStrategies({vaultAddress, wantAddress, wantName, tokenTree, vaultTree}) {
+	
+async function getVaultStrategies({vaultAddress, wantAddress, wantName, tokenTree, vaultTree}: TGetTokenStratParams): Promise<TTokenStrategy> {
 	const	vaultTokenAddress = toAddress(vaultAddress);
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	const	vaultTokenHasIPFSFile = vaultTree[vaultTokenAddress];
 
 	const	wantTokenAddress = toAddress(wantAddress);
 	const	wantTokenName = tokenTree[wantTokenAddress]?.tokenNameOverride || wantName;
 	const	wantTokenDescription = tokenTree[wantTokenAddress]?.description || '';
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	const	wantTokenHasIPFSFile = tokenTree[wantTokenAddress] ? true : false;
 
 	return ([[
 		{ipfs: vaultTokenHasIPFSFile},
-		{address: wantTokenAddress, name: wantTokenName, description: wantTokenDescription, ipfs: wantTokenHasIPFSFile},
+		{address: wantTokenAddress, name: wantTokenName, description: wantTokenDescription, ipfs: wantTokenHasIPFSFile}
 	], !vaultTokenHasIPFSFile || !wantTokenHasIPFSFile]);
 }
 
-async function getTokens({network}) {
-	let		vaultDataFromIPFS = await (await fetch(`${process.env.META_API_URL}/${network}/vaults/all`)).json();
-	let		dataFromIPFS = await (await fetch(`${process.env.META_API_URL}/${network}/tokens/all`)).json();
-	const	tokenTree = {};
-	const	vaultTree = {};
+async function getTokens({network}: {network: number}): Promise<TToken[]> {
+	const		vaultDataFromIPFS: TVaultMetadata[] = await (await fetch(`${process.env.META_API_URL}/${network}/vaults/all`)).json();
+	const		dataFromIPFS: TTokenMetadata[] = await (await fetch(`${process.env.META_API_URL}/${network}/tokens/all`)).json();
+
+	const	tokenTree: TTokenTree = {};
+	const	vaultTree: TVaultTree = {};
 
 	for (let index = 0; index < dataFromIPFS.length; index++) {
 		const tokenDetails = dataFromIPFS[index];
@@ -38,9 +46,9 @@ async function getTokens({network}) {
 	}
 
 
-	let		vaults = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
-	vaults = vaults.filter(e => !e.migration || !e.migration?.available);
-	vaults = vaults.filter(e => e.type !== 'v1');
+	let		vaults: TVault[] = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
+	vaults = vaults.filter((e): boolean => !e.migration || !e.migration?.available);
+	vaults = vaults.filter((e): boolean => e.type !== 'v1');
 	const	vaultsWithStrats = [];
 
 	for (let index = 0; index < vaults.length; index++) {
@@ -63,17 +71,18 @@ async function getTokens({network}) {
 			hasMissingTokenInfo
 		});
 	}
+
 	return (vaultsWithStrats);
 }
 
-export default async function handler(req, res) {
-	let		{network} = req.query;
-	network = Number(network);
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export default async function handler(req: NextApiRequest, res: NextApiResponse){
+	const network = Number(req.query.network);
 	const result = await getTokens({network});
 	return res.status(200).json(result);
 }
 
-export async function listVaultsWithTokens({network = 1}) {
+export async function listVaultsWithTokens({network = 1}): Promise<string> {
 	network = Number(network);
 	const	result = await getTokens({network});
 	return JSON.stringify(result);

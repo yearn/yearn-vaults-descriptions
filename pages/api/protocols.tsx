@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import axios from 'axios';
 import LOCALES from 'utils/locale';
 
@@ -19,9 +21,11 @@ import LOCALES from 'utils/locale';
  *    }
  * }
  */
-export async function listProtocols(chainId) {
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function listProtocols(chainId: number): Promise<any> {
 	const protocolApiUrl = `${process.env.META_API_URL}/${chainId}/protocols`;
-	const protocolFilenames = await axios.get(`${protocolApiUrl}/index`).then(res => res.data['files']);
+	const protocolFilenames = await axios.get(`${protocolApiUrl}/index`).then(res => res.data.files);
 
 	if (!(protocolFilenames instanceof Array)) {
 		console.warn('protocolFilenames is not an array.');
@@ -55,7 +59,8 @@ export function filterProtocolsWithMissingTranslations(protocols = [], localeFil
 		const missingTranslationsLocales = findProtocolMissingTranslations(protocol);
 
 		return {
-			...protocol,
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			...protocol as any[],
 			missingTranslationsLocales
 		};
 	}).filter(protocol => {
@@ -67,12 +72,15 @@ export function filterProtocolsWithMissingTranslations(protocols = [], localeFil
 	});
 }
 
+// @ts-ignore
 function findProtocolMissingTranslations(protocol) {
 	const missingTranslations = [];
 	const englishDescription = protocol.description;
 
 	for (const [locale, translation] of Object.entries(protocol.localization ?? {})) {
+		// @ts-ignore
 		if (!translation.description || (locale != 'en' && englishDescription === translation.description)) {
+			// @ts-ignore
 			missingTranslations.push(LOCALES[locale]);
 		}
 	}
