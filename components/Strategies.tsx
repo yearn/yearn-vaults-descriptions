@@ -1,9 +1,21 @@
-import	React							from	'react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+import	React, {ReactElement}							from	'react';
 import	{parseMarkdown}					from	'utils';
 import	HeadIconRocket					from	'components/icons/HeadIconRocket';
 import	useLocalization					from	'contexts/useLocalization';
+import {TVaultStrategy} 		from 'types/index';
 
-function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValids, isRetired}) {
+type	TStrategies = {
+		strategiesData: TVaultStrategy[]
+		vaultSymbol: string
+		chainExplorer: string
+		shouldHideValids?: boolean
+		isRetired?: boolean
+
+}
+
+function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValids, isRetired}: TStrategies): ReactElement {
 	const	{language} = useLocalization();
 
 	if (strategiesData.length === 0) {
@@ -22,7 +34,7 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 	return (
 		<section aria-label={'STRATEGIES'} className={'mt-4 '}>
 			{
-				strategiesData.filter(s => shouldHideValids ? !s.description : true).map((strategy, index) => (
+				strategiesData.filter((s): boolean => shouldHideValids ? !s.description : true).map((strategy, index): ReactElement => (
 					<div key={index} className={'flex relative flex-col ml-4 md:ml-12'}>
 						<div className={'mb-4 text-gray-blue-1 dark:text-gray-3'}>
 							<div className={'flex flex-row items-center mb-2'}>
