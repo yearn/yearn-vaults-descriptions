@@ -101,11 +101,12 @@ export type TVault = {
 export type TVaultWithStrats = {
   address: string,
 	symbol: string,
-	underlying: string,
+	underlying?: string,
 	name: string,
 	display_name: string,
 	icon: string,
 	hasBoost?: boolean,
 	strategies: TVaultStrategy[]
 	hasMissingStrategiesDescriptions?: boolean
+	hasMissingTokenInfo?: boolean
 }
