@@ -38,7 +38,7 @@ async function getTokens({network}) {
 	}
 
 
-	let		vaults = (await (await fetch(`https://api.ycorpo.com/${network}/vaults/all`)).json());
+	let		vaults = (await (await fetch(`${process.env.API_URL}/${network}/vaults/all`)).json());
 	vaults = vaults.filter(e => !e.migration || !e.migration?.available);
 	vaults = vaults.filter(e => e.type !== 'v1');
 	const	vaultsWithStrats = [];
