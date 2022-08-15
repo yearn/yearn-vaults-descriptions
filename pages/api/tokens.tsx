@@ -46,7 +46,7 @@ async function getTokens({network}: {network: number}): Promise<TToken[]> {
 	}
 
 
-	let		vaults: TVault[] = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
+	let		vaults: TVault[] = (await (await fetch(`${process.env.API_URL}/${network}/vaults/all`)).json());
 	vaults = vaults.filter((e): boolean => !e.migration || !e.migration?.available);
 	vaults = vaults.filter((e): boolean => e.type !== 'v1');
 	const	vaultsWithStrats = [];

@@ -34,7 +34,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault): ReactElement => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} />)}
+				{vaults.map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} />)}
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>

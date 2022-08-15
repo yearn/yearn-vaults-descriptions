@@ -81,7 +81,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[] | undefined}): ReactElement
 						</div>
 					</div>
 					<div className={'w-full'}>
-						{(vaultList || [])?.filter((e): boolean => e.hasMissingStrategiesDescriptions as boolean).map((vault): ReactElement => <Vaults key={vault.name} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
+						{(vaultList || [])?.filter((e): boolean => e.hasMissingStrategiesDescriptions as boolean).map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} shouldHideValids />)}
 					</div>
 				</div>
 			</div>
