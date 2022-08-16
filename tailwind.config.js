@@ -2,12 +2,12 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
 	corePlugins: {
-		ringColor: false,
+		ringColor: false
 	},
 	darkMode: 'class',
 	content: [
-		'./pages/**/*.js',
-		'./components/**/*.js'
+		'./pages/**/*.tsx',
+		'./components/**/*.tsx'
 	],
 	theme: {
 		colors: {
@@ -28,7 +28,7 @@ module.exports = {
 			'black-1': '#141414',
 			'gray-1': '#191919',
 			'gray-2': '#272727',
-			'gray-3': '#A8A8A8',
+			'gray-3': '#A8A8A8'
 
 		},
 		extend: {
@@ -37,15 +37,15 @@ module.exports = {
 				roboto: ['Roboto', ...defaultTheme.fontFamily.sans]
 			},
 			boxShadow: {
-				'sm': '0px 0px 8px rgba(0, 23, 70, 0.16)',
+				'sm': '0px 0px 8px rgba(0, 23, 70, 0.16)'
 			},
 			gridColumn: {
 				'span-13': 'span 13 / span 13',
 				'span-14': 'span 14 / span 14',
-				'span-15': 'span 15 / span 15',
+				'span-15': 'span 15 / span 15'
 			},
 			gridTemplateColumns: {
-				'15': 'repeat(15, minmax(0, 1fr))',
+				'15': 'repeat(15, minmax(0, 1fr))'
 			},
 			width: {
 				30: '7.5rem',
@@ -53,31 +53,31 @@ module.exports = {
 				38: '9.5rem',
 				42: '10.5rem',
 				50: '12.5rem',
-				55: '13.75rem',
+				55: '13.75rem'
 			},
 			minWidth: {
 				33: '8.25rem',
-				55: '13.75rem',
+				55: '13.75rem'
 			},
 			height: {
-				30: '7.5rem',
+				30: '7.5rem'
 			},
 			maxWidth: {
 				'xl': '552px',
 				'4xl': '904px',
-				'6xl': '1200px',
+				'6xl': '1200px'
 			},
 			fontSize: {
 				'sm': ['12px', '16px'],
 				'base': ['16px', '24px'],
 				'lg': ['20px', '32px'],
 				'xl': ['24px', '32px'],
-				'4xl': ['40px', '56px'],
-			},
-		},
+				'4xl': ['40px', '56px']
+			}
+		}
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
 		require('@tailwindcss/forms')
-	],
+	]
 };
