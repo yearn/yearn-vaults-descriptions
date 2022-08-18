@@ -72,7 +72,7 @@ function	Vaults({vault, chainExplorer, isRetired, isApeTax, isPublicApeTax, shou
 						href={`${chainExplorer}/address/${vault.address}#code`}
 						target={'_blank'}
 						rel={'noreferrer'}>
-						<IconLinkOut className={isRetired ? 'mr-0 h-4 w-4 text-yearn-blue': 'mr-4 h-4 w-4 text-yearn-blue'}/>
+						<IconLinkOut className={isRetired ? 'mr-0 h-4 w-4 text-primary-500': 'mr-4 h-4 w-4 text-primary-500'}/>
 					</a>
 					{!isRetired ? <IconChevron className={isExpandedAnimation ? 'h-4 w-4 -rotate-90 text-neutral-700 transition-transform' : 'h-4 w-4 -rotate-180 text-neutral-700 transition-transform'} /> : null}
 				</div>

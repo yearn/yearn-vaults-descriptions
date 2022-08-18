@@ -10,7 +10,7 @@ function	DisclaimerPage(): ReactElement {
 					<h3 className={'text-base font-bold text-neutral-900 transition-colors'}>{'Disclaimer'}</h3>
 					<Link href={'/'}>
 						<div>
-							<IconCross className={'h-6 w-6 cursor-pointer text-gray-blue-2'} />
+							<IconCross className={'h-6 w-6 cursor-pointer text-neutral-600'} />
 						</div>
 					</Link>
 				</div>
@@ -48,9 +48,9 @@ function	DisclaimerPage(): ReactElement {
 							{'Please, bear this fact in mind when using this website, and do not use Yearn, the Yearn vaults, the Iron Bank or any other system described on this website without a sufficient understanding of their unique risks and how they differ from traditional financial transactions. '}
 						</i>
 						{'The only way to fully understand such risks is to have a strong understanding of the relevant technical systems and the incentive design mechanisms they embody–we strongly encourage you to review Yearn"s technical '}
-						<a href={'https://docs.yearn.finance'} target={'_blank'} rel={'noreferrer'} className={'link text-yearn-blue'}>{'documentation'}</a>
+						<a href={'https://docs.yearn.finance'} target={'_blank'} rel={'noreferrer'} className={'link text-primary-500'}>{'documentation'}</a>
 						{' and '}
-						<a href={'https://github.com/yearn/'} target={'_blank'} rel={'noreferrer'} className={'link text-yearn-blue'}>{'code'}</a>
+						<a href={'https://github.com/yearn/'} target={'_blank'} rel={'noreferrer'} className={'link text-primary-500'}>{'code'}</a>
 						{' before use.'}
 					</p>
 				</div>

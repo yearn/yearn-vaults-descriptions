@@ -157,7 +157,7 @@ function	MenuMobile(): ReactElement {
 					</div>
 				</div>
 			</div>
-			<div className={`fixed inset-x-0 top-14 w-full overflow-hidden bg-neutral-100 transition-max-height duration-500 ${isExpandedAnimation ? 'max-h-max border-b border-b-gray-2 shadow' : 'max-h-0'}`}>
+			<div className={`fixed inset-x-0 top-14 w-full overflow-hidden bg-neutral-100 transition-max-height duration-500 ${isExpandedAnimation ? 'max-h-max border-b border-b-neutral-600 shadow' : 'max-h-0'}`}>
 				{isExpanded ? (
 					<div className={'relative p-4'}>
 						<MenuItems />

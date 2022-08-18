@@ -38,12 +38,12 @@ function	Strategies({strategiesData, vaultSymbol, chainExplorer, shouldHideValid
 					<div key={index} className={'relative ml-4 flex flex-col md:ml-12'}>
 						<div className={'mb-4 text-neutral-700'}>
 							<div className={'mb-2 flex flex-row items-center'}>
-								<a href={`${chainExplorer}/address/${strategy.address}#code`} target={'_blank'} className={'inline text-yearn-blue hover:underline'} rel={'noreferrer'}>
+								<a href={`${chainExplorer}/address/${strategy.address}#code`} target={'_blank'} className={'inline text-primary-500 hover:underline'} rel={'noreferrer'}>
 									{strategy?.localization?.[language]?.name || strategy.name}
 								</a>
 								<div>
 									{strategy.noIPFS ? (
-										<span className={'ml-2 rounded-md bg-yearn-blue py-1 px-2 text-xs font-bold text-neutral-700'}>
+										<span className={'ml-2 rounded-md bg-primary-500 py-1 px-2 text-xs font-bold text-neutral-700'}>
 											{'Missing IPFS file'}
 										</span>
 									) : null}
