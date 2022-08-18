@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 const withPWA = require('next-pwa');
 const {PHASE_EXPORT} = require('next/constants');
-const runtimeCaching = require('next-pwa/cache');
 
 module.exports = (phase) => withPWA({
 	assetPrefix: process.env.IPFS_BUILD === 'true' || phase === PHASE_EXPORT ? './' : '/',
