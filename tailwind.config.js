@@ -1,37 +1,45 @@
+const {join} = require('path');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	corePlugins: {
-		ringColor: false
-	},
-	darkMode: 'class',
+	presets: [
+		require('@yearn-finance/web-lib/config/tailwind.config.cjs')
+	],
 	content: [
-		'./pages/**/*.tsx',
-		'./components/**/*.tsx'
+		join(__dirname, 'pages', '**', '*.{js,jsx,ts,tsx}'),
+		join(__dirname, 'components', 'icons', '**', '*.{js,jsx,ts,tsx}'),
+		join(__dirname, 'components', 'logo', '**', '*.{js,jsx,ts,tsx}'),
+		join(__dirname, 'components', 'strategies', '**', '*.{js,jsx,ts,tsx}'),
+		join(__dirname, 'components', 'vaults', '**', '*.{js,jsx,ts,tsx}'),
+		join(__dirname, 'components', '**', '*.{js,jsx,ts,tsx}'),
+		join(__dirname, 'node_modules', '@yearn-finance', 'web-lib', 'dist', 'layouts', '**', '*.js'),
+		join(__dirname, 'node_modules', '@yearn-finance', 'web-lib', 'dist', 'components', '**', '*.js'),
+		join(__dirname, 'node_modules', '@yearn-finance', 'web-lib', 'dist', 'contexts', '**', '*.js'),
+		join(__dirname, 'node_modules', '@yearn-finance', 'web-lib', 'dist', 'icons', '**', '*.js'),
+		join(__dirname, 'node_modules', '@yearn-finance', 'web-lib', 'dist', 'utils', '**', '*.js')
 	],
 	theme: {
-		colors: {
-			'dark-blue-1': '#001746',
-			'dark-blue-2': '#183672',
-			'dark-blue-3': '#012A7C',
-			'gray-blue-1': '#475570',
-			'gray-blue-2': '#7F8DA9',
-			'gray-blue-3': '#CED5E3',
-			'yearn-blue': '#0657F9',
-			'yearn-blue-light-1': '#C6D7F9',
-			'yearn-blue-light-2': '#E0EAFF',
-			'yearn-blue-dark': '#004ADF',
-			'white': '#FFFFFF',
-			'white-blue-1': '#F4F7FB',
-			'white-blue-2': '#F9FBFD',
-			'black': '#000000',
-			'black-1': '#141414',
-			'gray-1': '#191919',
-			'gray-2': '#272727',
-			'gray-3': '#A8A8A8'
-
-		},
 		extend: {
+			colors: {
+				'dark-blue-1': '#001746',
+				'dark-blue-2': '#183672',
+				'dark-blue-3': '#012A7C',
+				'gray-blue-1': '#475570',
+				'gray-blue-2': '#7F8DA9',
+				'gray-blue-3': '#CED5E3',
+				'yearn-blue': '#0657F9',
+				'yearn-blue-light-1': '#C6D7F9',
+				'yearn-blue-light-2': '#E0EAFF',
+				'yearn-blue-dark': '#004ADF',
+				'white': '#FFFFFF',
+				'white-blue-1': '#F4F7FB',
+				'white-blue-2': '#F9FBFD',
+				'black': '#000000',
+				'black-1': '#141414',
+				'gray-1': '#191919',
+				'gray-2': '#272727',
+				'gray-3': '#A8A8A8'
+			},
 			fontFamily: {
 				title: ['Roboto Slab', 'Roboto', 'serif'],
 				roboto: ['Roboto', ...defaultTheme.fontFamily.sans]
@@ -75,9 +83,5 @@ module.exports = {
 				'4xl': ['40px', '56px']
 			}
 		}
-	},
-	plugins: [
-		require('@tailwindcss/typography'),
-		require('@tailwindcss/forms')
-	]
+	}
 };
