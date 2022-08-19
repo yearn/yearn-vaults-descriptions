@@ -50,7 +50,7 @@ button:disabled {@apply cursor-not-allowed}
 .button-large {@apply min-w-55 px-2 py-2 rounded-default text-base text-center transition-colors whitespace-nowrap}
 
 .link {
-	@apply transition-colors cursor-pointer text-sm
+	@apply no-underline hover:underline transition-colors cursor-pointer text-sm
 }
 
 h1.title {
