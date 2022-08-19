@@ -54,5 +54,12 @@ button:disabled {@apply cursor-not-allowed}
 }
 
 h1.title {
-	@apply text-2xl font-bold text-neutral-900	
+	@apply text-2xl font-bold text-neutral-900;
+}
+
+.next-error-h1 {
+	@apply !text-2xl !font-bold text-neutral-900 !border-r-neutral-900;
+}
+.next-error-h1 ~ div > h2 {
+	@apply font-bold text-neutral-900;
 }
