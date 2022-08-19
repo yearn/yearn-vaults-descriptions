@@ -38,7 +38,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 			</div>
 			<div className={'w-full'}>
 				<div className={'self-center mt-8 md:self-auto'}>
-					<Link href={'/arbitrum/curve-pools'}>
+					<Link href={'/arbitrum/defi-tokens'}>
 						<button className={'button-large button-filled'}>
 							{common['page-arb-curve-pool-next-button']}
 						</button>
