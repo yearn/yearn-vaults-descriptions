@@ -74,7 +74,7 @@
 	"page-arb-curve-pool-next-button": "Next: Defi Tokens",
 	
 	"page-arb-defi-tokens-title": "Arbitrum Defi Tokens",
-	"page-arb-defi-tokens-description": "Yearn yVaults are now [live on the Arbitrum layer 2](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Optimism yVaults are able to employ multiple strategies per vault.",
+	"page-arb-defi-tokens-description": "Yearn yVaults are now [live on the Arbitrum layer 2](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Arbitrum yVaults are able to employ multiple strategies per vault.",
 
 	"page-experimental-ape-tax-title": "Experimental Vaults",
 	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information.",
