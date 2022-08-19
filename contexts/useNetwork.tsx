@@ -1,11 +1,12 @@
 import	React, {useContext, createContext}	from	'react';
 
-const options = ['Ethereum', 'Fantom'];
+const options = ['Ethereum', 'Fantom', 'Arbitrum', 'Optimism'];
 
 const NETWORK_IDS: { [key: string]: number } = {
 	'Ethereum': 1,
 	'Fantom': 250,
-	'Arbitrum': 42161
+	'Arbitrum': 42161,
+	'Optimism': 10,
 };
 
 type TNetworkContext = {

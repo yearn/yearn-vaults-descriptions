@@ -30,7 +30,7 @@
 	"curve-boost-description-next": "Yearn stakes the Curve liquidity provider token into the gauge to earn CRV rewards. 10% of these rewards are locked in our yveCRV-DAO vault (described above) to boost the rewards of all yVaults with Curve strategies.\n\nFor more information on Curve boost multipliers please see Curve’s documentation for this topic — [here](https://resources.curve.fi/guides/boosting-your-crv-rewards).",
 	"curve-boost-next-button": "Next: Ethereum: Stables",
 
-	"page-eth-stable-title": "Stable",
+	"page-eth-stable-title": "Ethereum Stables",
 	"page-eth-stable-description": "v2 yVaults are able to employ multiple strategies per vault (up to 20 strategies simultaneously), unlike v1 yVaults that are only able to employ one strategy per vault.",
 	"page-eth-stable-next-button": "Next: DeFi Tokens",
 
@@ -50,7 +50,7 @@
 	"page-eth-v1-vaults-description": "All v1 yVaults have migrated to v2 yVaults. Please migrate your funds via our zap or withdrawal to continue earning yield",
 	"page-eth-v1-vaults-next-button": "Next: Fantom: Stables",
 
-	"page-ftm-stable-title": "Fantom Stable",
+	"page-ftm-stable-title": "Fantom Stables",
 	"page-ftm-stable-description": "Yearn Finance is now Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults are able to employ multiple strategies per vault.",
 	"page-ftm-stable-next-button": "Next: DeFi Tokens",
 
@@ -65,6 +65,9 @@
 	"page-ftm-retired-title": "Fantom Retired Vaults",
 	"page-ftm-retired-description": "These vaults are no longer active or are in the process of migrating to a newer version and being phased out. Strategies might have been paused, deposits might be closed, or they might have been removed from the website entirely.",
 	"page-ftm-retired-next-button": "Next: Overview",
+
+	"page-op-stable-title": "Optimism Stables",
+	"page-op-stable-description": "Yearn yVaults are now [live on the Optimism layer 2](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Optimism yVaults are able to employ multiple strategies per vault.",
 
 	"page-experimental-ape-tax-title": "Experimental Vaults",
 	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information.",
