@@ -24,6 +24,8 @@ STABLE_UNDERLYING[250] = [ // fantom
 STABLE_UNDERLYING[10] = [ // optimism
 	'0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9', // sUSD
 ];
+STABLE_UNDERLYING[42161] = [ // arbitrum
+];
 
 
 async function getVaultStrategies(vaultStrategies: TVaultStrategy[], stratTree: TStratTree): Promise<TVaultStrategies> {

@@ -114,7 +114,19 @@ function	MenuItems(): ReactElement {
 					condition={router.pathname === '/fantom/retired-vaults'}
 					href={'/fantom/retired-vaults'} />
 			</div>
-			
+
+			<p className={'mb-2 text-gray-blue-2 dark:text-gray-3/60 md:mb-4'}>{'Arbitrum'}</p>	
+			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
+				<MenuItem
+					label={common['menu-defi-tokens']}
+					condition={router.pathname === '/arbitrum/defi-tokens'}
+					href={'/arbitrum/defi-tokens'} />
+				<MenuItem
+					label={common['menu-curve-pools']}
+					condition={router.pathname === '/arbitrum/curve-pools'}
+					href={'/arbitrum/curve-pools'} />
+			</div>
+
 			<p className={'mb-2 text-gray-blue-2 dark:text-gray-3/60 md:mb-4'}>{'Optimism'}</p>	
 			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
 				<MenuItem
