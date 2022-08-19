@@ -6,7 +6,7 @@ const NETWORK_IDS: { [key: string]: number } = {
 	'Ethereum': 1,
 	'Fantom': 250,
 	'Arbitrum': 42161,
-	'Optimism': 10,
+	'Optimism': 10
 };
 
 type TNetworkContext = {

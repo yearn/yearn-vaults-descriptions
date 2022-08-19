@@ -1,5 +1,4 @@
-import	React, {ReactElement}							from	'react';
-import	Link							from	'next/link';
+import	React, {ReactElement}			from	'react';
 import	Vaults							from	'components/Vaults';
 import	HeadIconSleep					from	'components/icons/HeadIconSleep';
 import	useLocalization					from	'contexts/useLocalization';
