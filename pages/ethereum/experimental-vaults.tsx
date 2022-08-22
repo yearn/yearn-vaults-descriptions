@@ -3,9 +3,9 @@ import	Link									from	'next/link';
 import	Vaults								from	'components/Vaults';
 import	IconApe								from	'components/icons/IconApe';
 import	useLocalization				from	'contexts/useLocalization';
-import 	{TVaultWithStrats} 		from 'types';
 import	{parseMarkdown}				from	'utils';
-import	{listVaultsWithStrategies}		from	'pages/api/ape-vaults';
+import	{listVaultsWithStrategies}					from	'pages/api/ape-vaults';
+import 	{TVaultWithStrats, TVaultProps} 		from 'types';
 
 const	chainExplorer = 'https://etherscan.io';
 						
@@ -49,8 +49,8 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	);
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export async function getStaticProps() {
+
+export async function getStaticProps(): Promise<TVaultProps>  {
 	const	vaults = await listVaultsWithStrategies({network: 1});
 	return {props: {vaults: JSON.parse(vaults)}, revalidate: 60 * 60 * 2};
 }
