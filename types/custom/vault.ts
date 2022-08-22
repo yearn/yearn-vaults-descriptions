@@ -1,10 +1,11 @@
 // import {utils} from '@yearn-finance/web-lib';
+import {TLocalization} from 'types';
 
 export type TVaultStrategy = {
   address: string,
 	name: string,
 	description: string,
-	localization?: object,
+	localization?: TLocalization,
 	noIPFS?: boolean
 }
 
@@ -14,7 +15,7 @@ export type TStratTree = {
 	[key: string]: {
 		description: string,
 		name: string,
-		localization?: object
+		localization?: TLocalization
 	}
 }
 
