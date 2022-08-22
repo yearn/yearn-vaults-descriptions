@@ -45,7 +45,7 @@ module.exports = (phase) => withPWA({
 		/* 🔵 - Yearn Finance **************************************************
 		** Yearn Watch specific config
 		**********************************************************************/
-		API_URL: 'https://api.ycorpo.com',
+		YDAEMON_API_URL: 'https://ydaemon.yearn.finance',
 		META_API_URL: 'https://meta.yearn.finance/api',
 		META_GITHUB_URL: 'https://github.com/yearn/yearn-meta'
 	}

@@ -23,7 +23,7 @@ function	Footer(): ReactElement {
 			<a href={'https://yearn.watch'} target={'_blank'} className={'link pr-6 text-neutral-700'} rel={'noreferrer'}>
 				{common['footer-watch']}
 			</a>
-			<a href={`${process.env.API_URL}/1/vaults/all`} target={'_blank'} className={'link pr-6 text-neutral-700'} rel={'noreferrer'}>
+			<a href={`${process.env.YDAEMON_API_URL}/1/vaults/all`} target={'_blank'} className={'link pr-6 text-neutral-700'} rel={'noreferrer'}>
 				{common['footer-vault-api']}
 			</a>
 			<div className={'link ml-auto px-3 text-neutral-700'}>
