@@ -4,7 +4,7 @@ import	Vaults							from	'components/Vaults';
 import	HeadIconSleep					from	'components/icons/HeadIconSleep';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
-import {TVaultWithStrats} 	from 'types/index';
+import {TVaultWithStrats} 	from 'types';
 import	{parseMarkdown}					from	'utils';
 
 const	chainExplorer = 'http://ftmscan.com';

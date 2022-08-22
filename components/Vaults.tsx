@@ -4,7 +4,7 @@ import	Strategies						from	'components/Strategies';
 import	IconChevron						from	'components/icons/IconChevron';
 import	IconLinkOut						from	'components/icons/IconLinkOut';
 import	IconRetired						from	'components/icons/IconRetired';
-import {TVaultWithStrats} 		from 'types/index';
+import {TVaultWithStrats} 		from 'types';
 
 type	TVault = {
 	vault: TVaultWithStrats

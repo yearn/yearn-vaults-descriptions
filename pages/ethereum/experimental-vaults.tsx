@@ -3,7 +3,7 @@ import	Link									from	'next/link';
 import	Vaults								from	'components/Vaults';
 import	IconApe								from	'components/icons/IconApe';
 import	useLocalization				from	'contexts/useLocalization';
-import 	{TVaultWithStrats} 		from 'types/index';
+import 	{TVaultWithStrats} 		from 'types';
 import	{parseMarkdown}				from	'utils';
 import	{listVaultsWithStrategies}		from	'pages/api/ape-vaults';
 

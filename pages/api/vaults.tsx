@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import {NextApiRequest, NextApiResponse} from 'next/types';
 import {TVaultStrategy, TVaultStrategies, TStratTree, 
-	TStrategyMetadata, TVault, TVaultWithStrats} from 'types/index';
+	TStrategyMetadata, TVault, TVaultWithStrats} from 'types';
 import {toAddress} from 'utils';
 
 const	STABLE_UNDERLYING: string[][] = [];

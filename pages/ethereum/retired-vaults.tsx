@@ -5,7 +5,7 @@ import	HeadIconSleep					from	'components/icons/HeadIconSleep';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
-import 	{TVaultWithStrats} 		from 'types/index';
+import 	{TVaultWithStrats} 		from 'types';
 
 const	chainExplorer = 'https://etherscan.io';
 

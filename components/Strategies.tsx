@@ -1,10 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import	React, {ReactElement}							from	'react';
 import	{parseMarkdown}					from	'utils';
 import	HeadIconRocket					from	'components/icons/HeadIconRocket';
 import	useLocalization					from	'contexts/useLocalization';
-import {TVaultStrategy} 		from 'types/index';
+import {TVaultStrategy} 		from 'types';
 
 type	TStrategies = {
 		strategiesData: TVaultStrategy[]
