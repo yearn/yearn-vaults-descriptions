@@ -1,9 +1,10 @@
 import	React, {ReactElement}			from	'react';
+import	Link							from	'next/link';
 import	Vaults							from	'components/Vaults';
 import	HeadIconSleep					from	'components/icons/HeadIconSleep';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
-import {TVaultWithStrats} 	from 'types/index';
+import {TVaultWithStrats} 				from 	'types/index';
 import	{parseMarkdown}					from	'utils';
 
 const	chainExplorer = 'http://ftmscan.com';
@@ -30,6 +31,15 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 			</div>
 			<div className={'w-full'}>
 				{vaults.map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} isRetired />)}
+			</div>
+			<div className={'w-full'}>
+				<div className={'self-center mt-8 md:self-auto'}>
+					<Link href={'/arbitrum/curve-pools'}>
+						<button className={'button-large button-filled'}>
+							{common['page-ftm-retired-next-button']}
+						</button>
+					</Link>
+				</div>
 			</div>
 		</section>
 	);

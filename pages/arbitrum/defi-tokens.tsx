@@ -4,7 +4,8 @@ import	Vaults							from	'components/Vaults';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
-import 	{TVaultWithStrats} 				from 'types/index';
+import 	{TVaultWithStrats} 				from 	'types/index';
+import	Link							from	'next/link';
 
 const	chainExplorer = 'https://arbiscan.io/';
 
@@ -30,6 +31,15 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 			</div>
 			<div className={'w-full'}>
 				{vaults.map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} />)}
+			</div>
+			<div className={'w-full'}>
+				<div className={'self-center mt-8 md:self-auto'}>
+					<Link href={'/optimism/stables'}>
+						<button className={'button-large button-filled'}>
+							{common['page-arb-defi-tokens-next-button']}
+						</button>
+					</Link>
+				</div>
 			</div>
 		</section>
 	);

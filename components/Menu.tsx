@@ -230,7 +230,7 @@ function	MenuDesktop(): ReactElement {
 	}, [router]);
 
 	return (
-		<nav className={'hidden sticky top-0 z-50 px-0 pt-12 w-full h-screen border-r border-gray-blue-3 dark:border-gray-2 shadow-none md:block'}>
+		<nav className={'hidden sticky top-0 z-50 px-0 pt-12 w-full border-r border-gray-blue-3 dark:border-gray-2 shadow-none md:block'}>
 			<div className={'relative z-20 w-full h-full'}>
 				<div className={'flex relative flex-col w-full h-full'}>
 					<div className={'flex flex-row justify-between items-center'}>

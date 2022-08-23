@@ -66,6 +66,44 @@ function	Index(): ReactElement {
 				</div>
 			</div>
 
+			<div className={'w-full'}>
+				<div className={'flex flex-row items-center mt-8 mb-2'}>
+					<div className={'mr-4 w-10 h-10'}>
+						<HeadIconFtm className={'w-10 h-10'}/>
+					</div>
+					<div>
+						<h1 className={'title'}>
+							{common['yearn-and-curve-arb-vault-title']}
+						</h1>
+					</div>
+				</div>
+				<div className={'w-full max-w-full'}>
+					<p
+						className={'text-gray-blue-1 dark:text-gray-3'}
+						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-arb-curve-pool-description'])}}>
+					</p>
+				</div>
+			</div>
+
+			<div className={'w-full'}>
+				<div className={'flex flex-row items-center mt-8 mb-2'}>
+					<div className={'mr-4 w-10 h-10'}>
+						<HeadIconFtm className={'w-10 h-10'}/>
+					</div>
+					<div>
+						<h1 className={'title'}>
+							{common['yearn-and-curve-op-vault-title']}
+						</h1>
+					</div>
+				</div>
+				<div className={'w-full max-w-full'}>
+					<p
+						className={'text-gray-blue-1 dark:text-gray-3'}
+						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-op-stable-description'])}}>
+					</p>
+				</div>
+			</div>
+
 			<div className={'mt-16 w-full'}>
 				<div className={'self-center md:self-auto'}>
 					<Link href={'/yearn-and-curve'}>
