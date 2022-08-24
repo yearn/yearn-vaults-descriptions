@@ -115,7 +115,7 @@ function	MenuItems(): ReactElement {
 					href={'/fantom/retired-vaults'} />
 			</div>
 
-			<p className={'mb-2 text-gray-blue-2 dark:text-gray-3/60 md:mb-4'}>{'Arbitrum'}</p>	
+			<p className={'text-gray-blue-2 dark:text-gray-3/60 mb-2 md:mb-4'}>{'Arbitrum'}</p>	
 			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
 				<MenuItem
 					label={common['menu-curve-pools']}
@@ -127,7 +127,7 @@ function	MenuItems(): ReactElement {
 					href={'/arbitrum/defi-tokens'} />
 			</div>
 
-			<p className={'mb-2 text-gray-blue-2 dark:text-gray-3/60 md:mb-4'}>{'Optimism'}</p>	
+			<p className={'text-gray-blue-2 dark:text-gray-3/60 mb-2 md:mb-4'}>{'Optimism'}</p>	
 			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
 				<MenuItem
 					label={common['menu-stables']}

@@ -69,9 +69,9 @@ function	Index(): ReactElement {
 			</div>
 
 			<div className={'w-full'}>
-				<div className={'flex flex-row items-center mt-8 mb-2'}>
-					<div className={'mr-4 w-10 h-10'}>
-						<HeadIconArbi className={'w-10 h-10'}/>
+				<div className={'mt-8 mb-2 flex flex-row items-center'}>
+					<div className={'mr-4 h-10 w-10'}>
+						<HeadIconArbi className={'h-10 w-10'}/>
 					</div>
 					<div>
 						<h1 className={'title'}>
@@ -88,9 +88,9 @@ function	Index(): ReactElement {
 			</div>
 
 			<div className={'w-full'}>
-				<div className={'flex flex-row items-center mt-8 mb-2'}>
-					<div className={'mr-4 w-10 h-10'}>
-						<HeadIconOp className={'w-10 h-10'}/>
+				<div className={'mt-8 mb-2 flex flex-row items-center'}>
+					<div className={'mr-4 h-10 w-10'}>
+						<HeadIconOp className={'h-10 w-10'}/>
 					</div>
 					<div>
 						<h1 className={'title'}>

@@ -13,7 +13,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
-		<section className={'p-4 w-full bg-white dark:bg-black rounded-sm'}>
+		<section className={'w-full rounded-sm bg-white p-4 dark:bg-black'}>
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
@@ -23,12 +23,12 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 							height={40}
 							loading={'eager'} />
 					</div>
-					<h1 className={'mb-8 text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}>
+					<h1 className={'text-dark-blue-1 mb-8 whitespace-pre-line text-4xl font-bold dark:text-white md:text-6xl'}>
 						{common['page-arb-curve-pool-title']}
 					</h1>
 					<div className={'mb-8 w-full max-w-full'}>
 						<p
-							className={'inline text-gray-blue-1 dark:text-gray-3 whitespace-pre-line'}
+							className={'text-gray-blue-1 dark:text-gray-3 inline whitespace-pre-line'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-arb-curve-pool-description'])}} />
 					</div>
 				</div>
@@ -37,7 +37,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 				{vaults.map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} />)}
 			</div>
 			<div className={'w-full'}>
-				<div className={'self-center mt-8 md:self-auto'}>
+				<div className={'mt-8 self-center md:self-auto'}>
 					<Link href={'/arbitrum/defi-tokens'}>
 						<button data-variant={'filled'}  className={'button-large yearn--button'}>
 							{common['page-arb-curve-pool-next-button']}
