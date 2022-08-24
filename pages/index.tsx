@@ -1,10 +1,12 @@
 import	React, {ReactElement}				from	'react';
-import	Link				from	'next/link';
-import	HeadIconYearn		from	'components/icons/HeadIconYearn';
-import	HeadIconEth			from	'components/icons/HeadIconEth';
-import	HeadIconFtm			from	'components/icons/HeadIconFtm';
-import	useLocalization		from	'contexts/useLocalization';
-import	{parseMarkdown}		from	'utils';
+import	Link								from	'next/link';
+import	HeadIconYearn						from	'components/icons/HeadIconYearn';
+import	HeadIconEth							from	'components/icons/HeadIconEth';
+import	HeadIconFtm							from	'components/icons/HeadIconFtm';
+import	HeadIconOp							from	'components/icons/HeadIconOp';
+import	HeadIconArbi						from	'components/icons/HeadIconArbi';
+import	useLocalization						from	'contexts/useLocalization';
+import	{parseMarkdown}						from	'utils';
 
 function	Index(): ReactElement {
 	const	{common} = useLocalization();
@@ -69,7 +71,7 @@ function	Index(): ReactElement {
 			<div className={'w-full'}>
 				<div className={'flex flex-row items-center mt-8 mb-2'}>
 					<div className={'mr-4 w-10 h-10'}>
-						<HeadIconFtm className={'w-10 h-10'}/>
+						<HeadIconArbi className={'w-10 h-10'}/>
 					</div>
 					<div>
 						<h1 className={'title'}>
@@ -88,7 +90,7 @@ function	Index(): ReactElement {
 			<div className={'w-full'}>
 				<div className={'flex flex-row items-center mt-8 mb-2'}>
 					<div className={'mr-4 w-10 h-10'}>
-						<HeadIconFtm className={'w-10 h-10'}/>
+						<HeadIconOp className={'w-10 h-10'}/>
 					</div>
 					<div>
 						<h1 className={'title'}>

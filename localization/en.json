@@ -53,7 +53,7 @@
 	"page-eth-v1-vaults-next-button": "Next: Fantom Vaults",
 
 	"page-ftm-stable-title": "Fantom Stables",
-	"page-ftm-stable-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults are able to employ multiple strategies per vault.",
+	"page-ftm-stable-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
 	"page-ftm-stable-next-button": "Next: DeFi Tokens",
 
 	"page-ftm-curve-pool-title": "Fantom Curve",
@@ -61,7 +61,7 @@
 	"page-ftm-curve-pool-next-button": "Next: Retired Vaults",
 
 	"page-ftm-defi-tokens-title": "Fantom Defi Tokens",
-	"page-ftm-defi-tokens-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults are able to employ multiple strategies per vault.",
+	"page-ftm-defi-tokens-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
 	"page-ftm-defi-tokens-next-button": "Next: Curve Pools",
 
 	"page-ftm-retired-title": "Fantom Retired Vaults",
@@ -69,14 +69,14 @@
 	"page-ftm-retired-next-button": "Next: Arbitrum Vaults",
 
 	"page-op-stable-title": "Optimism Stables",
-	"page-op-stable-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Optimism layer 2](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Optimism yVaults are able to employ multiple strategies per vault.",
+	"page-op-stable-description": "Yearn Finance is Layer 2! Yearn yVaults are now [live on Optimism's Layer 2](https://yearn.finance/#/vaults) Network! Just like our Ethereum yVaults, the new Optimism yVaults can employ multiple strategies per vault",
 	
 	"page-arb-curve-pool-title": "Arbitrum Curve",
-	"page-arb-curve-pool-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Arbitrum layer 2](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Arbitrum yVaults are able to employ multiple strategies per vault.",
+	"page-arb-curve-pool-description": "Yearn Finance is Layer 2! Yearn yVaults are now [live on Arbitrum's Layer 2](https://yearn.finance/#/vaults) Network! Just like our eth yVaults, the new Arbitrum yVaults can employ multiple strategies per vault.",
 	"page-arb-curve-pool-next-button": "Next: Defi Tokens",
 	
 	"page-arb-defi-tokens-title": "Arbitrum Defi Tokens",
-	"page-arb-defi-tokens-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Arbitrum layer 2](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Arbitrum yVaults are able to employ multiple strategies per vault.",
+	"page-arb-defi-tokens-description": "Yearn Finance is Layer 2! Yearn yVaults are now [live on Arbitrum's Layer 2](https://yearn.finance/#/vaults) Network! Just like our Ethereum yVaults, the new Arbitrum yVaults can employ multiple strategies per vault",
 	"page-arb-defi-tokens-next-button": "Next: Optimism Vaults",
 
 	"page-experimental-ape-tax-title": "Experimental Vaults",
