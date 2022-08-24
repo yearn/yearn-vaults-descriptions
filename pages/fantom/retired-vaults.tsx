@@ -33,15 +33,9 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 				{vaults.map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} isRetired />)}
 			</div>
 			<div className={'w-full'}>
-<<<<<<< HEAD
 				<div className={'self-center mt-8 md:self-auto'}>
 					<Link href={'/arbitrum/curve-pools'}>
 						<button className={'button-large button-filled'}>
-=======
-				<div className={'mt-8 self-center md:self-auto'}>
-					<Link href={'/'}>
-						<button data-variant={'filled'} className={'button-large yearn--button'}>
->>>>>>> b5e08e1110abab43da3f45fb48cb3d844ad9a890
 							{common['page-ftm-retired-next-button']}
 						</button>
 					</Link>
