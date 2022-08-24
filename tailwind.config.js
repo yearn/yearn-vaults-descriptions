@@ -1,5 +1,4 @@
 const {join} = require('path');
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
 	presets: [
