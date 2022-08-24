@@ -1,0 +1,65 @@
+@import '@yearn-finance/web-lib/style.css';
+
+#app {
+	@apply min-h-screen;
+}
+
+::placeholder,
+:-ms-input-placeholder,
+::-ms-input-placeholder {
+	color: #C5C6C7 !important;
+}
+
+/******************************************************************************
+**	Tailwind Extended
+**	Set of rules independant of UI styling, to provide robust helpers for
+**	tailwind CSS
+******************************************************************************/
+.flex-center {
+	@apply justify-center items-center
+}
+.inline-children > * {
+	@apply inline;
+}
+.text-start {
+	text-align: start;
+	text-align: left;
+}
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.dark .reduce-brightness {
+	/* Increase saturation to retain lost vibrancy */
+	filter: brightness(0.9) saturate(1.25);
+}
+
+
+/******************************************************************************
+**	Buttons & Links
+**	Set of rules to customize the UI based on the UI template provided
+******************************************************************************/
+button {@apply cursor-pointer}
+button:disabled {@apply cursor-not-allowed}
+
+/* Size of buttons */
+.button-small {@apply min-w-33 px-2 py-1 rounded-default text-base text-center transition-colors whitespace-nowrap}
+.button-large {@apply min-w-55 px-2 py-2 rounded-default text-base text-center transition-colors whitespace-nowrap}
+
+.link {
+	@apply no-underline hover:underline transition-colors cursor-pointer text-sm
+}
+
+h1.title {
+	@apply text-2xl font-bold text-neutral-900;
+}
+
+.next-error-h1 {
+	@apply !text-2xl !font-bold text-neutral-900 !border-r-neutral-900;
+}
+.next-error-h1 ~ div > h2 {
+	@apply font-bold text-neutral-900;
+}

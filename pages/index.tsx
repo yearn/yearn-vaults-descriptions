@@ -12,18 +12,18 @@ function	Index(): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
-		<article className={'p-4 w-full bg-white dark:bg-black rounded-sm'}>
+		<article className={'rounded-default w-full bg-neutral-0 p-4'}>
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
 						<HeadIconYearn />
 					</div>
 					<h1
-						className={'mb-8 text-4xl font-bold text-dark-blue-1 dark:text-white whitespace-pre-line md:text-6xl'}
+						className={'mb-8 whitespace-pre-line text-4xl font-bold text-neutral-900 md:text-6xl'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-title'])}} />
 					<div className={'mb-8'}>
 						<p
-							className={'inline text-gray-blue-1 dark:text-gray-3 whitespace-pre-line'}
+							className={'inline whitespace-pre-line text-neutral-700'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['overview-description'])}}>
 						</p>
 					</div>
@@ -31,9 +31,9 @@ function	Index(): ReactElement {
 			</div>
 
 			<div className={'w-full'}>
-				<div className={'flex flex-row items-center mb-2'}>
-					<div className={'mr-4 w-10 h-10'}>
-						<HeadIconEth className={'w-10 h-10'}/>
+				<div className={'mb-2 flex flex-row items-center'}>
+					<div className={'mr-4 h-10 w-10'}>
+						<HeadIconEth className={'h-10 w-10 text-neutral-900'} />
 					</div>
 					<div>
 						<h1 className={'title'}>
@@ -43,16 +43,16 @@ function	Index(): ReactElement {
 				</div>
 				<div className={'w-full max-w-full'}>
 					<p
-						className={'text-gray-blue-1 dark:text-gray-3'}
+						className={'text-neutral-700'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['yearn-and-curve-eth-vault-description'])}}>
 					</p>
 				</div>
 			</div>
 
 			<div className={'w-full'}>
-				<div className={'flex flex-row items-center mt-8 mb-2'}>
-					<div className={'mr-4 w-10 h-10'}>
-						<HeadIconFtm className={'w-10 h-10'}/>
+				<div className={'mt-8 mb-2 flex flex-row items-center'}>
+					<div className={'mr-4 h-10 w-10'}>
+						<HeadIconFtm className={'h-10 w-10 text-neutral-900'} />
 					</div>
 					<div>
 						<h1 className={'title'}>
@@ -62,7 +62,7 @@ function	Index(): ReactElement {
 				</div>
 				<div className={'w-full max-w-full'}>
 					<p
-						className={'text-gray-blue-1 dark:text-gray-3'}
+						className={'text-neutral-700'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-stable-description'])}}>
 					</p>
 				</div>
@@ -109,7 +109,7 @@ function	Index(): ReactElement {
 			<div className={'mt-16 w-full'}>
 				<div className={'self-center md:self-auto'}>
 					<Link href={'/yearn-and-curve'}>
-						<button className={'button-large button-filled'}>
+						<button data-variant={'filled'} className={'button-large yearn--button'}>
 							{common['overview-button']}
 						</button>
 					</Link>

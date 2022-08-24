@@ -50,7 +50,7 @@ async function getStrategies({network}: {network: number}): Promise<TVaultWithSt
 		}
 	}
 
-	let		vaults: TVault[] = (await (await fetch(`${process.env.API_URL}/${network}/vaults/all`)).json());
+	let		vaults: TVault[] = (await (await fetch(`${process.env.YDAEMON_API_URL}/${network}/vaults/all`)).json());
 	vaults = vaults.filter((e): boolean => !e.migration || !e.migration?.available);
 	vaults = vaults.filter((e): boolean => e.type !== 'v1');
 	const	vaultsWithStrats = [];
