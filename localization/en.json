@@ -18,7 +18,7 @@
 	"yearn-and-curve-ftm-vault-title": "Fantom Vaults",
 	"yearn-and-curve-arb-vault-title": "Arbitrum Vaults",
 	"yearn-and-curve-op-vault-title": "Optimism Vaults",
-	"yearn-and-curve-eth-vault-description": "Yearn Finance started and has the majority of its yVaults running on Ethereum Mainnet. We have deployed over 250 strategies and 100 yVaults on Ethereum. The ones that are currently running in production you can find in the sections below.",
+	"yearn-and-curve-eth-vault-description": "Yearn Finance started and has the majority of its [yVaults running on Ethereum Mainnet](https://yearn.finance/#/vaults). We have deployed over 250 strategies and 100 yVaults on Ethereum. The ones that are currently running in production you can find in the sections below.",
 	"yearn-and-curve-synergy-title": "Yearn and Curve\nSynergy",
 	"yearn-and-curve-synergy-description": "One of the critical components of Yearn’s infrastructure includes a collaborative relationship with [Curve.fi](https://curve.fi/). Several Yearn vaults provide liquidity into Curve pools and stake the liquidity provider (LP) tokens into the respective gauges, earning CRV rewards.\n\nYearn locks **10%** of all CRV rewards earned into the yveCRV-DAO (“Backscratcher”) to obtain an additional amount of CRV.",
 	"yearn-and-curve-synergy-description-next": "\n\nFor a deeper understanding, refer to the [Understanding Curve Boost Multipliers](/curve-boost-multipliers) section.\n\nFurthermore, the remaining 90% of the CRV earned are swapped into the respective LP tokens, and re-deposited into the vault. The only exception is the yvUSDN3Crv vault that locks 50% of the CRV earned into the Backscratcher vault and swaps the remaining 50%.",
@@ -53,7 +53,7 @@
 	"page-eth-v1-vaults-next-button": "Next: Fantom Vaults",
 
 	"page-ftm-stable-title": "Fantom Stables",
-	"page-ftm-stable-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
+	"page-ftm-stable-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our Ethereum yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
 	"page-ftm-stable-next-button": "Next: DeFi Tokens",
 
 	"page-ftm-curve-pool-title": "Fantom Curve",
@@ -61,7 +61,7 @@
 	"page-ftm-curve-pool-next-button": "Next: Retired Vaults",
 
 	"page-ftm-defi-tokens-title": "Fantom Defi Tokens",
-	"page-ftm-defi-tokens-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
+	"page-ftm-defi-tokens-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our Ethereum yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
 	"page-ftm-defi-tokens-next-button": "Next: Curve Pools",
 
 	"page-ftm-retired-title": "Fantom Retired Vaults",
