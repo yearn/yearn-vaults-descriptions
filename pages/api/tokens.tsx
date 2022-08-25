@@ -47,7 +47,7 @@ async function getTokens({network}: {network: number}): Promise<TToken[]> {
 
 
 	let		vaults: TVault[] = (await (await fetch(`${process.env.YDAEMON_API_URL}/${network}/vaults/all`)).json());
-	vaults = vaults.filter((e): boolean => !e.migration || !e.migration?.available);
+	vaults = vaults.filter((e): boolean => !e.migration?.available);
 	vaults = vaults.filter((e): boolean => e.type !== 'v1');
 	const	vaultsWithStrats = [];
 
