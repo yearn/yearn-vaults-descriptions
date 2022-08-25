@@ -13,7 +13,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
-		<section className={'w-full rounded-sm bg-white p-4 dark:bg-black'}>
+		<section className={'rounded-default w-full bg-neutral-0 p-4'}>
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>

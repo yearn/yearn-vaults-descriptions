@@ -13,18 +13,18 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
-		<section className={'w-full rounded-sm bg-white p-4 dark:bg-black'}>
+		<section className={'rounded-default w-full bg-neutral-0 p-4'}>
 			<div className={'w-full'}>
 				<div className={'flex flex-col'}>
 					<div className={'mb-8'}>
-						<HeadIconVaults className={'text-yearn-blue dark:text-white'} />
+						<HeadIconVaults className={'text-neutral-300'} />
 					</div>
-					<h1 className={'text-dark-blue-1 mb-8 whitespace-pre-line text-4xl font-bold dark:text-white md:text-6xl'}>
+					<h1 className={'mb-8 whitespace-pre-line text-4xl font-bold text-neutral-900 md:text-6xl'}>
 						{common['page-arb-defi-tokens-title']}
 					</h1>
 					<div className={'mb-8 w-full max-w-full'}>
 						<p
-							className={'text-gray-blue-1 dark:text-gray-3 inline whitespace-pre-line'}
+							className={'inline whitespace-pre-line text-neutral-700'}
 							dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-arb-defi-tokens-description'])}} />
 					</div>
 				</div>
