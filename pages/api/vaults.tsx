@@ -87,7 +87,7 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 			vaults = vaults.filter((e): boolean => e.apy?.type !== 'crv');
 			vaults = vaults.filter((e): boolean => !e.name.includes('yvCurve'));
 		}
-		vaults = vaults.filter((e): boolean => !e.migration || !e.migration.available);
+		vaults = vaults.filter((e): boolean => !e?.migration?.available);
 		vaults = vaults.sort((e): number => e.symbol === 'yvBOOST' ? -1 : 1);
 	}
 	const	vaultsWithStrats: TVaultWithStrats[] = [];
