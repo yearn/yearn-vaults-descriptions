@@ -27,3 +27,8 @@ pnpm-debug.log*
 .vercel
 ipfs
 tsconfig.tsbuildinfo
+
+# Auto Generated PWA files
+**/public/workbox-*.js
+**/public/sw.js
+**/public/worker-*.js
