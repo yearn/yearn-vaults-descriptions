@@ -70,7 +70,7 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 		vaults = vaults.filter((e): boolean => e?.migration?.available || false);
 	} else if (isV1) {
 		vaults = vaults.filter((e): boolean => e.type === 'v1' && !e.special);
-		vaults = vaults.filter((e): boolean => !e.migration || !e.migration.available);
+		vaults = vaults.filter((e): boolean => !e?.migration?.available);
 	} else {
 		vaults = vaults.filter((e): boolean => e.type === 'v2');
 		if (isAll) {
