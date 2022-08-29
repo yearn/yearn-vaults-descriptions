@@ -25,7 +25,6 @@ pnpm-debug.log*
 .env
 .next
 .vercel
-ipfs
 tsconfig.tsbuildinfo
 
 # Auto Generated PWA files
