@@ -1,4 +1,6 @@
-const	LOCALES = {
+import {TLocale, TLocaleMetadata} from 'types';
+
+const	LOCALES: {[key in TLocale as string]: TLocaleMetadata} = {
 	'en': {
 		'code': 'en',
 		'name': 'English',
