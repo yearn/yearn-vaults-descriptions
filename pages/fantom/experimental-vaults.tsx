@@ -4,7 +4,7 @@ import	Vaults							from	'components/Vaults';
 import	IconApe							from	'components/icons/IconApe';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/ape-vaults';
-import {TVaultWithStrats} 	from 'types/index';
+import {TVaultWithStrats, TVaultProps} 	from 'types';
 import	{parseMarkdown}					from	'utils';
 
 const	chainExplorer = 'http://ftmscan.com';
@@ -49,8 +49,7 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getStaticProps(): Promise<any>{
+export async function getStaticProps(): Promise<TVaultProps>{
 	const	vaults = await listVaultsWithStrategies({network: 250});
 	return {props: {vaults: JSON.parse(vaults)}, revalidate: 60 * 60 * 2};
 }
