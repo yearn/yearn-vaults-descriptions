@@ -1,16 +1,10 @@
-import React, {ReactElement, ReactFragment} from 'react';
-import Document, {Html, Head, Main, NextScript, DocumentContext} from 'next/document';
-
-type TInitialProps = {
-	html: string;
-	head?: (JSX.Element | null)[] | undefined;
-	styles?: ReactElement[] | ReactFragment | undefined;
-}
+import React, {ReactElement} from 'react';
+import Document, {Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps} from 'next/document';
 
 class MyDocument extends Document {
-	static async getInitialProps(ctx: DocumentContext): Promise<TInitialProps> {
-		const initialProps = await Document.getInitialProps(ctx);
-		return {...initialProps} as any; // eslint-disable-line
+	static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+		const initialProps: DocumentInitialProps = await Document.getInitialProps(ctx);
+		return {...initialProps};
 	}
 
 	render(): ReactElement {

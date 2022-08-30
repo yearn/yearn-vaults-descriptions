@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-boolean-literal-compare */
-/* eslint-disable @typescript-eslint/prefer-for-of */
 import {NextApiRequest, NextApiResponse} from 'next/types';
 import {TVaultStrategy, TVaultStrategies, TStratTree, 
-	TStrategyMetadata, TVault, TVaultWithStrats} from 'types/index';
+	TStrategyMetadata, TVault, TVaultWithStrats} from 'types';
 import {toAddress} from 'utils';
 
 const	STABLE_UNDERLYING: string[][] = [];
@@ -31,9 +29,9 @@ STABLE_UNDERLYING[42161] = [ // arbitrum
 async function getVaultStrategies(vaultStrategies: TVaultStrategy[], stratTree: TStratTree): Promise<TVaultStrategies> {
 	const 	strategies = [];
 	let		hasMissingStrategiesDescriptions = false;
-	for (let i = 0; i < vaultStrategies.length; i++) {
-		const	strategyAddress = toAddress(vaultStrategies[i].address);
-		const	strategyName = vaultStrategies[i].name;
+	for (const strategy of vaultStrategies) {
+		const	strategyAddress = toAddress(strategy.address);
+		const	strategyName = strategy.name;
 		const	details = stratTree[strategyAddress];
 		if (details) {
 			if (!details?.description) {
@@ -62,10 +60,8 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 	const		allStrategiesAddr: TStrategyMetadata[] = await (await fetch(`${process.env.META_API_URL}/${network}/strategies/all`)).json();
 	const	stratTree: TStratTree = {};
 
-	for (let index = 0; index < allStrategiesAddr.length; index++) {
-		const stratDetails = allStrategiesAddr[index];
-		for (let jindex = 0; jindex < (stratDetails.addresses).length; jindex++) {
-			const address = stratDetails.addresses[jindex];
+	for (const stratDetails of allStrategiesAddr) {
+		for (const address of stratDetails.addresses) {
 			stratTree[toAddress(address)] = {
 				description: stratDetails.description,
 				name: stratDetails.name,
@@ -76,10 +72,10 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 
 	let	vaults: TVault[] = (await (await fetch(`https://api.yearn.finance/v1/chains/${network}/vaults/all`)).json());
 	if (isRetired) {
-		vaults = vaults.filter((e): boolean => e?.migration?.available === true);
+		vaults = vaults.filter((e): boolean => e?.migration?.available || false);
 	} else if (isV1) {
 		vaults = vaults.filter((e): boolean => e.type === 'v1' && !e.special);
-		vaults = vaults.filter((e): boolean => !e.migration || e.migration.available === false);
+		vaults = vaults.filter((e): boolean => !e?.migration?.available);
 	} else {
 		vaults = vaults.filter((e): boolean => e.type === 'v2');
 		if (isAll) {
@@ -96,13 +92,12 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 			vaults = vaults.filter((e): boolean => e.apy?.type !== 'crv');
 			vaults = vaults.filter((e): boolean => !e.name.includes('yvCurve'));
 		}
-		vaults = vaults.filter((e): boolean => !e.migration || e.migration.available === false);
+		vaults = vaults.filter((e): boolean => !e?.migration?.available);
 		vaults = vaults.sort((e): number => e.symbol === 'yvBOOST' ? -1 : 1);
 	}
 	const	vaultsWithStrats: TVaultWithStrats[] = [];
 
-	for (let index = 0; index < vaults.length; index++) {
-		const vault = vaults[index];
+	for (const vault of vaults) {
 		const	[strategies] = await getVaultStrategies(
 			vault.strategies,
 			stratTree
@@ -122,8 +117,7 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 	return (vaultsWithStrats);
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export default async function handler(req: NextApiRequest, res: NextApiResponse){
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
 	const		{network, isCurve, isRetired, isV1, isAll, isStable, isDefi} = req.query;
 	const	result = await getStrategies(Number(network), Boolean(isCurve), Boolean(isRetired), Boolean(isV1), Boolean(isAll), Boolean(isStable), Boolean(isDefi));
 	return res.status(200).json(result);

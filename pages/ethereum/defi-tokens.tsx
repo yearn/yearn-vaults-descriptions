@@ -5,7 +5,7 @@ import	Vaults							from	'components/Vaults';
 import	useLocalization					from	'contexts/useLocalization';
 import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
-import 	{TVaultWithStrats} 		from 'types/index';
+import 	{TVaultWithStrats, TVaultProps} 		from 'types';
 
 const	chainExplorer = 'https://etherscan.io';
 
@@ -45,8 +45,8 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	);
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export async function getStaticProps() {
+
+export async function getStaticProps(): Promise<TVaultProps>  {
 	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isDefi: true});
 	const	vaults = JSON.parse(strategiesRaw);
 	return {props: {vaults}, revalidate: 60 * 60};
