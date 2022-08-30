@@ -1,10 +1,12 @@
 import	React, {ReactElement}				from	'react';
-import	Link				from	'next/link';
-import	HeadIconYearn		from	'components/icons/HeadIconYearn';
-import	HeadIconEth			from	'components/icons/HeadIconEth';
-import	HeadIconFtm			from	'components/icons/HeadIconFtm';
-import	useLocalization		from	'contexts/useLocalization';
-import	{parseMarkdown}		from	'utils';
+import	Link								from	'next/link';
+import	HeadIconYearn						from	'components/icons/HeadIconYearn';
+import	HeadIconEth							from	'components/icons/HeadIconEth';
+import	HeadIconFtm							from	'components/icons/HeadIconFtm';
+import	HeadIconOp							from	'components/icons/HeadIconOp';
+import	HeadIconArbi						from	'components/icons/HeadIconArbi';
+import	useLocalization						from	'contexts/useLocalization';
+import	{parseMarkdown}						from	'utils';
 
 function	Index(): ReactElement {
 	const	{common} = useLocalization();
@@ -62,6 +64,44 @@ function	Index(): ReactElement {
 					<p
 						className={'text-neutral-700'}
 						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-ftm-stable-description'])}}>
+					</p>
+				</div>
+			</div>
+
+			<div className={'w-full'}>
+				<div className={'mt-8 mb-2 flex flex-row items-center'}>
+					<div className={'mr-4 h-10 w-10'}>
+						<HeadIconArbi className={'h-10 w-10'}/>
+					</div>
+					<div>
+						<h1 className={'title'}>
+							{common['yearn-and-curve-arb-vault-title']}
+						</h1>
+					</div>
+				</div>
+				<div className={'w-full max-w-full'}>
+					<p
+						className={'text-gray-blue-1 dark:text-gray-3'}
+						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-arb-curve-pool-description'])}}>
+					</p>
+				</div>
+			</div>
+
+			<div className={'w-full'}>
+				<div className={'mt-8 mb-2 flex flex-row items-center'}>
+					<div className={'mr-4 h-10 w-10'}>
+						<HeadIconOp className={'h-10 w-10'}/>
+					</div>
+					<div>
+						<h1 className={'title'}>
+							{common['yearn-and-curve-op-vault-title']}
+						</h1>
+					</div>
+				</div>
+				<div className={'w-full max-w-full'}>
+					<p
+						className={'text-gray-blue-1 dark:text-gray-3'}
+						dangerouslySetInnerHTML={{__html: parseMarkdown(common['page-op-stable-description'])}}>
 					</p>
 				</div>
 			</div>

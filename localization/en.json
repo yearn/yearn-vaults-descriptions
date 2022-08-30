@@ -16,7 +16,9 @@
 
 	"yearn-and-curve-eth-vault-title": "Ethereum Vaults",
 	"yearn-and-curve-ftm-vault-title": "Fantom Vaults",
-	"yearn-and-curve-eth-vault-description": "Yearn Finance started and has the majority of its yVaults running on Ethereum Mainnet. We have deployed over 250 strategies and 100 yVaults on Ethereum. The ones that are currently running in production you can find in the sections below.",
+	"yearn-and-curve-arb-vault-title": "Arbitrum Vaults",
+	"yearn-and-curve-op-vault-title": "Optimism Vaults",
+	"yearn-and-curve-eth-vault-description": "Yearn Finance started and has the majority of its [yVaults running on Ethereum Mainnet](https://yearn.finance/#/vaults). We have deployed over 250 strategies and 100 yVaults on Ethereum. The ones that are currently running in production you can find in the sections below.",
 	"yearn-and-curve-synergy-title": "Yearn and Curve\nSynergy",
 	"yearn-and-curve-synergy-description": "One of the critical components of Yearn’s infrastructure includes a collaborative relationship with [Curve.fi](https://curve.fi/). Several Yearn vaults provide liquidity into Curve pools and stake the liquidity provider (LP) tokens into the respective gauges, earning CRV rewards.\n\nYearn locks **10%** of all CRV rewards earned into the yveCRV-DAO (“Backscratcher”) to obtain an additional amount of CRV.",
 	"yearn-and-curve-synergy-description-next": "\n\nFor a deeper understanding, refer to the [Understanding Curve Boost Multipliers](/curve-boost-multipliers) section.\n\nFurthermore, the remaining 90% of the CRV earned are swapped into the respective LP tokens, and re-deposited into the vault. The only exception is the yvUSDN3Crv vault that locks 50% of the CRV earned into the Backscratcher vault and swaps the remaining 50%.",
@@ -30,7 +32,7 @@
 	"curve-boost-description-next": "Yearn stakes the Curve liquidity provider token into the gauge to earn CRV rewards. 10% of these rewards are locked in our yveCRV-DAO vault (described above) to boost the rewards of all yVaults with Curve strategies.\n\nFor more information on Curve boost multipliers please see Curve’s documentation for this topic — [here](https://resources.curve.fi/guides/boosting-your-crv-rewards).",
 	"curve-boost-next-button": "Next: Ethereum: Stables",
 
-	"page-eth-stable-title": "Stable",
+	"page-eth-stable-title": "Ethereum Stables",
 	"page-eth-stable-description": "v2 yVaults are able to employ multiple strategies per vault (up to 20 strategies simultaneously), unlike v1 yVaults that are only able to employ one strategy per vault.",
 	"page-eth-stable-next-button": "Next: DeFi Tokens",
 
@@ -47,11 +49,11 @@
 	"page-eth-retired-next-button": "Next: v1 Vaults",
 
 	"page-eth-v1-vaults-title": "v1 Vaults",
-	"page-eth-v1-vaults-description": "All v1 yVaults have migrated to v2 yVaults. Please migrate your funds via our zap or withdrawal to continue earning yield",
-	"page-eth-v1-vaults-next-button": "Next: Fantom: Stables",
+	"page-eth-v1-vaults-description": "All v1 yVaults have migrated to v2 yVaults. Please migrate your funds via our zap or withdrawal to continue earning yield.",
+	"page-eth-v1-vaults-next-button": "Next: Fantom Vaults",
 
-	"page-ftm-stable-title": "Fantom Stable",
-	"page-ftm-stable-description": "Yearn Finance is now Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults are able to employ multiple strategies per vault.",
+	"page-ftm-stable-title": "Fantom Stables",
+	"page-ftm-stable-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our Ethereum yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
 	"page-ftm-stable-next-button": "Next: DeFi Tokens",
 
 	"page-ftm-curve-pool-title": "Fantom Curve",
@@ -59,12 +61,23 @@
 	"page-ftm-curve-pool-next-button": "Next: Retired Vaults",
 
 	"page-ftm-defi-tokens-title": "Fantom Defi Tokens",
-	"page-ftm-defi-tokens-description": "Yearn Finance is now Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our v2 yVaults, the new Fantom yVaults are able to employ multiple strategies per vault.",
+	"page-ftm-defi-tokens-description": "Yearn Finance is Multi-Chain! Yearn yVaults are now [live on the Fantom Network](https://yearn.finance/#/vaults)! Just like our Ethereum yVaults, the new Fantom yVaults can employ multiple strategies per vault.",
 	"page-ftm-defi-tokens-next-button": "Next: Curve Pools",
 
 	"page-ftm-retired-title": "Fantom Retired Vaults",
 	"page-ftm-retired-description": "These vaults are no longer active or are in the process of migrating to a newer version and being phased out. Strategies might have been paused, deposits might be closed, or they might have been removed from the website entirely.",
-	"page-ftm-retired-next-button": "Next: Overview",
+	"page-ftm-retired-next-button": "Next: Arbitrum Vaults",
+
+	"page-op-stable-title": "Optimism Stables",
+	"page-op-stable-description": "Yearn Finance is Layer 2! Yearn yVaults are now [live on Optimism's Layer 2](https://yearn.finance/#/vaults) Network! Just like our Ethereum yVaults, the new Optimism yVaults can employ multiple strategies per vault.",
+	
+	"page-arb-curve-pool-title": "Arbitrum Curve",
+	"page-arb-curve-pool-description": "Yearn Finance is Layer 2! Yearn yVaults are now [live on Arbitrum's Layer 2](https://yearn.finance/#/vaults) Network! Just like our Ethereum yVaults, the new Arbitrum yVaults can employ multiple strategies per vault.",
+	"page-arb-curve-pool-next-button": "Next: Defi Tokens",
+	
+	"page-arb-defi-tokens-title": "Arbitrum Defi Tokens",
+	"page-arb-defi-tokens-description": "Yearn Finance is Layer 2! Yearn yVaults are now [live on Arbitrum's Layer 2](https://yearn.finance/#/vaults) Network! Just like our Ethereum yVaults, the new Arbitrum yVaults can employ multiple strategies per vault.",
+	"page-arb-defi-tokens-next-button": "Next: Optimism Vaults",
 
 	"page-experimental-ape-tax-title": "Experimental Vaults",
 	"page-experimental-ape-tax-description": "Theses vaults are highly experimentals and should be used with extreme caution. They are not yet ready for use, and may be removed from the website at any time. Visit [ape.tax](https://ape.tax/) for more information.",

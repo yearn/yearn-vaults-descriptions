@@ -114,8 +114,26 @@ function	MenuItems(): ReactElement {
 					condition={router.pathname === '/fantom/retired-vaults'}
 					href={'/fantom/retired-vaults'} />
 			</div>
-		
 
+			<p className={'text-gray-blue-2 dark:text-gray-3/60 mb-2 md:mb-4'}>{'Arbitrum'}</p>	
+			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
+				<MenuItem
+					label={common['menu-curve-pools']}
+					condition={router.pathname === '/arbitrum/curve-pools'}
+					href={'/arbitrum/curve-pools'} />
+				<MenuItem
+					label={common['menu-defi-tokens']}
+					condition={router.pathname === '/arbitrum/defi-tokens'}
+					href={'/arbitrum/defi-tokens'} />
+			</div>
+
+			<p className={'text-gray-blue-2 dark:text-gray-3/60 mb-2 md:mb-4'}>{'Optimism'}</p>	
+			<div className={'mb-6 ml-4 space-y-2 md:mb-8 md:space-y-4'}>
+				<MenuItem
+					label={common['menu-stables']}
+					condition={router.pathname === '/optimism/stables'}
+					href={'/optimism/stables'} />
+			</div>
 		</div>
 	);
 }
@@ -199,7 +217,7 @@ function	MenuDesktop(): ReactElement {
 	const	router = useRouter();
 	
 	return (
-		<nav className={'sticky top-0 z-50 hidden h-screen w-full border-r border-neutral-400 px-0 pt-12 shadow-none md:block'}>
+		<nav className={'sticky top-0 z-50 hidden w-full border-r border-neutral-400 px-0 pt-12 shadow-none md:block'}>
 			<div className={'relative z-20 h-full w-full'}>
 				<div className={'relative flex h-full w-full flex-col'}>
 					<div className={'flex flex-row items-center justify-between'}>
