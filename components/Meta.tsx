@@ -22,6 +22,7 @@ function	Meta(): ReactElement {
 				<meta name={'mobile-web-app-capable'} content={'yes'} />
 				<meta name={'msapplication-config'} content={'/favicons/browserconfig.xml'} />
 				<meta name={'msapplication-tap-highlight'} content={'no'} />
+				<meta name={'git-url'} content={meta.github} />
 
 				<link rel={'manifest'} href={'/manifest.json'} />
 				<link rel={'mask-icon'} href={'/favicons/safari-pinned-tab.svg'} color={meta.theme_color} />
