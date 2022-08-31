@@ -11,7 +11,7 @@
 	"menu-experimental": "Experimental",
 
 	"overview-title": "Welcome to\nThe Vaults at ~~Yearn~~",
-	"overview-description": "Here you can find in-depth information about how Yearn’s yVaults operate and the actions (strategies) these vaults perform.\n\nThis website will maintain a one-stop location for all yVault descriptions. All vaults in production are now version 2 or higher. All version 1 yVaults have been deprecated.",
+	"overview-description": "Here you can find in-depth information about how Yearn’s yVaults operate and the actions (strategies) these vaults perform.\nThis website is a one-stop location for all yVault descriptions.\n\nAll vaults in production are now version 2 or higher. All version 1 yVaults have been deprecated.",
 	"overview-button": "See How The Magic Works",
 
 	"yearn-and-curve-eth-vault-title": "Ethereum Vaults",
