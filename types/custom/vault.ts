@@ -9,11 +9,14 @@ export type TVaultProps = {
 }
 
 export type TVaultStrategy = {
-  address: string,
+	address: string,
 	name: string,
 	description: string,
-	localization?: TLocalization,
-	noIPFS?: boolean
+	details: TVaultStrategyDetails
+}
+
+export type TVaultStrategyDetails = {
+	isActive: boolean
 }
 
 export type TVaultStrategies = [strategies: TVaultStrategy[], hasMissingStrategiesDescriptions: boolean];
