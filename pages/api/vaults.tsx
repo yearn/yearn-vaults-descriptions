@@ -40,13 +40,10 @@ async function getVaultStrategies(vaultStrategies: TVaultStrategy[]): Promise<TV
 	return ([strategies, hasMissingStrategiesDescriptions]);
 }
 
-async function getStrategies(network: number, isCurve: boolean, isRetired: boolean, isV1: boolean, isAll: boolean, isStable: boolean, isDefi: boolean):  Promise<TVaultWithStrats[]> {
+async function getStrategies(network: number, isCurve: boolean, isRetired: boolean, isAll: boolean, isStable: boolean, isDefi: boolean):  Promise<TVaultWithStrats[]> {
 	let	vaults: TVault[] = (await (await fetch(`https://ydaemon.yearn.finance/${network}/vaults/all?strategiesDetails=withDetails`)).json());
 	if (isRetired) {
 		vaults = vaults.filter((e): boolean => e?.migration?.available || false);
-	} else if (isV1) {
-		vaults = vaults.filter((e): boolean => e.type === 'v1' && !e.special);
-		vaults = vaults.filter((e): boolean => !e?.migration?.available);
 	} else {
 		vaults = vaults.filter((e): boolean => e.type === 'v2');
 		if (isAll) {
@@ -88,13 +85,13 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-	const		{network, isCurve, isRetired, isV1, isAll, isStable, isDefi} = req.query;
-	const	result = await getStrategies(Number(network), Boolean(isCurve), Boolean(isRetired), Boolean(isV1), Boolean(isAll), Boolean(isStable), Boolean(isDefi));
+	const		{network, isCurve, isRetired, isAll, isStable, isDefi} = req.query;
+	const	result = await getStrategies(Number(network), Boolean(isCurve), Boolean(isRetired), Boolean(isAll), Boolean(isStable), Boolean(isDefi));
 	return res.status(200).json(result);
 }
 
-export async function listVaultsWithStrategies({network = 1, isCurve = false, isRetired = false, isV1 = false, isAll = false, isStable = false, isDefi = false}): Promise<string> {
+export async function listVaultsWithStrategies({network = 1, isCurve = false, isRetired = false, isAll = false, isStable = false, isDefi = false}): Promise<string> {
 	network = Number(network);
-	const	result = await getStrategies(network, isCurve, isRetired, isV1, isAll, isStable, isDefi);
+	const	result = await getStrategies(network, isCurve, isRetired, isAll, isStable, isDefi);
 	return JSON.stringify(result);
 }

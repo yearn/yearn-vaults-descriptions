@@ -1,15 +1,10 @@
 import	React, {ReactElement}							from	'react';
 import	Link							from	'next/link';
-import	Vaults							from	'components/Vaults';
 import	HeadIconRIP						from	'components/icons/HeadIconRIP';
 import	useLocalization					from	'contexts/useLocalization';
-import	{listVaultsWithStrategies}		from	'pages/api/vaults';
 import	{parseMarkdown}					from	'utils';
-import 	{TVaultWithStrats, TVaultProps} 		from 'types';
 
-const	chainExplorer = 'https://etherscan.io';
-
-function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
+function	Index(): ReactElement {
 	const	{common} = useLocalization();
 
 	return (
@@ -30,9 +25,6 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 				</div>
 			</div>
 			<div className={'w-full'}>
-				{vaults.map((vault): ReactElement => <Vaults key={vault.address} vault={vault} chainExplorer={chainExplorer} isRetired />)}
-			</div>
-			<div className={'w-full'}>
 				<div className={'mt-8 self-center md:self-auto'}>
 					<Link href={'/fantom/stables'}>
 						<button data-variant={'filled'} className={'button-large yearn--button'}>
@@ -45,10 +37,8 @@ function	Index({vaults}: {vaults: TVaultWithStrats[]}): ReactElement {
 	);
 }
 
-export async function getStaticProps(): Promise<TVaultProps> {
-	const	strategiesRaw = await listVaultsWithStrategies({network: 1, isV1: true});
-	const	vaults = JSON.parse(strategiesRaw);
-	return {props: {vaults}, revalidate: 60 * 60};
+export async function getStaticProps(): Promise<any> {
+	return {props: {}, revalidate: 60 * 60};
 }
 
 export default Index;
