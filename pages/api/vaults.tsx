@@ -29,8 +29,7 @@ async function getVaultStrategies(vaultStrategies: TVaultStrategy[]): Promise<TV
 	const strategies = [];
 	let	hasMissingStrategiesDescriptions = false;
 	for (const strategy of vaultStrategies) {
-		if (strategy.details.isActive)
-		{
+		if (strategy.details?.isActive) {
 			if (!strategy.description) {
 				hasMissingStrategiesDescriptions = true;
 			}

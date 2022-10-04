@@ -2,6 +2,7 @@ import	React, {ReactElement}							from	'react';
 import	Link							from	'next/link';
 import	HeadIconRIP						from	'components/icons/HeadIconRIP';
 import	useLocalization					from	'contexts/useLocalization';
+import  {TBasicPageProps} 				from 'types';
 import	{parseMarkdown}					from	'utils';
 
 function	Index(): ReactElement {
@@ -37,7 +38,7 @@ function	Index(): ReactElement {
 	);
 }
 
-export async function getStaticProps(): Promise<any> {
+export async function getStaticProps(): Promise<TBasicPageProps> {
 	return {props: {}, revalidate: 60 * 60};
 }
 
