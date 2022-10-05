@@ -1,14 +1,10 @@
 // import {utils} from '@yearn-finance/web-lib';
 import {TLocalization} from 'types';
 
-export type TVaultProps = TBasicPageProps & {
+export type TVaultProps = {
 	props: {
 		vaults: TVaultWithStrats[]
-	}
-}
-
-export type TBasicPageProps = {
-	props: {},
+	},
 	revalidate: number	
 }
 
