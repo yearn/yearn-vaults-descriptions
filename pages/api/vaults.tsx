@@ -24,7 +24,6 @@ STABLE_UNDERLYING[10] = [ // optimism
 STABLE_UNDERLYING[42161] = [ // arbitrum
 ];
 
-
 async function getVaultStrategies(vaultStrategies: TVaultStrategy[]): Promise<TVaultStrategies> {
 	const strategies = [];
 	let	hasMissingStrategiesDescriptions = false;
@@ -36,11 +35,13 @@ async function getVaultStrategies(vaultStrategies: TVaultStrategy[]): Promise<TV
 			strategies.push(strategy);	
 		}
 	}
+
 	return ([strategies, hasMissingStrategiesDescriptions]);
 }
 
 async function getStrategies(network: number, isCurve: boolean, isRetired: boolean, isAll: boolean, isStable: boolean, isDefi: boolean):  Promise<TVaultWithStrats[]> {
-	let	vaults: TVault[] = (await (await fetch(`https://ydaemon.yearn.finance/${network}/vaults/all?strategiesDetails=withDetails`)).json());
+	let	vaults: TVault[] = (await (await fetch(`https://ydaemon.yearn.finance/${network}/vaults/all?strategiesCondition=absolute&strategiesDetails=withDetails`)).json()); 
+
 	if (isRetired) {
 		vaults = vaults.filter((e): boolean => e?.migration?.available || false);
 	} else {
@@ -69,6 +70,10 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 			vault.strategies
 		);
 
+		if (!strategies.length) {
+			continue;
+		}
+
 		vaultsWithStrats.push({
 			address: vault.address || '', 
 			symbol: vault.token.symbol || '', 
@@ -76,7 +81,7 @@ async function getStrategies(network: number, isCurve: boolean, isRetired: boole
 			name: vault.name || '', 
 			display_name: vault.display_name || '', 
 			icon: vault.icon || '',
-			hasBoost: vault?.apy?.composite?.boost ? true : false,
+			hasBoost: !!vault?.apy?.composite?.boost,
 			strategies
 		});
 	}
