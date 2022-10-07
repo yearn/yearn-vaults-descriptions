@@ -40,7 +40,7 @@ async function getVaultStrategies(vaultStrategies: TVaultStrategy[]): Promise<TV
 }
 
 async function getStrategies(network: number, isCurve: boolean, isRetired: boolean, isAll: boolean, isStable: boolean, isDefi: boolean):  Promise<TVaultWithStrats[]> {
-	let	vaults: TVault[] = (await (await fetch(`https://ydaemon.yearn.finance/${network}/vaults/all?strategiesDetails=withDetails`)).json());
+	let	vaults: TVault[] = (await (await fetch(`https://ydaemon.yearn.finance/${network}/vaults/all?strategiesCondition=absolute&strategiesDetails=withDetails`)).json());
 	if (isRetired) {
 		vaults = vaults.filter((e): boolean => e?.migration?.available || false);
 	} else {
